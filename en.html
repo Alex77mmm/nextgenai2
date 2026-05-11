@@ -127,10 +127,19 @@ nav {
 .lang-btn.active { color: var(--p3); background: rgba(124,58,237,0.12); }
 .lang-div { font-size: 0.75rem; color: rgba(255,255,255,0.15); }
 .nav-login {
-  font-size: 0.82rem; font-weight: 600; color: var(--dim); padding: 7px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: var(--glass); transition: color 0.2s, border-color 0.2s;
-  text-decoration: none; transition: color 0.2s;
+  font-size: 0.82rem; font-weight: 700; color: var(--p3);
+  text-decoration: none; padding: 7px 16px;
+  border: 1px solid rgba(124,58,237,0.45);
+  border-radius: 8px; background: rgba(124,58,237,0.1);
+  transition: all 0.25s;
+  box-shadow: 0 0 14px rgba(124,58,237,0.25);
+  letter-spacing: 0.02em;
 }
-.nav-login:hover { color: var(--p3); }
+.nav-login:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: rgba(124,58,237,0.7);
+  box-shadow: 0 0 28px rgba(124,58,237,0.45);
+}
 
 .nav-pill {
   display: flex; align-items: center; gap: 6px;
@@ -657,6 +666,28 @@ nav {
 }
 .faq-item.open .faq-a { max-height: 200px; margin-top: 14px; }
 
+/* ─── FOOTER LOGIN ───────────────────────────── */
+.footer-login-wrap {
+  text-align: center; padding: 32px 28px 0;
+}
+.btn-footer-login {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Manrope', sans-serif; font-weight: 700;
+  font-size: 0.92rem; color: var(--p3);
+  text-decoration: none; padding: 12px 28px;
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 10px; background: rgba(124,58,237,0.08);
+  box-shadow: 0 0 20px rgba(124,58,237,0.15);
+  transition: all 0.25s; letter-spacing: 0.02em;
+}
+.btn-footer-login::before { content: '→'; }
+.btn-footer-login:hover {
+  background: rgba(124,58,237,0.18);
+  border-color: rgba(124,58,237,0.65);
+  box-shadow: 0 0 40px rgba(124,58,237,0.35);
+  transform: translateY(-2px);
+}
+
 /* ─── FOOTER ─────────────────────────────── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -691,7 +722,6 @@ footer {
   nav { padding: 0 20px; }
   .nav-pill span { display: none; }
   .nav-pill { padding: 3px 4px; }
-  .nav-login { display: none; }
   .lang-switch { display: none; }
 
   /* Hero */
@@ -878,7 +908,7 @@ footer {
     </div>
 
     <h1 class="hero-h1">
-      AI cold sales system in Telegram<br>that brings clients <span class="grad">on autopilot</span>
+      AI cold sales system in&nbsp;Telegram that brings clients <span class="grad">on&nbsp;autopilot</span>
     </h1>
 
     <p class="hero-sub">
@@ -929,7 +959,7 @@ footer {
               <div class="msg-time">14:23</div>
             </div>
             <div class="msg out">
-              <div class="msg-bubble">Great! We helped RemStroy get 164 leads in 30 days at ₽595 each. Want the same results?</div>
+              <div class="msg-bubble">Great! We helped RemStroy get 164 leads in 30 days at $6.60 each. Want the same results?</div>
               <div class="msg-time">14:23</div>
             </div>
             <div class="msg in">
@@ -1055,7 +1085,7 @@ footer {
         <div class="hl-divider"></div>
         <div class="hl-stat-row">
           <div class="hl-stat">
-            <div class="hl-stat-n" style="color:var(--green)">from ₽10</div>
+            <div class="hl-stat-n" style="color:var(--green)">from $0.10</div>
             <div class="hl-stat-l">cost per contact</div>
           </div>
           <div class="hl-stat">
@@ -1132,7 +1162,7 @@ footer {
         <div class="case-n-label">hot leads in 30 days</div>
         <div class="case-divider"></div>
         <div class="case-row">
-          <div class="case-metric"><div class="cm-val">595 ₽</div><div class="cm-label">cost per lead</div></div>
+          <div class="case-metric"><div class="cm-val">$6.60</div><div class="cm-label">cost per lead</div></div>
           <div class="case-metric"><div class="cm-val">24,2%</div><div class="cm-label">conversion</div></div>
         </div>
       </div>
@@ -1142,7 +1172,7 @@ footer {
         <div class="case-n-label">hot leads in 30 days</div>
         <div class="case-divider"></div>
         <div class="case-row">
-          <div class="case-metric"><div class="cm-val">428 ₽</div><div class="cm-label">cost per lead</div></div>
+          <div class="case-metric"><div class="cm-val">$4.75</div><div class="cm-label">cost per lead</div></div>
           <div class="case-metric"><div class="cm-val">20,7%</div><div class="cm-label">conversion</div></div>
         </div>
       </div>
@@ -1152,7 +1182,7 @@ footer {
         <div class="case-n-label">hot leads in 30 days</div>
         <div class="case-divider"></div>
         <div class="case-row">
-          <div class="case-metric"><div class="cm-val">1 055 ₽</div><div class="cm-label">cost per lead</div></div>
+          <div class="case-metric"><div class="cm-val">$11.70</div><div class="cm-label">cost per lead</div></div>
           <div class="case-metric"><div class="cm-val">23,0%</div><div class="cm-label">conversion</div></div>
         </div>
       </div>
@@ -1176,7 +1206,7 @@ footer {
       </div>
       <div class="results-grid">
         <div class="result-card reveal"><div class="rc-icon">⚡</div><div class="rc-val grad">7 days</div><div class="rc-label">to first hot leads</div></div>
-        <div class="result-card reveal reveal-d1"><div class="rc-icon">💰</div><div class="rc-val grad">from ₽10</div><div class="rc-label">cost per contact</div></div>
+        <div class="result-card reveal reveal-d1"><div class="rc-icon">💰</div><div class="rc-val grad">from $0.10</div><div class="rc-label">cost per contact</div></div>
         <div class="result-card reveal reveal-d2"><div class="rc-icon">💬</div><div class="rc-val grad">5 000</div><div class="rc-label">dialogs per day</div></div>
         <div class="result-card reveal reveal-d3"><div class="rc-icon">👁</div><div class="rc-val grad">100%</div><div class="rc-label">full chat access</div></div>
       </div>
@@ -1225,11 +1255,6 @@ footer {
       </div>
 
       <div class="faq-item reveal" onclick="this.classList.toggle('open')" style="grid-column:span 2">
-        <div class="faq-q">Telegram is restricted — how do you operate in Russia?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Yes, Telegram is formally restricted in Russia, but it doesn't matter: 65M+ Russians actively use it via VPN, proxies and bypass tools. Plus a huge Russian-speaking audience outside Russia uses it freely. This is a loyal, paying audience — that's exactly who we work with. Importantly: our tool is not advertising in any legal sense — we emulate natural human communication, comply with legislation and don't violate platform rules.</div>
-      </div>
-
-      <div class="faq-item reveal" onclick="this.classList.toggle('open')" style="grid-column:span 2">
         <div class="faq-q">Do you work with WhatsApp, Viber and other messengers?<div class="faq-icon">+</div></div>
         <div class="faq-a">Yes, we can work with WhatsApp, Viber, Instagram and other platforms — but on custom terms. It's technically more complex and takes longer than Telegram. If you need a system for your specific stack — leave a request, we'll discuss your needs and build a tailored solution.</div>
       </div>
@@ -1258,6 +1283,9 @@ footer {
 </section>
 
 <!-- ── FOOTER ── -->
+<div class="footer-login-wrap z1">
+  <a href="https://tg-ai-crm.vercel.app/connections" target="_blank" class="btn-footer-login">Login to Dashboard</a>
+</div>
 <footer class="z1">
   <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
   <div class="footer-copy">© 2024 NextGen AI. All rights reserved.</div>

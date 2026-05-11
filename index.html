@@ -661,6 +661,28 @@ nav {
 }
 .faq-item.open .faq-a { max-height: 200px; margin-top: 14px; }
 
+/* ─── FOOTER LOGIN ───────────────────────────── */
+.footer-login-wrap {
+  text-align: center; padding: 32px 28px 0;
+}
+.btn-footer-login {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Manrope', sans-serif; font-weight: 700;
+  font-size: 0.92rem; color: var(--p3);
+  text-decoration: none; padding: 12px 28px;
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 10px; background: rgba(124,58,237,0.08);
+  box-shadow: 0 0 20px rgba(124,58,237,0.15);
+  transition: all 0.25s; letter-spacing: 0.02em;
+}
+.btn-footer-login::before { content: '→'; }
+.btn-footer-login:hover {
+  background: rgba(124,58,237,0.18);
+  border-color: rgba(124,58,237,0.65);
+  box-shadow: 0 0 40px rgba(124,58,237,0.35);
+  transform: translateY(-2px);
+}
+
 /* ─── FOOTER ─────────────────────────────── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -696,7 +718,6 @@ footer {
   .nav-pill span { display: none; }
   .nav-pill { padding: 3px 4px; }
   .nav-email { display: none; }
-  .nav-login { display: none; }
   .lang-switch { display: none; }
 
   /* Hero */
@@ -1229,6 +1250,7 @@ footer {
         <div class="faq-a">В рамках демо вы получаете: 500 реальных контактов вашей целевой аудитории из Telegram, настроенного агента под ваш продукт для тестового запуска и 3 готовые стратегии с прогнозом результата конкретно под вашу нишу. Никаких обязательств — просто посмотрите, как это работает.</div>
       </div>
 
+
       <div class="faq-item reveal" onclick="this.classList.toggle('open')" style="grid-column:span 2">
         <div class="faq-q">Telegram заблокирован — как вы работаете в России?<div class="faq-icon">+</div></div>
         <div class="faq-a">Да, Telegram формально ограничен в РФ, но это не мешает: более 65 млн россиян активно пользуются им через VPN, прокси и иные способы обхода. Плюс огромная русскоязычная аудитория находится за пределами России и сидит без ограничений. Это платёжеспособная, лояльная аудитория — именно с ней мы работаем. Важно: наш инструмент не является рекламой в юридическом смысле — мы имитируем естественное человеческое общение, соблюдаем законодательство и не нарушаем правила платформы.</div>
@@ -1263,6 +1285,9 @@ footer {
 </section>
 
 <!-- ── FOOTER ── -->
+<div class="footer-login-wrap z1">
+  <a href="https://tg-ai-crm.vercel.app/connections" target="_blank" class="btn-footer-login">Войти в систему</a>
+</div>
 <footer class="z1">
   <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
   <div class="footer-copy">© 2024 NextGen AI. Все права защищены.</div>
