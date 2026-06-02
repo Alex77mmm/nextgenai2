@@ -707,6 +707,66 @@ footer {
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
 
+/* ═══ MOTION LAYER ═══════════════════════════ */
+
+/* Custom cursor */
+@media (pointer: fine) {
+  html { cursor: none; }
+  a, button, [onclick], .faq-item, .b-card, .case-card, .how-card,
+  .result-card, .sol-item, .stat-col, .nav-pill { cursor: none !important; }
+}
+#c-dot, #c-ring {
+  position: fixed; top: 0; left: 0; pointer-events: none;
+  border-radius: 50%; z-index: 9999; transform: translate(-50%,-50%);
+  will-change: left, top;
+}
+#c-dot {
+  width: 5px; height: 5px;
+  background: var(--p3);
+  box-shadow: 0 0 8px var(--p3), 0 0 18px rgba(124,58,237,0.5);
+}
+#c-ring {
+  width: 30px; height: 30px;
+  border: 1.5px solid rgba(167,139,250,0.28);
+  transition: width .22s ease, height .22s ease, border-color .22s ease, background .22s ease;
+}
+#c-ring.hov {
+  width: 46px; height: 46px;
+  border-color: rgba(167,139,250,0.65);
+  background: rgba(124,58,237,0.07);
+}
+
+/* Scroll progress bar */
+#scroll-bar {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 2px; width: 0%; pointer-events: none;
+  background: linear-gradient(90deg, var(--p1), var(--p3) 55%, var(--p2));
+  box-shadow: 0 0 10px rgba(167,139,250,0.6);
+}
+
+/* Particle canvas */
+#ptc { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+/* Tilt shine overlay */
+.tilt-shine {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--sx,50%) var(--sy,50%), rgba(255,255,255,0.06) 0%, transparent 58%);
+  opacity: 0; transition: opacity .3s;
+}
+.b-card:hover .tilt-shine,
+.case-card:hover .tilt-shine,
+.result-card:hover .tilt-shine,
+.how-card:hover .tilt-shine { opacity: 1; }
+
+/* Counter number glow */
+@keyframes numGlow {
+  0%   { filter: brightness(1); }
+  45%  { filter: brightness(1.6) drop-shadow(0 0 14px rgba(167,139,250,0.8)); }
+  100% { filter: brightness(1); }
+}
+.c-glow { animation: numGlow .75s ease both; }
+
 /* ─── RESPONSIVE ─────────────────────────────── */
 
 /* ── TABLET 900px ── */
@@ -867,8 +927,178 @@ footer {
   .btn-tg { font-size: 0.95rem; padding: 14px 24px; }
 }
 </style>
+
+<!-- ═══ PREMIUM SILICON VALLEY LAYER ═══ -->
+<style>
+
+/* ── Dot grid background ── */
+#grid-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(167,139,250,0.10) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 0%, black 15%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 0%, black 15%, transparent 75%);
+}
+
+/* ── Spotlight cursor ── */
+#spotlight {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(700px circle at var(--sx,-600px) var(--sy,-600px),
+    rgba(124,58,237,0.075) 0%, transparent 65%);
+}
+
+/* ── Hero beams ── */
+.hero-beam {
+  position: absolute; width: 1px; pointer-events: none; z-index: 0;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(167,139,250,0) 5%,
+    rgba(167,139,250,0.9) 40%,
+    rgba(124,58,237,0.65) 55%,
+    transparent 100%
+  );
+  height: 260px; top: -260px; opacity: 0;
+  filter: blur(0.3px);
+}
+.hero-beam-1 { left: 20%; animation: beamFall 7s ease-in-out infinite 0.5s; }
+.hero-beam-2 { left: 76%; animation: beamFall 7s ease-in-out infinite 3.8s; }
+@keyframes beamFall {
+  0%   { opacity: 0; top: -15%; }
+  6%   { opacity: 0.9; }
+  88%  { opacity: 0.55; }
+  100% { opacity: 0; top: 108%; }
+}
+
+/* ── Ticker ── */
+.ticker-wrap {
+  overflow: hidden; position: relative; z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+}
+.ticker-track {
+  display: flex; width: max-content;
+  animation: tickScroll 36s linear infinite;
+}
+.ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+@keyframes tickScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.t-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 38px;
+  font-size: 0.79rem; font-weight: 600;
+  color: var(--muted); white-space: nowrap; letter-spacing: 0.02em;
+  transition: color 0.25s;
+}
+.t-item:hover { color: var(--p3); }
+.t-bullet { width: 3px; height: 3px; border-radius: 50%; background: rgba(124,58,237,0.45); flex-shrink: 0; }
+
+/* ── CTA glow pulse ── */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(124,58,237,0.22), 0 40px 80px rgba(0,0,0,0.5), 0 0 50px rgba(124,58,237,0.07); }
+  50%       { box-shadow: 0 0 0 1px rgba(167,139,250,0.48), 0 40px 80px rgba(0,0,0,0.5), 0 0 90px rgba(124,58,237,0.2), 0 0 160px rgba(124,58,237,0.06); }
+}
+.cta-box { animation: ctaGlow 4s ease-in-out infinite; }
+
+@keyframes hlGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(124,58,237,0.2), 0 20px 60px rgba(0,0,0,0.35); }
+  50%       { box-shadow: 0 0 0 1px rgba(167,139,250,0.42), 0 20px 60px rgba(0,0,0,0.35), 0 0 60px rgba(124,58,237,0.14); }
+}
+.highlight-box { animation: hlGlow 4.5s ease-in-out infinite 1.5s; }
+
+
+/* ── Word-by-word reveal ── */
+.hero-h1 { animation: none !important; opacity: 1 !important; }
+.wr-w {
+  display: inline-block;
+  opacity: 0; transform: translateY(30px); filter: blur(7px);
+  transition: opacity 0.55s ease, transform 0.55s ease, filter 0.55s ease;
+}
+.wr-w.in { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+/* ── Section eyebrow shimmer sweep ── */
+.section-eyebrow { position: relative; overflow: hidden; }
+.section-eyebrow::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.32), transparent);
+  transform: skewX(-18deg);
+  animation: eyeShimmer 4s ease infinite 2s;
+}
+@keyframes eyeShimmer { 0% { left: -100%; } 60%, 100% { left: 230%; } }
+
+/* ── Reveal: add blur ── */
+.reveal {
+  filter: blur(3px) !important;
+  transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease !important;
+}
+.reveal.on { filter: blur(0) !important; }
+
+/* ── Badge live glow ring ── */
+@keyframes liveRing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+  60%       { box-shadow: 0 0 0 7px rgba(52,211,153,0); }
+}
+.badge-live { animation: liveRing 2.8s ease infinite; }
+
+/* ── Stats: number hover glow ── */
+.stat-col:hover .stat-n { text-shadow: 0 0 24px rgba(167,139,250,0.55); }
+
+/* ── Mockup shell upgrade ── */
+.mockup-shell {
+  box-shadow: 0 60px 150px rgba(0,0,0,0.72),
+              0 0 0 1px rgba(255,255,255,0.04),
+              0 0 100px rgba(124,58,237,0.13),
+              0 0 220px rgba(124,58,237,0.04) !important;
+}
+
+/* ── Hero visual bottom line ── */
+.hero-visual { position: relative; }
+.hero-visual::after {
+  content: ''; position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+  width: 50%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.35), transparent);
+  pointer-events: none;
+}
+
+/* ── Button shimmer on hover ── */
+.btn-primary::after {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.13), transparent);
+  transform: skewX(-18deg);
+}
+.btn-primary:hover::after { animation: btnShimmer 0.65s ease forwards; }
+@keyframes btnShimmer { to { left: 200%; } }
+
+/* ── Case card number glow ── */
+.case-n { text-shadow: 0 0 28px rgba(124,58,237,0.28); }
+
+/* ── How step number gradient ── */
+.how-step-num {
+  -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(167,139,250,0.18));
+  -webkit-text-fill-color: transparent;
+}
+.how-card:hover .how-step-num {
+  background-image: linear-gradient(135deg, rgba(167,139,250,0.55), rgba(124,58,237,0.35)) !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ticker-wrap { display: none; }
+  .hero-beam { display: none; }
+}
+</style>
 </head>
 <body>
+
+<div id="c-dot" aria-hidden="true"></div>
+<div id="c-ring" aria-hidden="true"></div>
+<canvas id="ptc" aria-hidden="true"></canvas>
+<div id="scroll-bar" aria-hidden="true"></div>
+<div id="grid-bg" aria-hidden="true"></div>
+<div id="spotlight" aria-hidden="true"></div>
 
 <div class="bg-gradient" aria-hidden="true">
   <div class="orb orb-1"></div>
@@ -898,6 +1128,8 @@ footer {
 
 <!-- ── HERO ── -->
 <section id="hero" class="z1">
+  <div class="hero-beam hero-beam-1" aria-hidden="true"></div>
+  <div class="hero-beam hero-beam-2" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-live"><span class="live-dot"></span>Работает прямо сейчас</span>
@@ -995,6 +1227,30 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ── TICKER ── -->
+<div class="ticker-wrap z1">
+  <div class="ticker-track">
+    <div class="t-item"><span class="t-bullet"></span>300&thinsp;000+ обработанных сообщений</div>
+    <div class="t-item"><span class="t-bullet"></span>Конверсия в диалог до 60%</div>
+    <div class="t-item"><span class="t-bullet"></span>5&thinsp;000 диалогов в сутки</div>
+    <div class="t-item"><span class="t-bullet"></span>164 лида за 30 дней · Ремонты</div>
+    <div class="t-item"><span class="t-bullet"></span>1&thinsp;088 лидов за 30 дней · Маркетплейсы</div>
+    <div class="t-item"><span class="t-bullet"></span>от 10 ₽ за контакт</div>
+    <div class="t-item"><span class="t-bullet"></span>95% не отличают ИИ от человека</div>
+    <div class="t-item"><span class="t-bullet"></span>Запуск за 3–5 дней</div>
+    <div class="t-item"><span class="t-bullet"></span>Работаем с 2013 года</div>
+    <div class="t-item"><span class="t-bullet"></span>300&thinsp;000+ обработанных сообщений</div>
+    <div class="t-item"><span class="t-bullet"></span>Конверсия в диалог до 60%</div>
+    <div class="t-item"><span class="t-bullet"></span>5&thinsp;000 диалогов в сутки</div>
+    <div class="t-item"><span class="t-bullet"></span>164 лида за 30 дней · Ремонты</div>
+    <div class="t-item"><span class="t-bullet"></span>1&thinsp;088 лидов за 30 дней · Маркетплейсы</div>
+    <div class="t-item"><span class="t-bullet"></span>от 10 ₽ за контакт</div>
+    <div class="t-item"><span class="t-bullet"></span>95% не отличают ИИ от человека</div>
+    <div class="t-item"><span class="t-bullet"></span>Запуск за 3–5 дней</div>
+    <div class="t-item"><span class="t-bullet"></span>Работаем с 2013 года</div>
+  </div>
+</div>
 
 <!-- ── STATS ── -->
 <section id="stats" class="z1">
@@ -1191,20 +1447,37 @@ footer {
   <div class="wrap">
     <div class="results-split">
       <div>
-        <div class="section-eyebrow reveal">Что вы получите</div>
-        <h2 class="section-h2 reveal">Взрывной холодный трафик<br><span class="grad">+ квалификация в&nbsp;мессенджерах</span></h2>
+        <div class="section-eyebrow reveal">Результат</div>
+        <h2 class="section-h2 reveal">Первые лиды —<br><span class="grad">уже через 7 дней</span></h2>
+        <p class="section-sub reveal" style="margin-top:12px">Без найма менеджеров, без выгорания, без ручной работы. ИИ-агент работает 24/7 и передаёт вам только горячие контакты.</p>
         <div class="trust-list">
-          <div class="trust-row reveal"><div class="trust-check">✓</div>Экспертиза с 2013 года</div>
-          <div class="trust-row reveal reveal-d1"><div class="trust-check">✓</div>300 000+ обработанных сообщений</div>
-          <div class="trust-row reveal reveal-d2"><div class="trust-check">✓</div>95% клиентов не отличают ИИ от человека</div>
-          <div class="trust-row reveal reveal-d3"><div class="trust-check">✓</div>Стабильный поток квалифицированных лидов</div>
+          <div class="trust-row reveal"><div class="trust-check">✓</div>10 лет опыта в digital маркетинге</div>
+          <div class="trust-row reveal reveal-d1"><div class="trust-check">✓</div>300&thinsp;000+ диалогов обработано нашими агентами</div>
+          <div class="trust-row reveal reveal-d2"><div class="trust-check">✓</div>95% собеседников не понимают, что общаются с ИИ</div>
+          <div class="trust-row reveal reveal-d3"><div class="trust-check">✓</div>Прозрачность: видите каждую переписку в реальном времени</div>
         </div>
       </div>
       <div class="results-grid">
-        <div class="result-card reveal"><div class="rc-icon">⚡</div><div class="rc-val grad">7 дней</div><div class="rc-label">до первых горячих заявок</div></div>
-        <div class="result-card reveal reveal-d1"><div class="rc-icon">💰</div><div class="rc-val grad">от 10 ₽</div><div class="rc-label">цена контакта</div></div>
-        <div class="result-card reveal reveal-d2"><div class="rc-icon">💬</div><div class="rc-val grad">5 000</div><div class="rc-label">диалогов в сутки</div></div>
-        <div class="result-card reveal reveal-d3"><div class="rc-icon">👁</div><div class="rc-val grad">100%</div><div class="rc-label">доступ к перепискам</div></div>
+        <div class="result-card reveal">
+          <div class="rc-icon">⚡</div>
+          <div class="rc-val grad">7 дней</div>
+          <div class="rc-label">до первых горячих заявок</div>
+        </div>
+        <div class="result-card reveal reveal-d1">
+          <div class="rc-icon">💰</div>
+          <div class="rc-val grad">от 10 ₽</div>
+          <div class="rc-label">за квалифицированный контакт</div>
+        </div>
+        <div class="result-card reveal reveal-d2">
+          <div class="rc-icon">💬</div>
+          <div class="rc-val grad">5 000</div>
+          <div class="rc-label">диалогов каждые сутки</div>
+        </div>
+        <div class="result-card reveal reveal-d3">
+          <div class="rc-icon">🔒</div>
+          <div class="rc-val grad">100%</div>
+          <div class="rc-label">доступ к каждой переписке</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1328,13 +1601,539 @@ const counterIO = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => counterIO.observe(el));
 
-/* ── PARALLAX ORBS ── */
-document.addEventListener('mousemove', e => {
-  const xPct = (e.clientX / window.innerWidth - 0.5) * 20;
-  const yPct = (e.clientY / window.innerHeight - 0.5) * 20;
-  document.querySelector('.orb-1').style.transform = `translate(${xPct * 0.4}px, ${yPct * 0.4}px)`;
-  document.querySelector('.orb-2').style.transform = `translate(${-xPct * 0.3}px, ${yPct * 0.3}px)`;
+/* ── PARALLAX ORBS — handled by motion script below ── */
+</script>
+
+<script>
+/* ═══ MOTION ENHANCEMENTS ══════════════════════════════════════ */
+(function () {
+
+/* — Tilt shine overlay — */
+document.querySelectorAll('.b-card,.case-card,.result-card,.how-card').forEach(c => {
+  const s = document.createElement('div'); s.className = 'tilt-shine'; c.appendChild(s);
 });
+
+/* — 3D Tilt — */
+function applyTilt(sel, deg) {
+  document.querySelectorAll(sel).forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${-y * deg}deg) rotateY(${x * deg}deg) translateZ(8px)`;
+      const sh = card.querySelector('.tilt-shine');
+      if (sh) {
+        sh.style.setProperty('--sx', (x + .5) * 100 + '%');
+        sh.style.setProperty('--sy', (y + .5) * 100 + '%');
+      }
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+}
+applyTilt('.b-card,.case-card,.result-card,.how-card', 7);
+applyTilt('.faq-item,.highlight-box', 4);
+
+/* — Magnetic buttons — */
+function addMagnet(sel, k) {
+  document.querySelectorAll(sel).forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * k;
+      const y = (e.clientY - r.top  - r.height / 2) * k;
+      btn.style.transform = `translate(${x}px,${y}px)`;
+      btn.style.transition = 'transform 0.08s ease';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.55s cubic-bezier(.23,1,.32,1), box-shadow 0.25s';
+    });
+  });
+}
+addMagnet('.btn-nav,.btn-tg,.btn-footer-login', 0.32);
+addMagnet('.btn-primary', 0.18);
+
+/* — Custom cursor — */
+if (matchMedia('(pointer: fine)').matches) {
+  const dot  = document.getElementById('c-dot');
+  const ring = document.getElementById('c-ring');
+  let mx = -200, my = -200, rx = -200, ry = -200;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  (function loop() {
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    ring.style.left = (rx | 0) + 'px';
+    ring.style.top  = (ry | 0) + 'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,[onclick],.faq-item,.b-card,.case-card,.result-card,.how-card,.sol-item,.stat-col').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hov'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hov'));
+  });
+}
+
+/* — Scroll progress bar — */
+const sb = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  sb.style.width = (scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
+}, { passive: true });
+
+/* — Smooth orb parallax — */
+let omx = innerWidth / 2, omy = innerHeight / 2, ocx = omx, ocy = omy;
+const orb1 = document.querySelector('.orb-1');
+const orb2 = document.querySelector('.orb-2');
+const orb3 = document.querySelector('.orb-3');
+document.addEventListener('mousemove', e => { omx = e.clientX; omy = e.clientY; }, { passive: true });
+(function orbLoop() {
+  ocx += (omx - ocx) * 0.035;
+  ocy += (omy - ocy) * 0.035;
+  const xN = (ocx / innerWidth  - 0.5);
+  const yN = (ocy / innerHeight - 0.5);
+  if (orb1) orb1.style.marginLeft = (xN * 60) + 'px', orb1.style.marginTop = (yN * 44) + 'px';
+  if (orb2) orb2.style.marginLeft = (-xN * 48) + 'px', orb2.style.marginTop = (yN * 38) + 'px';
+  if (orb3) orb3.style.marginLeft = (xN * 28) + 'px', orb3.style.marginTop = (-yN * 34) + 'px';
+  requestAnimationFrame(orbLoop);
+})();
+
+/* — Particle field — */
+(function () {
+  const cv = document.getElementById('ptc'); if (!cv) return;
+  const cx = cv.getContext('2d');
+  let W = cv.width = innerWidth, H = cv.height = innerHeight;
+  addEventListener('resize', () => { W = cv.width = innerWidth; H = cv.height = innerHeight; });
+  const N = 55;
+  const ps = Array.from({ length: N }, () => ({
+    x: Math.random() * W, y: Math.random() * H,
+    r: Math.random() * 1.1 + 0.2,
+    vx: (Math.random() - .5) * 0.22,
+    vy: (Math.random() - .5) * 0.22,
+    a: Math.random() * 0.24 + 0.06
+  }));
+  function draw() {
+    cx.clearRect(0, 0, W, H);
+    for (let i = 0; i < N; i++) {
+      const p = ps[i];
+      p.x = (p.x + p.vx + W) % W;
+      p.y = (p.y + p.vy + H) % H;
+      cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.28);
+      cx.fillStyle = `rgba(167,139,250,${p.a})`; cx.fill();
+      for (let j = i + 1; j < N; j++) {
+        const q = ps[j], d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < 110) {
+          cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(q.x, q.y);
+          cx.strokeStyle = `rgba(124,58,237,${.07 * (1 - d / 110)})`;
+          cx.lineWidth = .5; cx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* — Bar fill animation — */
+document.querySelectorAll('.bar-fill').forEach(f => { f.dataset.bw = f.style.width; f.style.width = '0'; });
+setTimeout(() => {
+  document.querySelectorAll('.hero-visual .bar-fill').forEach(f => {
+    f.style.transition = 'width 1.5s cubic-bezier(.25,1,.5,1)';
+    f.style.width = f.dataset.bw;
+  });
+}, 1700);
+
+/* — Counter glow — */
+document.querySelectorAll('[data-target]').forEach(el => {
+  new IntersectionObserver((en) => {
+    if (en[0].isIntersecting) setTimeout(() => el.classList.add('c-glow'), 1900);
+  }, { threshold: .5 }).observe(el);
+});
+
+/* — Hero glitch — */
+const hh = document.querySelector('.hero-h1');
+if (hh) setInterval(() => {
+  if (Math.random() < .35) {
+    hh.style.textShadow = '2px 0 rgba(99,102,241,.5),-2px 0 rgba(167,139,250,.4)';
+    setTimeout(() => hh.style.textShadow = '', 65);
+    setTimeout(() => {
+      hh.style.textShadow = '-1px 0 rgba(124,58,237,.55)';
+      setTimeout(() => hh.style.textShadow = '', 50);
+    }, 110);
+  }
+}, 3800);
+
+})();
+</script>
+
+
+<script>
+/* ═══ PREMIUM LAYER ══════════════════════════════════════════════ */
+(function () {
+
+/* — Spotlight — */
+const spl = document.getElementById('spotlight');
+if (spl) {
+  document.addEventListener('mousemove', e => {
+    spl.style.setProperty('--sx', e.clientX + 'px');
+    spl.style.setProperty('--sy', e.clientY + 'px');
+  }, { passive: true });
+}
+
+/* — Word-by-word hero title reveal — */
+(function () {
+  const h1 = document.querySelector('.hero-h1');
+  if (!h1) return;
+
+  function wrapTextNode(node) {
+    const words = node.textContent.split(' ');
+    if (words.length < 2) return;
+    const frag = document.createDocumentFragment();
+    words.forEach((w, i) => {
+      if (w) {
+        const s = document.createElement('span');
+        s.className = 'wr-w'; s.textContent = w;
+        frag.appendChild(s);
+      }
+      if (i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+    });
+    node.parentNode.replaceChild(frag, node);
+  }
+
+  Array.from(h1.childNodes).forEach(n => {
+    if (n.nodeType === 3) wrapTextNode(n);
+    else if (n.nodeType === 1) n.classList.add('wr-w');
+  });
+
+  h1.querySelectorAll('.wr-w').forEach((w, i) => {
+    setTimeout(() => w.classList.add('in'), 220 + i * 65);
+  });
+})();
+
+
+
+})();
+</script>
+
+<!-- ═══ PREMIUM MOTION v3 ═══ -->
+<style>
+
+/* ── Intro overlay ── */
+#intro {
+  position: fixed; inset: 0; z-index: 9500;
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  transition: opacity 0.9s cubic-bezier(.23,1,.32,1), visibility 0.9s;
+}
+#intro.out { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro-logo {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 2.1rem;
+  letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px;
+  color: var(--text);
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.55s ease 0.25s, transform 0.55s ease 0.25s;
+}
+#intro-logo .il-d {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--p3); box-shadow: 0 0 20px var(--p1), 0 0 40px rgba(124,58,237,0.4);
+  animation: pulse 1.8s infinite;
+}
+#intro-logo .il-ai {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--p1) 50%, var(--p2) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+#intro-logo.show { opacity: 1; transform: translateY(0); }
+#intro-line {
+  height: 1px; width: 0; opacity: 0.7;
+  background: linear-gradient(90deg, transparent, var(--p3), transparent);
+  transition: width 0.85s cubic-bezier(.25,1,.5,1) 0.45s;
+}
+#intro-line.on { width: 130px; }
+#intro-scan {
+  position: absolute; left: 0; right: 0; height: 1px; top: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.45), transparent);
+  animation: iScan 1.2s ease forwards;
+}
+@keyframes iScan {
+  0%   { top: 0%; opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Override CSS scroll-behavior (JS handles it) ── */
+html { scroll-behavior: smooth; }
+
+</style>
+
+<!-- ═══ PREMIUM MOTION v2 ═══ -->
+<style>
+
+/* ── Cursor trail ── */
+.c-trail {
+  position: fixed; z-index: 9996; pointer-events: none; border-radius: 50%;
+  width: 7px; height: 7px; background: var(--p3); opacity: 0;
+  will-change: left, top, transform, opacity;
+  box-shadow: 0 0 10px rgba(167,139,250,0.45), 0 0 20px rgba(124,58,237,0.2);
+}
+
+/* side dots removed */
+
+/* ── Animated gradient buttons ── */
+@keyframes gradPulse {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.btn-primary {
+  background: linear-gradient(135deg, #4f1fa8, #7c3aed, #5b6df8, #7c3aed, #4f1fa8) !important;
+  background-size: 300% 300% !important;
+  animation: gradPulse 5s ease infinite !important;
+}
+.btn-tg {
+  background: linear-gradient(135deg, #4f1fa8, #7c3aed, #5b6df8, #7c3aed) !important;
+  background-size: 300% 300% !important;
+  animation: gradPulse 5s ease infinite 1.2s !important;
+}
+
+/* ── Hero badge floating ── */
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-9px); }
+}
+.hero-badge { animation: badgeFloat 4.5s ease-in-out infinite 0.8s !important; }
+
+/* ── Enhanced tilt shine ── */
+.tilt-shine {
+  background:
+    radial-gradient(circle at var(--sx,50%) var(--sy,50%), rgba(255,255,255,0.1) 0%, transparent 40%),
+    radial-gradient(circle at var(--sx,50%) var(--sy,50%), rgba(124,58,237,0.16) 0%, transparent 65%) !important;
+}
+
+
+
+/* ── Orbs upgrade ── */
+.orb-1 {
+  width: 850px !important; height: 850px !important;
+  background: radial-gradient(circle, rgba(124,58,237,0.30) 0%, rgba(99,102,241,0.08) 40%, transparent 70%) !important;
+}
+.orb-2 {
+  background: radial-gradient(circle, rgba(99,102,241,0.26) 0%, transparent 70%) !important;
+}
+.orb-3 {
+  background: radial-gradient(circle, rgba(167,139,250,0.2) 0%, rgba(124,58,237,0.06) 40%, transparent 70%) !important;
+}
+
+/* ── Section position ── */
+#pain, #solution, #how, #cases, #results, #faq { position: relative; }
+
+/* ── Reveal: scale + blur + translate ── */
+.reveal {
+  transform: translateY(30px) scale(0.97) !important;
+  filter: blur(4px) !important;
+  transition: opacity 0.72s ease, transform 0.72s ease, filter 0.72s ease !important;
+}
+.reveal.on {
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+/* ── Stat col: inner radial glow on hover ── */
+.stat-col {
+  --gx: 50%; --gy: 50%;
+  background-image: radial-gradient(circle at var(--gx) var(--gy), rgba(124,58,237,0.06) 0%, transparent 65%) !important;
+  transition: background 0.15s, border-color 0.3s !important;
+}
+
+/* ── Hero free-row items pulse ── */
+@keyframes itemGlow {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 12px rgba(167,139,250,0.35); }
+}
+.free-item { animation: itemGlow 3s ease-in-out infinite; }
+.free-item:nth-child(2) { animation-delay: 1s; }
+.free-item:nth-child(3) { animation-delay: 2s; }
+
+/* ── Case card number counter glow ── */
+.case-n { will-change: text-shadow; }
+
+/* ── Nav underline indicator ── */
+.nav-login {
+  position: relative; overflow: hidden;
+}
+.nav-login::after {
+  content: '';
+  position: absolute; bottom: 0; left: 50%; right: 50%; height: 1px;
+  background: var(--p3); transition: left 0.3s ease, right 0.3s ease;
+}
+.nav-login:hover::after { left: 8%; right: 8%; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-badge { animation-duration: 5s !important; }
+}
+</style>
+
+<script>
+/* ═══ PREMIUM MOTION v3 JS ══════════════════════════════ */
+(function () {
+
+/* — Smooth scroll: removed (browser native) — */
+
+/* — Intro animation — */
+(function () {
+  const o = document.createElement('div'); o.id = 'intro';
+  o.innerHTML = `
+    <div id="intro-scan"></div>
+    <div id="intro-logo"><div class="il-d"></div>NextGen<span class="il-ai">AI</span></div>
+    <div id="intro-line"></div>`;
+  document.body.appendChild(o);
+  setTimeout(() => {
+    document.getElementById('intro-logo').classList.add('show');
+    document.getElementById('intro-line').classList.add('on');
+  }, 200);
+  setTimeout(() => o.classList.add('out'), 1600);
+  setTimeout(() => { if (o.parentNode) o.remove(); }, 2700);
+})();
+
+/* — Live mockup — */
+(function () {
+  const panel = document.querySelector('.chat-panel');
+  if (!panel) return;
+  const typingRow = panel.querySelector('.msg.in:last-child');
+
+  const msgs = [
+    { d:'in',  t:'Сколько примерно стоит подключение?' },
+    { d:'out', t:'Зависит от объёма ЦА. Начнём с демо — 500 контактов бесплатно 🎁' },
+    { d:'in',  t:'Хорошо, пришлите детали' },
+    { d:'out', t:'Уже отправляю кейс по вашей нише 📊' },
+    { d:'in',  t:'Получил. Результаты выглядят сильно' },
+    { d:'out', t:'Когда удобно созвониться на 15 мин? Покажу агента вживую 🤝' },
+    { d:'in',  t:'Завтра в 14:00 подойдёт' },
+    { d:'out', t:'Записал! Ссылку пришлю за час ✓' },
+    { d:'in',  t:'Договорились' },
+    { d:'out', t:'Отлично! До завтра 🚀' },
+  ];
+  let mi = 0;
+
+  function addBubble(dir, text) {
+    const now = new Date();
+    const tm = `${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+    const el = document.createElement('div');
+    el.className = `msg ${dir}`;
+    el.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.4s ease,transform 0.4s ease';
+    el.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${tm}</div>`;
+    panel.insertBefore(el, typingRow || null);
+    requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = ''; });
+    // Remove overflow (keep max 7)
+    const all = Array.from(panel.querySelectorAll('.msg')).filter(m => !m.querySelector('.typing-bubble'));
+    if (all.length > 7) {
+      const old = all[0];
+      old.style.transition = 'opacity 0.28s'; old.style.opacity = '0';
+      setTimeout(() => { if (old.parentNode) old.remove(); }, 300);
+    }
+  }
+
+  function cycle() {
+    if (mi >= msgs.length) mi = 0;
+    const delay = 1800 + Math.random() * 1100;
+    if (typingRow) typingRow.style.display = '';
+    setTimeout(() => {
+      if (typingRow) typingRow.style.display = 'none';
+      addBubble(msgs[mi].d, msgs[mi].t);
+      mi++;
+      setTimeout(cycle, 2600 + Math.random() * 1500);
+    }, delay);
+  }
+  setTimeout(cycle, 3200);
+
+  // Live counters
+  const st = panel.querySelector('.chat-status');
+  if (st) {
+    let v = 847;
+    setInterval(() => { v += Math.floor(Math.random() * 7) - 2; st.textContent = `Активен · ведёт ${v.toLocaleString('ru')} диалогов`; }, 3000);
+  }
+  const smv = document.querySelectorAll('.hero-visual .sm-value');
+  if (smv[0]) {
+    let cv = 58.3;
+    setInterval(() => { cv = Math.max(55.5, Math.min(61.2, cv + (Math.random()-0.48)*0.28)); smv[0].textContent = cv.toFixed(1)+'%'; }, 3800);
+  }
+  if (smv[1]) {
+    let av = 4820;
+    setInterval(() => { av = Math.max(4680, Math.min(4990, av + Math.floor(Math.random()*15)-6)); smv[1].textContent = av.toLocaleString('ru'); }, 2200);
+  }
+})();
+
+})(); /* end v3 */
+
+/* ═══ PREMIUM MOTION v2 JS ═══════════════════════════════ */
+(function () {
+
+/* — Cursor trail — */
+if (matchMedia('(pointer: fine)').matches) {
+  const N = 9;
+  const els = Array.from({length: N}, () => {
+    const d = document.createElement('div');
+    d.className = 'c-trail';
+    document.body.appendChild(d);
+    return d;
+  });
+  const tx = new Float32Array(N).fill(-300);
+  const ty = new Float32Array(N).fill(-300);
+  let cx = -300, cy = -300;
+  document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; }, { passive: true });
+  (function loop() {
+    tx[0] += (cx - tx[0]) * 0.26; ty[0] += (cy - ty[0]) * 0.26;
+    for (let i = 1; i < N; i++) {
+      tx[i] += (tx[i-1] - tx[i]) * 0.26;
+      ty[i] += (ty[i-1] - ty[i]) * 0.26;
+    }
+    for (let i = 0; i < N; i++) {
+      const s = (1 - i / N) * 0.85 + 0.15;
+      const a = (1 - i / N) * 0.5;
+      els[i].style.cssText =
+        `left:${tx[i]|0}px;top:${ty[i]|0}px;` +
+        `transform:translate(-50%,-50%) scale(${s.toFixed(2)});` +
+        `opacity:${a.toFixed(2)}`;
+    }
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* — Hero scroll fade: removed — */
+
+/* side dots removed */
+
+/* — Stat col inner mouse glow — */
+document.querySelectorAll('.stat-col').forEach(col => {
+  col.addEventListener('mousemove', e => {
+    const r = col.getBoundingClientRect();
+    col.style.setProperty('--gx', ((e.clientX - r.left) / r.width  * 100) + '%');
+    col.style.setProperty('--gy', ((e.clientY - r.top ) / r.height * 100) + '%');
+  });
+});
+
+/* — Glitch upgrade — */
+const hh2 = document.querySelector('.hero-h1');
+if (hh2) {
+  // More dramatic and varied glitch
+  const glitches = [
+    () => { hh2.style.textShadow = '3px 0 rgba(99,102,241,.65),-3px 0 rgba(167,139,250,.5)'; },
+    () => { hh2.style.textShadow = '-2px 0 rgba(124,58,237,.7),2px 0 rgba(167,139,250,.4)'; },
+    () => { hh2.style.textShadow = '4px 0 rgba(99,102,241,.5),0 2px rgba(124,58,237,.4)'; },
+  ];
+  setInterval(() => {
+    if (Math.random() < .42) {
+      const fn = glitches[Math.floor(Math.random() * glitches.length)];
+      fn();
+      setTimeout(() => hh2.style.textShadow = '', 55 + Math.random() * 40);
+      setTimeout(() => {
+        glitches[Math.floor(Math.random() * glitches.length)]();
+        setTimeout(() => hh2.style.textShadow = '', 45 + Math.random() * 30);
+      }, 100);
+    }
+  }, 3200);
+}
+
+})();
 </script>
 </body>
 </html>
