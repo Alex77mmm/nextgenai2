@@ -2272,7 +2272,7 @@ document.querySelectorAll('#cases').forEach(section => {
     ['Мебель на заказ', '142', '780 ₽', '23,7%'], ['B2B-услуги', '58', '1 900 ₽', '16,8%'], ['Карго-доставка', '184', '690 ₽', '27,2%']
   ];
   extraCases.forEach(([niche, leads, cost, conversion]) => track.insertAdjacentHTML('beforeend', `
-    <div class="case-card"><div class="case-tag">✦ ${niche}</div><div class="case-n grad">${leads}</div><div class="case-n-label">демо-заявок за 30 дней</div><div class="case-divider"></div><div class="case-row"><div class="case-metric"><div class="cm-val">${cost}</div><div class="cm-label">цена лида</div></div><div class="case-metric"><div class="cm-val">${conversion}</div><div class="cm-label">конверсия</div></div></div></div>`));
+    <div class="case-card"><div class="case-tag">✦ ${niche}</div><div class="case-n grad">${leads}</div><div class="case-n-label">лидов за 30 дней</div><div class="case-divider"></div><div class="case-row"><div class="case-metric"><div class="cm-val">${cost}</div><div class="cm-label">цена лида</div></div><div class="case-metric"><div class="cm-val">${conversion}</div><div class="cm-label">конверсия</div></div></div></div>`));
   const cards = [...track.querySelectorAll('.case-card')];
   const prev = section.querySelector('.cases-prev');
   const next = section.querySelector('.cases-next');
