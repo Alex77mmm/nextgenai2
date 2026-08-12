@@ -178,7 +178,16 @@ nav {
 .lead-input, .lead-textarea { width: 100%; padding: 13px 14px; color: var(--text); background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; outline: none; font: inherit; }
 .lead-input:focus, .lead-textarea:focus { border-color: var(--p3); box-shadow: 0 0 0 3px rgba(167,139,250,.1); }
 .lead-textarea { min-height: 88px; resize: vertical; }
-.lead-submit { padding: 14px 20px; border: 0; border-radius: 11px; color: #080810; background: var(--p3); font: 700 .92rem 'Manrope',sans-serif; cursor: pointer; }
+.lead-submit { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; border: 0; border-radius: 11px; color: #080810; background: var(--p3); font: 700 .92rem 'Manrope',sans-serif; cursor: pointer; }
+.lead-submit:disabled { opacity: .78; cursor: wait !important; }
+.lead-spinner {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(8,8,16,.28); border-top-color: #080810;
+  animation: spin .75s linear infinite;
+}
+.lead-status { min-height: 20px; color: var(--dim); font-size: .82rem; text-align: center; line-height: 1.5; }
+.lead-status a { color: var(--p3); font-weight: 800; text-decoration: none; }
+.lead-status a:hover { color: #fff; }
 .footer-contact { color: var(--muted); font-size: .78rem; text-decoration: none; transition: color .2s; }
 .footer-contact:hover { color: var(--p3); }
 
@@ -1333,7 +1342,7 @@ footer {
     <a href="https://tg-ai-crm.vercel.app/connections" target="_blank" class="nav-login">Войти</a>
     <div class="nav-pill">
       <span>ИИ-продавцы в Telegram</span>
-      <a class="btn-nav" href="https://t.me/Alexfreeeman" target="_blank">Написать →</a>
+      <a class="btn-nav" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer" data-direct-tg>Написать →</a>
     </div>
   </div>
 </nav>
@@ -1831,7 +1840,7 @@ footer {
       <label class="lead-label">Комментарий (необязательно)<textarea class="lead-textarea" name="comment" placeholder="Коротко опишите задачу"></textarea></label>
       <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <button class="lead-submit" type="submit">Отправить заявку</button>
-      <div class="lead-status" role="status" aria-live="polite" style="min-height:20px;color:var(--dim);font-size:.82rem;text-align:center"></div>
+      <div class="lead-status" role="status" aria-live="polite"></div>
     </form>
   </div>
 </div>
@@ -1849,7 +1858,7 @@ const leadModal = document.querySelector('#lead-modal');
 const leadForm = document.querySelector('#lead-form');
 const openLead = () => { leadModal.classList.add('open'); leadModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(() => leadForm.phone.focus(), 100); };
 const closeLead = () => { leadModal.classList.remove('open'); leadModal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
-document.querySelectorAll('a[href="https://t.me/Alexfreeeman"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openLead(); }));
+document.querySelectorAll('a[href="https://t.me/Alexfreeeman"]:not([data-direct-tg])').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openLead(); }));
 leadModal.querySelector('.lead-close').addEventListener('click', closeLead);
 leadModal.addEventListener('click', e => { if (e.target === leadModal) closeLead(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLead(); closeMenu(); } });
@@ -1859,7 +1868,8 @@ leadForm.addEventListener('submit', async e => {
   const button = leadForm.querySelector('.lead-submit');
   const status = leadForm.querySelector('.lead-status');
   button.disabled = true;
-  button.textContent = 'Отправляем…';
+  button.innerHTML = '<span class="lead-spinner" aria-hidden="true"></span>Отправляем заявку';
+  status.style.color = 'var(--dim)';
   status.textContent = '';
   try {
     const response = await fetch('https://nextgen-leads-a-s-projects13.vercel.app/api/lead', {
@@ -1870,8 +1880,7 @@ leadForm.addEventListener('submit', async e => {
     if (!response.ok) throw new Error('Request failed');
     leadForm.reset();
     status.style.color = 'var(--green)';
-    status.textContent = 'Заявка отправлена. Скоро свяжемся!';
-    setTimeout(closeLead, 1600);
+    status.innerHTML = 'Заявка отправлена. Можно также написать напрямую в <a href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer" data-direct-tg>Telegram @Alexfreeeman</a>.';
   } catch {
     status.style.color = '#fb7185';
     status.textContent = 'Не удалось отправить. Позвоните: +7 999 123-62-59';
