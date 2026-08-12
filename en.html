@@ -771,6 +771,15 @@ nav {
   transform: translateY(-2px);
 }
 
+/* ─── LEGAL LINK ─────────────────────────────── */
+.footer-legal {
+  display: inline-flex; align-items: center; padding: 7px 11px;
+  color: var(--muted); font-size: .72rem; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.09); border-radius: 7px;
+  background: rgba(255,255,255,.025); transition: color .2s, border-color .2s, background .2s;
+}
+.footer-legal:hover { color: var(--p3); border-color: rgba(167,139,250,.35); background: rgba(124,58,237,.08); }
+
 /* ─── FOOTER ─────────────────────────────── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -981,6 +990,19 @@ footer {
 </style>
 </head>
 <body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111532699', 'ym');
+
+        ym(111532699, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111532699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
 <div class="bg-gradient" aria-hidden="true">
   <div class="orb orb-1"></div>
@@ -1414,6 +1436,7 @@ footer {
 <footer class="z1">
   <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
   <div class="footer-copy">© 2024 NextGen AI. All rights reserved.</div>
+  <a class="footer-legal" href="privacy.html">Privacy policy</a>
   <a href="mailto:771330@gmail.com" style="font-size:0.78rem;color:var(--muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--p3)'" onmouseout="this.style.color='var(--muted)'">771330@gmail.com</a>
 </footer>
 

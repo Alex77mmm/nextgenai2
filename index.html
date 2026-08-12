@@ -766,6 +766,15 @@ nav {
   transform: translateY(-2px);
 }
 
+/* ─── LEGAL LINK ─────────────────────────────── */
+.footer-legal {
+  display: inline-flex; align-items: center; padding: 7px 11px;
+  color: var(--muted); font-size: .72rem; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.09); border-radius: 7px;
+  background: rgba(255,255,255,.025); transition: color .2s, border-color .2s, background .2s;
+}
+.footer-legal:hover { color: var(--p3); border-color: rgba(167,139,250,.35); background: rgba(124,58,237,.08); }
+
 /* ─── FOOTER ─────────────────────────────── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -1200,6 +1209,19 @@ footer {
 </style>
 </head>
 <body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111532699', 'ym');
+
+        ym(111532699, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111532699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
 <div id="c-dot" aria-hidden="true"></div>
 <div id="c-ring" aria-hidden="true"></div>
@@ -1689,6 +1711,7 @@ footer {
 <footer class="z1">
   <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
   <div class="footer-copy">© 2024 NextGen AI. Все права защищены.</div>
+  <a class="footer-legal" href="privacy.html">Политика конфиденциальности</a>
   <a href="mailto:771330@gmail.com" style="font-size:0.78rem;color:var(--muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--p3)'" onmouseout="this.style.color='var(--muted)'">771330@gmail.com</a>
 </footer>
 
@@ -1784,12 +1807,14 @@ if (matchMedia('(pointer: fine)').matches) {
   let mx = -200, my = -200, rx = -200, ry = -200;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
   (function loop() {
-    dot.style.left  = mx + 'px';
-    dot.style.top   = my + 'px';
-    rx += (mx - rx) * 0.13;
-    ry += (my - ry) * 0.13;
-    ring.style.left = (rx | 0) + 'px';
-    ring.style.top  = (ry | 0) + 'px';
+    if (!document.hidden) {
+      dot.style.left  = mx + 'px';
+      dot.style.top   = my + 'px';
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.left = (rx | 0) + 'px';
+      ring.style.top  = (ry | 0) + 'px';
+    }
     requestAnimationFrame(loop);
   })();
   document.querySelectorAll('a,button,[onclick],.faq-item,.b-card,.case-card,.result-card,.how-card,.sol-item,.stat-col').forEach(el => {
@@ -1811,13 +1836,15 @@ const orb2 = document.querySelector('.orb-2');
 const orb3 = document.querySelector('.orb-3');
 document.addEventListener('mousemove', e => { omx = e.clientX; omy = e.clientY; }, { passive: true });
 (function orbLoop() {
-  ocx += (omx - ocx) * 0.035;
-  ocy += (omy - ocy) * 0.035;
-  const xN = (ocx / innerWidth  - 0.5);
-  const yN = (ocy / innerHeight - 0.5);
-  if (orb1) orb1.style.marginLeft = (xN * 60) + 'px', orb1.style.marginTop = (yN * 44) + 'px';
-  if (orb2) orb2.style.marginLeft = (-xN * 48) + 'px', orb2.style.marginTop = (yN * 38) + 'px';
-  if (orb3) orb3.style.marginLeft = (xN * 28) + 'px', orb3.style.marginTop = (-yN * 34) + 'px';
+  if (!document.hidden) {
+    ocx += (omx - ocx) * 0.035;
+    ocy += (omy - ocy) * 0.035;
+    const xN = (ocx / innerWidth  - 0.5);
+    const yN = (ocy / innerHeight - 0.5);
+    if (orb1) orb1.style.marginLeft = (xN * 60) + 'px', orb1.style.marginTop = (yN * 44) + 'px';
+    if (orb2) orb2.style.marginLeft = (-xN * 48) + 'px', orb2.style.marginTop = (yN * 38) + 'px';
+    if (orb3) orb3.style.marginLeft = (xN * 28) + 'px', orb3.style.marginTop = (-yN * 34) + 'px';
+  }
   requestAnimationFrame(orbLoop);
 })();
 
@@ -1827,7 +1854,7 @@ document.addEventListener('mousemove', e => { omx = e.clientX; omy = e.clientY; 
   const cx = cv.getContext('2d');
   let W = cv.width = innerWidth, H = cv.height = innerHeight;
   addEventListener('resize', () => { W = cv.width = innerWidth; H = cv.height = innerHeight; });
-  const N = 55;
+  const N = innerWidth < 900 ? 28 : 42;
   const ps = Array.from({ length: N }, () => ({
     x: Math.random() * W, y: Math.random() * H,
     r: Math.random() * 1.1 + 0.2,
@@ -1835,7 +1862,10 @@ document.addEventListener('mousemove', e => { omx = e.clientX; omy = e.clientY; 
     vy: (Math.random() - .5) * 0.22,
     a: Math.random() * 0.24 + 0.06
   }));
-  function draw() {
+  let lastDraw = 0;
+  function draw(now = performance.now()) {
+    if (document.hidden || now - lastDraw < 30) { requestAnimationFrame(draw); return; }
+    lastDraw = now;
     cx.clearRect(0, 0, W, H);
     for (let i = 0; i < N; i++) {
       const p = ps[i];
@@ -2208,18 +2238,20 @@ if (matchMedia('(pointer: fine)').matches) {
   let cx = -300, cy = -300;
   document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; }, { passive: true });
   (function loop() {
-    tx[0] += (cx - tx[0]) * 0.26; ty[0] += (cy - ty[0]) * 0.26;
-    for (let i = 1; i < N; i++) {
-      tx[i] += (tx[i-1] - tx[i]) * 0.26;
-      ty[i] += (ty[i-1] - ty[i]) * 0.26;
-    }
-    for (let i = 0; i < N; i++) {
-      const s = (1 - i / N) * 0.85 + 0.15;
-      const a = (1 - i / N) * 0.5;
-      els[i].style.cssText =
-        `left:${tx[i]|0}px;top:${ty[i]|0}px;` +
-        `transform:translate(-50%,-50%) scale(${s.toFixed(2)});` +
-        `opacity:${a.toFixed(2)}`;
+    if (!document.hidden) {
+      tx[0] += (cx - tx[0]) * 0.26; ty[0] += (cy - ty[0]) * 0.26;
+      for (let i = 1; i < N; i++) {
+        tx[i] += (tx[i-1] - tx[i]) * 0.26;
+        ty[i] += (ty[i-1] - ty[i]) * 0.26;
+      }
+      for (let i = 0; i < N; i++) {
+        const s = (1 - i / N) * 0.85 + 0.15;
+        const a = (1 - i / N) * 0.5;
+        els[i].style.cssText =
+          `left:${tx[i]|0}px;top:${ty[i]|0}px;` +
+          `transform:translate(-50%,-50%) scale(${s.toFixed(2)});` +
+          `opacity:${a.toFixed(2)}`;
+      }
     }
     requestAnimationFrame(loop);
   })();
