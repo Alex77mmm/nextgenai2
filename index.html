@@ -576,27 +576,44 @@ nav {
 }
 .cases-arrow:disabled { opacity: 0.28; cursor: default; }
 .cases-bento {
-  display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 28px) / 3);
-  gap: 14px; margin-top: 56px; padding: 4px 2px 18px;
+  display: grid; grid-template-columns: 1.35fr 1fr 1fr; grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 36%);
+  gap: 16px; margin-top: 58px; padding: 4px 2px 20px;
   overflow-x: auto; overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory; scroll-behavior: smooth;
   scrollbar-width: none; -ms-overflow-style: none;
 }
 .cases-bento::-webkit-scrollbar { display: none; }
 .case-card {
-  background: var(--bg1);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--r-lg); padding: 24px;
+  min-height: 330px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(167,139,250,0.1), transparent 34%),
+    var(--bg1);
+  border: 1px solid rgba(255,255,255,0.075);
+  border-radius: var(--r-lg); padding: 30px;
   position: relative; overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
   scroll-snap-align: start; min-width: 0;
 }
-.case-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-4px); }
+.case-card:first-child {
+  min-height: 430px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(52,211,153,0.16), transparent 30%),
+    radial-gradient(circle at 92% 84%, rgba(124,58,237,0.2), transparent 36%),
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018));
+  border-color: rgba(167,139,250,0.28);
+}
+.case-card:hover { border-color: rgba(167,139,250,0.38); background-color: var(--glass2); transform: translateY(-4px); }
 .case-card::before {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
   background: linear-gradient(0deg, rgba(124,58,237,0.06), transparent);
   pointer-events: none;
+}
+.case-card:first-child::after {
+  content: 'DEMO CASE'; position: absolute; right: 28px; top: 28px;
+  color: rgba(255,255,255,0.08); font-size: 0.72rem; font-weight: 800;
+  letter-spacing: 0.18em;
 }
 .case-tag {
   display: inline-flex; align-items: center; gap: 6px;
@@ -605,14 +622,24 @@ nav {
   padding: 5px 12px; border-radius: 100px;
   background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2);
 }
-.case-n { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 3.35rem; letter-spacing: -0.06em; line-height: 1; margin-bottom: 4px; }
-.case-n-label { font-size: 0.8rem; color: var(--muted); margin-bottom: 18px; }
+.case-n { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 3.45rem; letter-spacing: -0.06em; line-height: 1; margin-bottom: 8px; }
+.case-card:first-child .case-n { font-size: clamp(4.6rem, 8vw, 7rem); letter-spacing: -0.08em; }
+.case-n-label { font-size: 0.84rem; color: var(--muted); margin-bottom: 24px; }
 .case-divider { height: 1px; background: rgba(255,255,255,0.06); margin-bottom: 20px; }
-.case-row { display: flex; justify-content: space-between; }
+.case-row { display: flex; justify-content: space-between; gap: 16px; }
 .case-metric { display: flex; flex-direction: column; gap: 2px; }
-.cm-val { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.03em; color: var(--green); }
+.cm-val { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.55rem; letter-spacing: -0.03em; color: var(--green); }
 .cm-label { font-size: 0.72rem; color: var(--muted); }
-.cases-more-wrap { display: flex; justify-content: center; margin-top: 18px; }
+.cases-more-wrap {
+  display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  margin-top: 22px; padding: 18px 22px;
+  border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.03);
+}
+.cases-more-wrap::before {
+  content: 'Больше сценариев: недвижимость, образование, услуги, e-commerce';
+  color: var(--muted); font-size: 0.86rem;
+}
 .cases-more {
   display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px;
   border: 1px solid rgba(167,139,250,0.32); border-radius: 10px;
@@ -692,6 +719,19 @@ nav {
   font-size: 0.82rem; color: var(--dim); font-weight: 500;
 }
 .cta-feat::before { content: '✓'; color: var(--green); font-weight: 700; }
+.service-proof {
+  display: grid; gap: 12px; margin: -18px 0 34px; max-width: 520px;
+}
+.proof-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  color: var(--dim); font-size: 0.88rem; line-height: 1.55;
+}
+.proof-row::before {
+  content: ''; width: 7px; height: 7px; margin-top: 8px; flex-shrink: 0;
+  border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 18px rgba(52,211,153,0.45);
+}
+.proof-row strong { color: var(--text); }
 .btn-tg {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 1rem;
@@ -957,7 +997,9 @@ footer {
 
   /* Cases */
   #cases { padding: 70px 0; }
-  .cases-bento { grid-template-rows: none; grid-auto-columns: minmax(280px, 48%); gap: 10px; }
+  .cases-bento { grid-template-columns: none; grid-template-rows: none; grid-auto-columns: minmax(280px, 48%); gap: 12px; }
+  .case-card, .case-card:first-child { min-height: 320px; padding: 24px; }
+  .case-card:first-child .case-n { font-size: 4rem; }
   .case-n { font-size: 3rem; }
 
   /* Results */
@@ -982,6 +1024,7 @@ footer {
   .cta-sub { margin: 0 auto 36px; }
   .cta-features { gap: 8px; }
   .cta-features { justify-content: center; }
+  .service-proof { margin: -12px auto 30px; text-align: left; }
   .btn-tg { width: 100%; justify-content: center; }
   .ceo-portrait {
     position: relative; inset: auto; width: 100%; height: 500px;
@@ -1060,8 +1103,10 @@ footer {
   .cases-heading { align-items: flex-start; flex-direction: column; gap: 24px; }
   .cases-nav { align-self: stretch; justify-content: space-between; }
   .cases-bento { grid-template-rows: none; grid-auto-columns: 88%; gap: 10px; margin-top: 30px; }
-  .case-card { padding: 24px 20px; }
+  .case-card, .case-card:first-child { min-height: 300px; padding: 24px 20px; }
+  .case-card:first-child .case-n { font-size: 3.4rem; }
   .case-n { font-size: 2.6rem; }
+  .cases-more-wrap { flex-direction: column; align-items: flex-start; padding: 18px; }
 
   /* Results */
   .results-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -1738,6 +1783,11 @@ footer {
         <div class="cta-feat">500 контактов бесплатно</div>
         <div class="cta-feat">Демо под ваш проект</div>
         <div class="cta-feat">3 готовые стратегии</div>
+      </div>
+      <div class="service-proof">
+        <div class="proof-row"><strong>Работаем под ключ:</strong> собираем аудиторию, настраиваем агента, запускаем диалоги и передаем горячие контакты.</div>
+        <div class="proof-row"><strong>Контроль в кабинете:</strong> видите переписки, статусы и можете подключиться к любому диалогу вручную.</div>
+        <div class="proof-row"><strong>Не просто бот:</strong> тон общения, оффер и сценарии адаптируются под нишу, продукт и возражения клиентов.</div>
       </div>
       <a class="btn-tg" href="https://t.me/Alexfreeeman" target="_blank">
         <span class="tg-icon">✈</span>
