@@ -794,24 +794,26 @@ nav {
   transform: translateY(-2px);
 }
 
-/* ─── LEGAL LINK ─────────────────────────────── */
-.footer-legal {
-  display: inline-flex; align-items: center; padding: 7px 11px;
-  color: var(--muted); font-size: .72rem; text-decoration: none;
-  border: 1px solid rgba(255,255,255,.09); border-radius: 7px;
-  background: rgba(255,255,255,.025); transition: color .2s, border-color .2s, background .2s;
-}
-.footer-legal:hover { color: var(--p3); border-color: rgba(167,139,250,.35); background: rgba(124,58,237,.08); }
-
 /* ─── FOOTER ─────────────────────────────── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.05);
-  padding: 28px 28px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px; max-width: 1140px; margin: 0 auto;
+  padding: 34px 28px 30px;
+  display: grid; grid-template-columns: 1.1fr repeat(3, auto);
+  gap: 34px; max-width: 1140px; margin: 0 auto;
 }
 .footer-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: -0.03em; }
 .footer-copy { font-size: 0.78rem; color: var(--muted); }
+.footer-brand { display: flex; flex-direction: column; gap: 9px; max-width: 260px; }
+.footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 150px; }
+.footer-title {
+  color: var(--text); font-size: .76rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.footer-link {
+  color: var(--muted); font-size: .82rem; line-height: 1.35;
+  text-decoration: none; transition: color .2s;
+}
+.footer-link:hover { color: var(--p3); }
 
 /* ─── ANIMATION ─────────────────────────────── */
 @keyframes fadeUp {
@@ -983,7 +985,8 @@ footer {
   .ceo-caption { left: 50%; right: auto; bottom: 16px; transform: translateX(-50%); align-items: center; text-align: center; }
 
   /* Footer */
-  footer { flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 24px 20px; }
+  footer { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 28px 20px; }
+  .footer-brand { grid-column: 1 / -1; max-width: none; }
 
   /* Mockup */
   .chat-grid { grid-template-columns: 1fr; }
@@ -998,6 +1001,7 @@ footer {
   .btn-nav { padding: 7px 14px; font-size: 0.78rem; }
   .nav-right { gap: 8px; }
   .lead-dialog { padding: 26px 20px; }
+  footer { grid-template-columns: 1fr; }
 
   /* Hero */
   #hero { padding: 88px 16px 50px; }
@@ -1745,11 +1749,31 @@ footer {
   <a href="https://tg-ai-crm.vercel.app/connections" target="_blank" class="btn-footer-login">Войти в систему</a>
 </div>
 <footer class="z1">
-  <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
-  <div class="footer-copy">© 2024 NextGen AI. Все права защищены.</div>
-  <a class="footer-legal" href="privacy.html">Политика конфиденциальности</a>
-  <a class="footer-contact" href="tel:+79991236259">+7 999 123-62-59</a>
-  <a class="footer-contact" href="mailto:771330@gmail.com">771330@gmail.com</a>
+  <div class="footer-brand">
+    <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
+    <div class="footer-copy">© 2024 NextGen AI. Все права защищены.</div>
+    <a class="footer-link" href="tel:+79991236259">+7 999 123-62-59</a>
+    <a class="footer-link" href="mailto:771330@gmail.com">771330@gmail.com</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Сайт</div>
+    <a class="footer-link" href="#solution">Решение</a>
+    <a class="footer-link" href="#how">Как работает</a>
+    <a class="footer-link" href="#cases">Кейсы</a>
+    <a class="footer-link" href="#faq">FAQ</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Контакты</div>
+    <a class="footer-link" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="footer-link" href="https://tg-ai-crm.vercel.app/connections" target="_blank" rel="noopener noreferrer">Войти в систему</a>
+    <a class="footer-link" href="#cta">Оставить заявку</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Документы</div>
+    <a class="footer-link" href="privacy.html">Политика конфиденциальности</a>
+    <a class="footer-link" href="terms.html">Пользовательское соглашение</a>
+    <a class="footer-link" href="cookies.html">Настройка cookies</a>
+  </div>
 </footer>
 
 <div class="lead-modal" id="lead-modal" aria-hidden="true">
