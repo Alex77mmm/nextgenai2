@@ -154,6 +154,36 @@ nav {
 }
 .btn-nav:hover { background: var(--accent); transform: translateY(-1px); box-shadow: 0 0 24px rgba(167,139,250,0.4); }
 
+.menu-toggle { width: 42px; height: 42px; display: grid; place-content: center; gap: 5px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: var(--glass); cursor: pointer; }
+.menu-toggle span { width: 19px; height: 2px; display: block; border-radius: 2px; background: var(--text); transition: transform .2s, opacity .2s; }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-menu { position: fixed; top: 76px; right: 40px; z-index: 210; min-width: 240px; padding: 10px; display: grid; gap: 4px; background: rgba(12,12,24,.97); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 24px 70px rgba(0,0,0,.45); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: .2s ease; }
+.nav-menu.open { opacity: 1; visibility: visible; transform: none; }
+.nav-menu a { padding: 12px 14px; border-radius: 9px; color: var(--dim); text-decoration: none; font-size: .88rem; font-weight: 600; }
+.nav-menu a:hover { color: var(--text); background: var(--glass2); }
+
+.lead-modal { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: 20px; background: rgba(3,3,9,.78); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: .2s ease; }
+.lead-modal.open { opacity: 1; visibility: visible; }
+.lead-dialog { width: min(100%, 470px); position: relative; padding: 32px; border-radius: 24px; background: #10101d; border: 1px solid var(--border); box-shadow: 0 30px 100px rgba(0,0,0,.65); transform: translateY(12px); transition: transform .2s ease; }
+.lead-modal.open .lead-dialog { transform: none; }
+.lead-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; background: var(--glass); color: var(--text); font-size: 1.3rem; cursor: pointer; }
+.lead-dialog h2 { margin: 0 40px 8px 0; font-family: 'Bricolage Grotesque',sans-serif; font-size: 1.7rem; }
+.lead-dialog > p { margin: 0 0 24px; color: var(--dim); font-size: .9rem; }
+.lead-form { display: grid; gap: 16px; }
+.lead-label { display: grid; gap: 8px; color: var(--dim); font-size: .78rem; font-weight: 700; }
+.lead-input, .lead-textarea { width: 100%; padding: 13px 14px; color: var(--text); background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; outline: none; font: inherit; }
+.lead-input:focus, .lead-textarea:focus { border-color: var(--p3); box-shadow: 0 0 0 3px rgba(167,139,250,.1); }
+.lead-textarea { min-height: 88px; resize: vertical; }
+.contact-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.contact-option input { position: absolute; opacity: 0; pointer-events: none; }
+.contact-option span { display: block; padding: 11px 8px; text-align: center; border: 1px solid rgba(255,255,255,.11); border-radius: 10px; color: var(--dim); cursor: pointer; font-size: .8rem; }
+.contact-option input:checked + span { color: var(--text); border-color: var(--p3); background: rgba(124,58,237,.18); }
+.lead-submit { padding: 14px 20px; border: 0; border-radius: 11px; color: #080810; background: var(--p3); font: 700 .92rem 'Manrope',sans-serif; cursor: pointer; }
+.footer-contact { color: var(--muted); font-size: .78rem; text-decoration: none; transition: color .2s; }
+.footer-contact:hover { color: var(--p3); }
+
 /* ─── SECTION WRAPPER ─────────────────────────── */
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
 
@@ -871,6 +901,8 @@ footer {
   .nav-pill { padding: 3px 4px; }
   .nav-email { display: none; }
   .lang-switch { display: none; }
+  .nav-login, .nav-pill span { display: none; }
+  .nav-menu { top: 68px; right: 20px; left: 20px; }
 
   /* Hero */
   #hero { padding: 100px 20px 60px; min-height: auto; }
@@ -966,6 +998,8 @@ footer {
   nav { height: 58px; }
   .nav-logo { font-size: 1rem; }
   .btn-nav { padding: 7px 14px; font-size: 0.78rem; }
+  .nav-right { gap: 8px; }
+  .lead-dialog { padding: 26px 20px; }
 
   /* Hero */
   #hero { padding: 88px 16px 50px; }
@@ -1243,6 +1277,7 @@ footer {
     NextGen<span class="grad" style="-webkit-text-fill-color:transparent">AI</span>
   </div>
   <div class="nav-right">
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="lang-switch">
       <a href="index.html" class="lang-btn active">RU</a>
       <span class="lang-div">/</span>
@@ -1255,6 +1290,9 @@ footer {
     </div>
   </div>
 </nav>
+<div class="nav-menu" aria-hidden="true">
+  <a href="#pain">Проблемы</a><a href="#solution">Решение</a><a href="#how">Как работает</a><a href="#cases">Кейсы</a><a href="#results">Результаты</a><a href="#faq">Вопросы</a><a href="#cta">Оставить заявку</a>
+</div>
 
 <!-- ── HERO ── -->
 <section id="hero" class="z1">
@@ -1712,10 +1750,53 @@ footer {
   <div class="footer-logo"><span class="grad">NextGen</span>AI</div>
   <div class="footer-copy">© 2024 NextGen AI. Все права защищены.</div>
   <a class="footer-legal" href="privacy.html">Политика конфиденциальности</a>
-  <a href="mailto:771330@gmail.com" style="font-size:0.78rem;color:var(--muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--p3)'" onmouseout="this.style.color='var(--muted)'">771330@gmail.com</a>
+  <a class="footer-contact" href="tel:+79991236259">+7 999 123-62-59</a>
+  <a class="footer-contact" href="mailto:771330@gmail.com">771330@gmail.com</a>
 </footer>
 
+<div class="lead-modal" id="lead-modal" aria-hidden="true">
+  <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+    <button class="lead-close" type="button" aria-label="Закрыть">×</button>
+    <h2 id="lead-title">Оставить заявку</h2>
+    <p>Укажите телефон и удобный способ связи.</p>
+    <form class="lead-form" id="lead-form">
+      <label class="lead-label">Телефон *<input class="lead-input" name="phone" type="tel" autocomplete="tel" placeholder="+7 999 123-45-67" required></label>
+      <fieldset class="lead-label" style="border:0;padding:0;margin:0"><legend style="margin-bottom:8px">Как удобно связаться? *</legend><div class="contact-options">
+        <label class="contact-option"><input type="radio" name="contact" value="Написать" required><span>Написать</span></label>
+        <label class="contact-option"><input type="radio" name="contact" value="Позвонить"><span>Позвонить</span></label>
+        <label class="contact-option"><input type="radio" name="contact" value="Telegram"><span>Telegram</span></label>
+      </div></fieldset>
+      <label class="lead-label">Комментарий (необязательно)<textarea class="lead-textarea" name="comment" placeholder="Коротко опишите задачу"></textarea></label>
+      <button class="lead-submit" type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+
 <script>
+/* ── MENU & LEAD FORM ── */
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const closeMenu = () => { menuToggle.classList.remove('open'); navMenu.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); navMenu.setAttribute('aria-hidden','true'); };
+menuToggle.addEventListener('click', e => { e.stopPropagation(); const open = !navMenu.classList.contains('open'); closeMenu(); if (open) { menuToggle.classList.add('open'); navMenu.classList.add('open'); menuToggle.setAttribute('aria-expanded','true'); navMenu.setAttribute('aria-hidden','false'); } });
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('click', e => { if (!navMenu.contains(e.target)) closeMenu(); });
+
+const leadModal = document.querySelector('#lead-modal');
+const leadForm = document.querySelector('#lead-form');
+const openLead = () => { leadModal.classList.add('open'); leadModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(() => leadForm.phone.focus(), 100); };
+const closeLead = () => { leadModal.classList.remove('open'); leadModal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+document.querySelectorAll('a[href="https://t.me/Alexfreeeman"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openLead(); }));
+leadModal.querySelector('.lead-close').addEventListener('click', closeLead);
+leadModal.addEventListener('click', e => { if (e.target === leadModal) closeLead(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLead(); closeMenu(); } });
+leadForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(leadForm);
+  const message = `Новая заявка с сайта%0AТелефон: ${encodeURIComponent(data.get('phone'))}%0AСвязаться: ${encodeURIComponent(data.get('contact'))}%0AКомментарий: ${encodeURIComponent(data.get('comment') || '—')}`;
+  window.open(`https://t.me/Alexfreeeman?text=${message}`, '_blank', 'noopener');
+  closeLead();
+});
+
 /* ── SCROLL REVEAL ── */
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); } });
