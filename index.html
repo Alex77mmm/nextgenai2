@@ -164,7 +164,9 @@ nav {
 .nav-menu a { padding: 12px 14px; border-radius: 9px; color: var(--dim); text-decoration: none; font-size: .88rem; font-weight: 600; }
 .nav-menu a:hover { color: var(--text); background: var(--glass2); }
 
-.lead-modal { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: 20px; background: rgba(3,3,9,.78); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: .2s ease; }
+.lead-modal { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: 20px; background: rgba(3,3,9,.78); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: .2s ease; cursor: auto !important; }
+.lead-modal * { cursor: auto !important; }
+.lead-modal button { cursor: pointer !important; }
 .lead-modal.open { opacity: 1; visibility: visible; }
 .lead-dialog { width: min(100%, 470px); position: relative; padding: 32px; border-radius: 24px; background: #10101d; border: 1px solid var(--border); box-shadow: 0 30px 100px rgba(0,0,0,.65); transform: translateY(12px); transition: transform .2s ease; }
 .lead-modal.open .lead-dialog { transform: none; }
@@ -176,10 +178,6 @@ nav {
 .lead-input, .lead-textarea { width: 100%; padding: 13px 14px; color: var(--text); background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; outline: none; font: inherit; }
 .lead-input:focus, .lead-textarea:focus { border-color: var(--p3); box-shadow: 0 0 0 3px rgba(167,139,250,.1); }
 .lead-textarea { min-height: 88px; resize: vertical; }
-.contact-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.contact-option input { position: absolute; opacity: 0; pointer-events: none; }
-.contact-option span { display: block; padding: 11px 8px; text-align: center; border: 1px solid rgba(255,255,255,.11); border-radius: 10px; color: var(--dim); cursor: pointer; font-size: .8rem; }
-.contact-option input:checked + span { color: var(--text); border-color: var(--p3); background: rgba(124,58,237,.18); }
 .lead-submit { padding: 14px 20px; border: 0; border-radius: 11px; color: #080810; background: var(--p3); font: 700 .92rem 'Manrope',sans-serif; cursor: pointer; }
 .footer-contact { color: var(--muted); font-size: .78rem; text-decoration: none; transition: color .2s; }
 .footer-contact:hover { color: var(--p3); }
@@ -1758,14 +1756,9 @@ footer {
   <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-title">
     <button class="lead-close" type="button" aria-label="Закрыть">×</button>
     <h2 id="lead-title">Оставить заявку</h2>
-    <p>Укажите телефон и удобный способ связи.</p>
+    <p>Оставьте телефон — мы свяжемся с вами.</p>
     <form class="lead-form" id="lead-form">
       <label class="lead-label">Телефон *<input class="lead-input" name="phone" type="tel" autocomplete="tel" placeholder="+7 999 123-45-67" required></label>
-      <fieldset class="lead-label" style="border:0;padding:0;margin:0"><legend style="margin-bottom:8px">Как удобно связаться? *</legend><div class="contact-options">
-        <label class="contact-option"><input type="radio" name="contact" value="Написать" required><span>Написать</span></label>
-        <label class="contact-option"><input type="radio" name="contact" value="Позвонить"><span>Позвонить</span></label>
-        <label class="contact-option"><input type="radio" name="contact" value="Telegram"><span>Telegram</span></label>
-      </div></fieldset>
       <label class="lead-label">Комментарий (необязательно)<textarea class="lead-textarea" name="comment" placeholder="Коротко опишите задачу"></textarea></label>
       <button class="lead-submit" type="submit">Отправить заявку</button>
     </form>
@@ -1792,7 +1785,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLead(
 leadForm.addEventListener('submit', e => {
   e.preventDefault();
   const data = new FormData(leadForm);
-  const message = `Новая заявка с сайта%0AТелефон: ${encodeURIComponent(data.get('phone'))}%0AСвязаться: ${encodeURIComponent(data.get('contact'))}%0AКомментарий: ${encodeURIComponent(data.get('comment') || '—')}`;
+  const message = `Новая заявка с сайта%0AТелефон: ${encodeURIComponent(data.get('phone'))}%0AКомментарий: ${encodeURIComponent(data.get('comment') || '—')}`;
   window.open(`https://t.me/Alexfreeeman?text=${message}`, '_blank', 'noopener');
   closeLead();
 });
