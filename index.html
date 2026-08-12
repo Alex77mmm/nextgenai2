@@ -757,6 +757,37 @@ nav {
 }
 .btn-tg:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,58,237,0.6), inset 0 1px 0 rgba(255,255,255,0.12); }
 .tg-icon { font-size: 1.2rem; }
+.cta-actions {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.channel-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 54px; padding: 10px 16px 10px 10px;
+  color: var(--text); text-decoration: none;
+  border-radius: 999px; border: 1px solid rgba(167,139,250,0.18);
+  background: rgba(255,255,255,0.045);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform 0.25s, border-color 0.25s, background 0.25s;
+}
+.channel-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167,139,250,0.42);
+  background: rgba(167,139,250,0.11);
+}
+.channel-icon {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2aabee, #229ed9);
+  box-shadow: 0 0 24px rgba(34,158,217,0.28);
+  font-size: 1rem;
+}
+.channel-text {
+  display: flex; flex-direction: column; gap: 2px;
+  font-size: 0.78rem; line-height: 1.15; color: var(--muted);
+}
+.channel-text strong {
+  font-size: 0.86rem; color: var(--text); font-weight: 800;
+}
 
 .ceo-portrait {
   position: absolute; z-index: 1; top: 26px; right: 14px; bottom: 0;
@@ -1032,7 +1063,9 @@ footer {
   .cta-sub { margin: 0 auto 36px; }
   .cta-features { gap: 8px; }
   .cta-features { justify-content: center; }
+  .cta-actions { justify-content: center; }
   .btn-tg { width: 100%; justify-content: center; }
+  .channel-link { width: 100%; justify-content: center; }
   .ceo-portrait {
     position: relative; inset: auto; width: 100%; height: 500px;
     margin: 36px auto 0;
@@ -1144,6 +1177,8 @@ footer {
   .cta-sub { font-size: 0.92rem; }
   .cta-feat { font-size: 0.78rem; padding: 6px 12px; }
   .btn-tg { font-size: 0.95rem; padding: 14px 24px; }
+  .channel-link { min-height: 50px; padding: 9px 14px 9px 9px; }
+  .channel-icon { width: 34px; height: 34px; }
 }
 </style>
 
@@ -1841,10 +1876,16 @@ footer {
         <div class="cta-feat">Демо под ваш проект</div>
         <div class="cta-feat">3 готовые стратегии</div>
       </div>
-      <a class="btn-tg" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer" data-direct-tg>
-        <span class="tg-icon">✈</span>
-        Написать в ТГ
-      </a>
+      <div class="cta-actions">
+        <a class="btn-tg" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer" data-direct-tg>
+          <span class="tg-icon">✈</span>
+          Написать в ТГ
+        </a>
+        <a class="channel-link" href="https://t.me/growth1hack" target="_blank" rel="noopener noreferrer" aria-label="Перейти в Telegram-канал Взлом роста">
+          <span class="channel-icon">✈</span>
+          <span class="channel-text"><strong>Взлом роста</strong><span>Telegram-канал</span></span>
+        </a>
+      </div>
     </div>
     <figure class="ceo-portrait">
       <img src="assets/alexey-popov-ceo.webp" alt="Алексей Попов, CEO NextGen AI" width="1024" height="1536" loading="lazy">
