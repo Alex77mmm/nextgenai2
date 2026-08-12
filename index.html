@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextGen AI — ИИ‑продавцы в Telegram</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&display=swap" rel="stylesheet">
 <style>
 /* ─── RESET ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -624,41 +624,47 @@ nav {
 .cases-more:hover { color: #fff; background: rgba(124,58,237,0.16); border-color: rgba(167,139,250,0.62); transform: translateY(-2px); }
 
 /* ─── TESTIMONIALS ───────────────────────────── */
-#testimonials { padding: 70px 0 55px; }
+#testimonials { padding: 110px 0 100px; }
 .testimonials-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
 .testimonials-track {
-  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(310px, 1fr);
-  gap: 14px; margin-top: 44px; padding: 4px 2px 18px;
-  overflow-x: auto; overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory; scrollbar-width: none; -ms-overflow-style: none;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px; margin-top: 44px; padding: 4px 2px 18px;
+  overflow: visible;
 }
 .testimonials-track::-webkit-scrollbar { display: none; }
 .quote-card {
-  min-height: 300px; display: flex; flex-direction: column; justify-content: space-between;
-  padding: 28px; border-radius: var(--r-lg); scroll-snap-align: start;
+  min-height: 315px; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 30px; border-radius: var(--r-lg); scroll-snap-align: start;
   background:
-    radial-gradient(circle at 18% 16%, rgba(167,139,250,0.12), transparent 34%),
+    radial-gradient(circle at 18% 14%, rgba(52,211,153,0.085), transparent 30%),
+    radial-gradient(circle at 88% 86%, rgba(167,139,250,0.12), transparent 34%),
     var(--glass);
-  border: 1px solid rgba(255,255,255,0.075);
+  border: 1px solid rgba(255,255,255,0.08);
   position: relative; overflow: hidden;
 }
 .quote-card::before {
-  content: '“'; position: absolute; right: 24px; top: 8px;
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 7rem; line-height: 1;
-  color: rgba(167,139,250,0.08);
+  content: '“'; position: absolute; right: 22px; top: 8px;
+  font-family: 'Literata', serif; font-size: 7.4rem; line-height: 1;
+  color: rgba(167,139,250,0.09);
 }
 .quote-text {
   position: relative; z-index: 1;
-  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
-  font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.02em;
+  font-family: 'Literata', serif; font-weight: 600;
+  font-size: 1.18rem; line-height: 1.55; letter-spacing: -0.01em;
   color: var(--text);
 }
-.quote-person { display: flex; flex-direction: column; gap: 5px; margin-top: 28px; }
-.quote-name { color: var(--p3); font-weight: 800; font-size: 0.9rem; }
-.quote-role { color: var(--muted); font-size: 0.8rem; line-height: 1.45; }
+.quote-person { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: center; margin-top: 30px; }
+.quote-avatar {
+  width: 42px; height: 42px; display: grid; place-items: center;
+  border-radius: 50%; color: #0a0a12; background: var(--p3);
+  font-weight: 900; font-size: 0.9rem;
+  box-shadow: 0 0 24px rgba(167,139,250,0.26);
+}
+.quote-name { color: var(--text); font-weight: 800; font-size: 0.92rem; line-height: 1.2; }
+.quote-role { color: var(--muted); font-size: 0.78rem; line-height: 1.35; margin-top: 4px; }
 
 /* ─── RESULTS ─────────────────────────────── */
-#results { padding: 80px 0 60px; }
+#results { padding: 110px 0 90px; }
 .results-split { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: start; }
 .results-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
@@ -685,7 +691,7 @@ nav {
 .trust-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.7rem; color: var(--green); }
 
 /* ─── CTA ─────────────────────────────────── */
-#cta { padding: 40px 28px 100px; }
+#cta { padding: 70px 28px 110px; }
 .cta-box {
   max-width: 1140px; min-height: 600px; margin: 0 auto;
   display: flex; align-items: center; text-align: left;
@@ -732,6 +738,7 @@ nav {
   color: #fff !important; text-decoration: none;
   background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%) !important;
   border: none; border-radius: var(--r-sm); padding: 16px 32px;
+  min-width: 255px; justify-content: center;
   box-shadow: 0 0 40px rgba(124,58,237,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
   transition: transform 0.25s, box-shadow 0.25s;
   position: relative; overflow: hidden;
@@ -776,20 +783,8 @@ nav {
   font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
 }
 
-.project-note {
-  max-width: 1140px; margin: 18px auto 0; padding: 28px 32px;
-  display: grid; grid-template-columns: 1.05fr 1.7fr; gap: 36px; align-items: start;
-  border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r-md);
-  background: rgba(255,255,255,0.03);
-}
-.project-note-title {
-  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
-  font-size: 1.18rem; letter-spacing: -0.03em;
-}
-.project-note-text { color: var(--dim); font-size: 0.92rem; line-height: 1.7; }
-
 /* ─── FAQ ─────────────────────────────────── */
-#faq { padding: 80px 0 60px; }
+#faq { padding: 110px 0 90px; }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 50px; }
 .faq-item {
   background: var(--glass);
@@ -829,7 +824,7 @@ nav {
 
 /* ─── FOOTER LOGIN ───────────────────────────── */
 .footer-login-wrap {
-  text-align: center; padding: 56px 28px 34px;
+  text-align: center; padding: 42px 28px 34px;
 }
 .btn-footer-login {
   display: inline-flex; align-items: center; gap: 10px;
@@ -1006,7 +1001,7 @@ footer {
   .cases-bento { grid-template-rows: none; grid-auto-columns: minmax(280px, 48%); gap: 10px; }
   .case-n { font-size: 3rem; }
   #testimonials { padding: 60px 0 40px; }
-  .testimonials-track { grid-auto-columns: minmax(280px, 62%); }
+  .testimonials-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   /* Results */
   #results { padding: 70px 0 50px; }
@@ -1031,7 +1026,6 @@ footer {
   .cta-features { gap: 8px; }
   .cta-features { justify-content: center; }
   .btn-tg { width: 100%; justify-content: center; }
-  .project-note { grid-template-columns: 1fr; gap: 14px; margin: 16px 20px 0; padding: 24px; text-align: left; }
   .ceo-portrait {
     position: relative; inset: auto; width: 100%; height: 500px;
     margin: 36px auto 0;
@@ -1111,7 +1105,10 @@ footer {
   .cases-bento { grid-template-rows: none; grid-auto-columns: 88%; gap: 10px; margin-top: 30px; }
   .case-card { padding: 24px 20px; }
   .case-n { font-size: 2.6rem; }
-  .testimonials-track { grid-auto-columns: 88%; gap: 10px; margin-top: 30px; }
+  .testimonials-track {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 88%;
+    gap: 10px; margin-top: 30px; overflow-x: auto; scroll-snap-type: inline mandatory; scrollbar-width: none;
+  }
   .quote-card { min-height: 280px; padding: 24px 20px; }
   .quote-text { font-size: 1.08rem; }
 
@@ -1696,29 +1693,29 @@ footer {
       <article class="quote-card reveal">
         <div class="quote-text">Оптимальный канал для сложных B2B-продуктов с высоким чеком.</div>
         <div class="quote-person">
-          <div class="quote-name">Дмитрий</div>
-          <div class="quote-role">Основатель B2B-бюро</div>
+          <div class="quote-avatar">Д</div>
+          <div><div class="quote-name">Дмитрий</div><div class="quote-role">Основатель B2B-бюро</div></div>
         </div>
       </article>
       <article class="quote-card reveal reveal-d1">
         <div class="quote-text">Классные лиды по инфобизу, экспертам и бизнесам, которые продают через контент.</div>
         <div class="quote-person">
-          <div class="quote-name">Сергей</div>
-          <div class="quote-role">AI-контент завод</div>
+          <div class="quote-avatar">С</div>
+          <div><div class="quote-name">Сергей</div><div class="quote-role">AI-контент завод</div></div>
         </div>
       </article>
       <article class="quote-card reveal reveal-d2">
         <div class="quote-text">Получили 300+ обращений от организаторов и смежных специалистов event-индустрии. Последний проект — с выручкой 980 тыс.</div>
         <div class="quote-person">
-          <div class="quote-name">Екатерина</div>
-          <div class="quote-role">Агентство декора «Первичники»</div>
+          <div class="quote-avatar">Е</div>
+          <div><div class="quote-name">Екатерина</div><div class="quote-role">Агентство декора «Первоисточники»</div></div>
         </div>
       </article>
       <article class="quote-card reveal reveal-d3">
         <div class="quote-text">Получили более 30 заявок на диагностику. Рабочий инструмент.</div>
         <div class="quote-person">
-          <div class="quote-name">Никита</div>
-          <div class="quote-role">Основатель клиники BrainPro</div>
+          <div class="quote-avatar">Н</div>
+          <div><div class="quote-name">Никита</div><div class="quote-role">Основатель клиники BrainPro</div></div>
         </div>
       </article>
     </div>
@@ -1846,10 +1843,6 @@ footer {
         <span>CEO NextGen AI</span>
       </figcaption>
     </figure>
-  </div>
-  <div class="project-note reveal">
-    <div class="project-note-title">NextGen AI — сервис исходящих Telegram-диалогов на базе ИИ</div>
-    <div class="project-note-text">Мы помогаем находить целевую аудиторию, запускать персональные касания и доводить диалоги до заявки. Подходит для ниш, где важны доверие, объяснение ценности и аккуратная работа с возражениями: B2B, услуги, эксперты, образование, event, медицина и e-commerce.</div>
   </div>
 </section>
 
