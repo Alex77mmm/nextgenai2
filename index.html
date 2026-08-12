@@ -1760,7 +1760,9 @@ footer {
     <form class="lead-form" id="lead-form">
       <label class="lead-label">Телефон *<input class="lead-input" name="phone" type="tel" autocomplete="tel" placeholder="+7 999 123-45-67" required></label>
       <label class="lead-label">Комментарий (необязательно)<textarea class="lead-textarea" name="comment" placeholder="Коротко опишите задачу"></textarea></label>
+      <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <button class="lead-submit" type="submit">Отправить заявку</button>
+      <div class="lead-status" role="status" aria-live="polite" style="min-height:20px;color:var(--dim);font-size:.82rem;text-align:center"></div>
     </form>
   </div>
 </div>
@@ -1782,12 +1784,32 @@ document.querySelectorAll('a[href="https://t.me/Alexfreeeman"]').forEach(a => a.
 leadModal.querySelector('.lead-close').addEventListener('click', closeLead);
 leadModal.addEventListener('click', e => { if (e.target === leadModal) closeLead(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLead(); closeMenu(); } });
-leadForm.addEventListener('submit', e => {
+leadForm.addEventListener('submit', async e => {
   e.preventDefault();
   const data = new FormData(leadForm);
-  const message = `Новая заявка с сайта%0AТелефон: ${encodeURIComponent(data.get('phone'))}%0AКомментарий: ${encodeURIComponent(data.get('comment') || '—')}`;
-  window.open(`https://t.me/Alexfreeeman?text=${message}`, '_blank', 'noopener');
-  closeLead();
+  const button = leadForm.querySelector('.lead-submit');
+  const status = leadForm.querySelector('.lead-status');
+  button.disabled = true;
+  button.textContent = 'Отправляем…';
+  status.textContent = '';
+  try {
+    const response = await fetch('https://nextgen-leads.vercel.app/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(data)),
+    });
+    if (!response.ok) throw new Error('Request failed');
+    leadForm.reset();
+    status.style.color = 'var(--green)';
+    status.textContent = 'Заявка отправлена. Скоро свяжемся!';
+    setTimeout(closeLead, 1600);
+  } catch {
+    status.style.color = '#fb7185';
+    status.textContent = 'Не удалось отправить. Позвоните: +7 999 123-62-59';
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Отправить заявку';
+  }
 });
 
 /* ── SCROLL REVEAL ── */
