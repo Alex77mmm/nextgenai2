@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Заявка отправлена — NextGen AI</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background:
+        radial-gradient(circle at 24% 20%, rgba(124,58,237,.22), transparent 32%),
+        radial-gradient(circle at 78% 70%, rgba(52,211,153,.12), transparent 30%),
+        #09090d;
+      color: #f4f1ff; font: 16px/1.55 Arial, sans-serif;
+    }
+    main {
+      width: min(620px, calc(100% - 36px)); padding: 42px 34px;
+      border: 1px solid rgba(167,139,250,.24); border-radius: 24px;
+      background: rgba(16,16,29,.78); box-shadow: 0 30px 100px rgba(0,0,0,.55);
+      text-align: center;
+    }
+    .mark {
+      width: 58px; height: 58px; margin: 0 auto 22px; display: grid; place-items: center;
+      border-radius: 50%; color: #34d399; background: rgba(52,211,153,.12);
+      border: 1px solid rgba(52,211,153,.28); font-size: 1.5rem;
+    }
+    h1 { margin: 0 0 14px; font-size: clamp(2rem, 7vw, 3.2rem); line-height: 1.05; letter-spacing: -.04em; }
+    p { margin: 0 auto 28px; max-width: 460px; color: #c7c5d1; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    a {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+      padding: 12px 18px; border-radius: 12px; text-decoration: none; font-weight: 800;
+    }
+    .tg { color: #080810; background: #a78bfa; }
+    .back { color: #d9d2ff; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); }
+  </style>
+</head>
+<body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111532699', 'ym');
+
+        ym(111532699, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        if (window.ym) ym(111532699, 'reachGoal', 'thank_you_view');
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111532699" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  <main>
+    <div class="mark">✓</div>
+    <h1>Заявка отправлена</h1>
+    <p>Мы получили ваш номер и свяжемся в ближайшее время. Если удобнее быстрее, напишите напрямую в Telegram.</p>
+    <div class="actions">
+      <a class="tg" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      <a class="back" href="index.html">Вернуться на сайт</a>
+    </div>
+  </main>
+</body>
+</html>
