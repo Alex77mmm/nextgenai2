@@ -670,21 +670,32 @@ nav {
 .quote-name { color: var(--text); font-weight: 800; font-size: 0.92rem; line-height: 1.2; }
 .quote-role { color: var(--muted); font-size: 0.78rem; line-height: 1.35; margin-top: 4px; }
 
-/* ─── VIDEO PROOF ───────────────────────────── */
-#videos { padding: 34px 0 96px; }
+/* ─── TESTIMONIAL VIDEOS ───────────────────────────── */
+.testimonial-videos {
+  margin-top: 18px; padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.video-mini-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-bottom: 12px;
+  color: var(--muted); font-size: 0.78rem;
+}
+.video-mini-head strong {
+  color: var(--text); font-weight: 800; font-size: 0.9rem;
+}
 .video-grid {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px; margin-top: 34px;
+  gap: 12px;
 }
 .video-card {
   position: relative; overflow: hidden;
-  border-radius: 18px;
+  border-radius: 16px;
   background:
     radial-gradient(circle at 14% 12%, rgba(52,211,153,0.09), transparent 32%),
     radial-gradient(circle at 86% 88%, rgba(124,58,237,0.18), transparent 36%),
     rgba(255,255,255,0.045);
   border: 1px solid rgba(255,255,255,0.09);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
 }
 .video-frame {
   position: relative; aspect-ratio: 16 / 9;
@@ -696,12 +707,12 @@ nav {
 }
 .video-caption {
   display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  padding: 12px 14px;
-  color: var(--muted); font-size: 0.76rem;
+  padding: 10px 12px;
+  color: var(--muted); font-size: 0.72rem;
   border-top: 1px solid rgba(255,255,255,0.07);
 }
 .video-caption strong {
-  color: var(--text); font-weight: 800; font-size: 0.82rem;
+  color: var(--text); font-weight: 800; font-size: 0.78rem;
 }
 
 /* ─── RESULTS ─────────────────────────────── */
@@ -1074,8 +1085,8 @@ footer {
   .case-n { font-size: 3rem; }
   #testimonials { padding: 60px 0 40px; }
   .testimonials-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #videos { padding: 28px 0 64px; }
-  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+  .testimonial-videos { margin-top: 14px; padding-top: 16px; }
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .video-caption { padding: 11px 13px; }
 
   /* Results */
@@ -1152,7 +1163,7 @@ footer {
   .stat-l { font-size: 0.75rem; }
 
   /* Sections padding */
-  #pain, #solution, #how, #cases, #testimonials, #videos, #results, #faq { padding: 56px 0 40px; }
+  #pain, #solution, #how, #cases, #testimonials, #results, #faq { padding: 56px 0 40px; }
   .section-inner { padding: 56px 16px; }
   .section-h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
   .wrap { padding: 0 16px; }
@@ -1785,22 +1796,22 @@ footer {
           <div class="quote-avatar"><img src="assets/testimonial-nikita.jpg" alt="Дмитрий" loading="lazy"></div>
           <div><div class="quote-name">Дмитрий</div><div class="quote-role">Основатель B2B-бюро</div></div>
         </div>
-      </article>
-      <article class="quote-card reveal reveal-d1">
+        </article>
+        <article class="quote-card reveal reveal-d1">
         <div class="quote-text">Лиды приходят в тему: инфобиз, эксперты, бизнесы, которые продают через контент — прям наш профиль</div>
         <div class="quote-person">
           <div class="quote-avatar"><img src="assets/testimonial-dmitry.jpg" alt="Сергей" loading="lazy"></div>
           <div><div class="quote-name">Сергей</div><div class="quote-role">AI-контент завод</div></div>
         </div>
-      </article>
-      <article class="quote-card reveal reveal-d2">
+        </article>
+        <article class="quote-card reveal reveal-d2">
         <div class="quote-text">Получили 300+ обращений от организаторов и смежных специалистов event-индустрии. Один из последних проектов принес 980 тыс. выручки</div>
         <div class="quote-person">
           <div class="quote-avatar"><img src="assets/testimonial-ekaterina.jpg" alt="Екатерина" loading="lazy"></div>
           <div><div class="quote-name">Екатерина</div><div class="quote-role">Агентство декора «Первоисточники»</div></div>
         </div>
-      </article>
-      <article class="quote-card reveal reveal-d3">
+        </article>
+        <article class="quote-card reveal reveal-d3">
         <div class="quote-text">За запуск получили больше 30 заявок на диагностику. Для нас это рабочий инструмент, не просто тест</div>
         <div class="quote-person">
           <div class="quote-avatar"><img src="assets/testimonial-sergey.jpg" alt="Никита" loading="lazy"></div>
@@ -1808,93 +1819,58 @@ footer {
         </div>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- ── VIDEOS ── -->
-<section id="videos" class="z1">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-eyebrow">Видео</div>
-      <h2 class="section-h2">Посмотрите, как это <span class="grad">работает</span></h2>
-      <p class="section-sub">Короткие видео с разбором подхода, запусков и логики работы Telegram‑агентов.</p>
-    </div>
-    <div class="video-grid">
-      <article class="video-card reveal">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/IuTHWOeTZdA"
-            title="NextGen AI — видео 1"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video-caption">
-          <strong>Видео 01</strong>
-          <span>YouTube</span>
-        </div>
-      </article>
-      <article class="video-card reveal reveal-d1">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/TGsenIpLSvc"
-            title="NextGen AI — видео 2"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video-caption">
-          <strong>Видео 02</strong>
-          <span>YouTube</span>
-        </div>
-      </article>
-      <article class="video-card reveal reveal-d2">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/dwkqYFdMBHs"
-            title="NextGen AI — видео 3"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video-caption">
-          <strong>Видео 03</strong>
-          <span>YouTube</span>
-        </div>
-      </article>
-      <article class="video-card reveal reveal-d3">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/qbuzPObN3Oc"
-            title="NextGen AI — видео 4"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video-caption">
-          <strong>Видео 04</strong>
-          <span>YouTube</span>
-        </div>
-      </article>
-      <article class="video-card reveal">
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/8IrMyL8dZE8"
-            title="NextGen AI — видео 5"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video-caption">
-          <strong>Видео 05</strong>
-          <span>YouTube</span>
-        </div>
-      </article>
+    <div class="testimonial-videos reveal">
+      <div class="video-mini-head">
+        <strong>Видео клиентов</strong>
+        <span>3 коротких ролика</span>
+      </div>
+      <div class="video-grid">
+        <article class="video-card reveal">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/oCA_sUUKsfo"
+              title="NextGen AI — видео клиента 1"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <strong>Видео 01</strong>
+            <span>YouTube</span>
+          </div>
+        </article>
+        <article class="video-card reveal reveal-d1">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/elifspKYr_Q"
+              title="NextGen AI — видео клиента 2"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <strong>Видео 02</strong>
+            <span>YouTube</span>
+          </div>
+        </article>
+        <article class="video-card reveal reveal-d2">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/8IrMyL8dZE8"
+              title="NextGen AI — видео клиента 3"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <strong>Видео 03</strong>
+            <span>YouTube</span>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
