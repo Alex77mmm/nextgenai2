@@ -1095,7 +1095,15 @@ footer {
   /* Results */
   #results { padding: 70px 0 50px; }
   .results-split { grid-template-columns: 1fr; gap: 36px; }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .results-grid {
+    grid-template-columns: none; grid-template-rows: none; grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 88%); gap: 10px;
+    overflow-x: auto; overflow-y: hidden; padding: 2px 2px 18px;
+    touch-action: pan-x; overscroll-behavior-inline: contain; overscroll-behavior-y: none;
+    scroll-snap-type: inline mandatory; scrollbar-width: none;
+  }
+  .results-grid::-webkit-scrollbar { display: none; }
+  .result-card { scroll-snap-align: start; min-width: 0; }
 
   /* FAQ */
   #faq { padding: 70px 0 50px; }
@@ -1206,7 +1214,7 @@ footer {
   .quote-text { font-size: 1.08rem; }
 
   /* Results */
-  .results-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .results-grid { grid-template-columns: none; gap: 8px; }
   .result-card { padding: 18px 14px; }
   .rc-val { font-size: 1.4rem; }
   .rc-label { font-size: 0.72rem; }
