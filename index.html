@@ -647,10 +647,27 @@ nav {
 /* ─── TESTIMONIALS ───────────────────────────── */
 #testimonials { padding: 110px 0 100px; }
 .testimonials-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+.testimonials-nav { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.testimonials-count {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.82rem; font-weight: 800;
+  color: var(--muted); min-width: 58px; text-align: center;
+}
+.testimonials-arrow {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04); color: var(--text);
+  transition: transform .2s, border-color .2s, background .2s, opacity .2s;
+}
+.testimonials-arrow:hover:not(:disabled) {
+  transform: translateY(-2px); border-color: rgba(167,139,250,0.55); background: rgba(124,58,237,0.14);
+}
+.testimonials-arrow:disabled { opacity: 0.28; cursor: default; }
 .testimonials-track {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, minmax(315px, 1fr));
+  grid-auto-columns: calc((100% - 16px) / 2);
   gap: 16px; margin-top: 44px; padding: 4px 2px 18px;
-  overflow: visible;
+  overflow-x: auto; scroll-snap-type: inline mandatory; scrollbar-width: none;
 }
 .testimonials-track::-webkit-scrollbar { display: none; }
 .quote-card {
@@ -687,6 +704,11 @@ nav {
   border-radius: 50%;
   object-fit: cover;
   background: #11111b;
+}
+.quote-avatar-fallback {
+  width: 100%; height: 100%; display: grid; place-items: center;
+  border-radius: 50%; background: linear-gradient(135deg, #151528, #25124a);
+  color: #fff; font-weight: 900; font-size: 0.78rem;
 }
 .quote-name { color: var(--text); font-weight: 800; font-size: 0.92rem; line-height: 1.2; }
 .quote-name a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
@@ -782,7 +804,7 @@ nav {
 .btn-tg:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,58,237,0.6), inset 0 1px 0 rgba(255,255,255,0.12); }
 .tg-icon { font-size: 1.2rem; }
 .cta-actions {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
 }
 .channel-link {
   display: inline-flex; align-items: center; gap: 10px;
@@ -1063,7 +1085,11 @@ footer {
   .cases-bento { grid-template-rows: none; grid-auto-columns: minmax(280px, 48%); gap: 10px; }
   .case-n { font-size: 3rem; }
   #testimonials { padding: 60px 0 40px; }
-  .testimonials-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .testimonials-track {
+    grid-template-rows: repeat(2, minmax(300px, 1fr));
+    grid-auto-columns: minmax(300px, calc((100% - 10px) / 2));
+    gap: 10px;
+  }
 
   /* Results */
   #results { padding: 70px 0 50px; }
@@ -1166,11 +1192,13 @@ footer {
   /* Cases */
   .cases-heading { align-items: flex-start; flex-direction: column; gap: 24px; }
   .cases-nav { align-self: stretch; justify-content: space-between; }
+  .testimonials-head { align-items: flex-start; flex-direction: column; gap: 24px; }
+  .testimonials-nav { align-self: stretch; justify-content: space-between; }
   .cases-bento { grid-template-rows: none; grid-auto-columns: 88%; gap: 10px; margin-top: 30px; }
   .case-card { padding: 24px 20px; }
   .case-n { font-size: 2.6rem; }
   .testimonials-track {
-    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 88%;
+    grid-template-columns: none; grid-template-rows: none; grid-auto-flow: column; grid-auto-columns: 88%;
     gap: 10px; margin-top: 30px; overflow-x: auto; scroll-snap-type: inline mandatory; scrollbar-width: none;
   }
   .quote-card { min-height: 280px; padding: 24px 20px; }
@@ -1699,7 +1727,7 @@ footer {
   <div class="wrap">
     <div class="cases-heading">
       <div class="reveal">
-        <div class="section-eyebrow">Демо-кейсы</div>
+        <div class="section-eyebrow">Кейсы</div>
         <h2 class="section-h2">Примеры <span class="grad">результатов</span></h2>
         <p class="section-sub">Показываем, как система работает в разных нишах — подберём сценарий и для вашего проекта.</p>
       </div>
@@ -1757,6 +1785,11 @@ footer {
         <h2 class="section-h2">Клиенты о <span class="grad">NextGen AI</span></h2>
         <p class="section-sub">Что отмечают клиенты после запуска: качество диалогов, заявки и понятный контроль результата.</p>
       </div>
+      <div class="testimonials-nav reveal" aria-label="Навигация по отзывам">
+        <span class="testimonials-count" aria-live="polite">01 / 02</span>
+        <button class="testimonials-arrow testimonials-prev" type="button" aria-label="Предыдущие отзывы">←</button>
+        <button class="testimonials-arrow testimonials-next" type="button" aria-label="Следующие отзывы">→</button>
+      </div>
     </div>
     <div class="testimonials-track">
       <article class="quote-card reveal">
@@ -1785,6 +1818,34 @@ footer {
         <div class="quote-person">
           <div class="quote-avatar"><img src="assets/testimonial-sergey.jpg" alt="Никита" loading="lazy"></div>
           <div><div class="quote-name"><a href="https://t.me/Nikberi" target="_blank" rel="noopener noreferrer">Никита <svg class="telegram-icon" viewBox="0 0 24 24" aria-label="Telegram" role="img"><path fill="currentColor" d="M21.8 3.2 18.5 20c-.25 1.2-.92 1.5-1.87.94l-5.16-3.8-2.49 2.4c-.28.28-.51.51-1.05.51l.37-5.25 9.55-8.63c.42-.37-.09-.58-.65-.21L5.39 13.3.27 11.7c-1.11-.35-1.13-1.11.23-1.62L20.5 2.4c.94-.35 1.77.22 1.3.8Z"/></svg></a></div><div class="quote-role">Основатель клиники BrainPro</div></div>
+        </div>
+      </article>
+      <article class="quote-card reveal">
+        <div class="quote-text">В карго много заявок с вопросом “сколько стоит доставка”. Агент сразу уточняет город, вес, категорию товара и передает нам уже нормальный просчет, а не пустой контакт</div>
+        <div class="quote-person">
+          <div class="quote-avatar"><div class="quote-avatar-fallback">АЛ</div></div>
+          <div><div class="quote-name">Алексей</div><div class="quote-role">Карго из Китая</div></div>
+        </div>
+      </article>
+      <article class="quote-card reveal reveal-d1">
+        <div class="quote-text">Для мебели на заказ важны замеры, стиль и бюджет. Бот не просто собирает лиды, а доводит человека до понятного ТЗ, после чего менеджеру легче закрывать в расчет</div>
+        <div class="quote-person">
+          <div class="quote-avatar"><div class="quote-avatar-fallback">РМ</div></div>
+          <div><div class="quote-name">Роман</div><div class="quote-role">Студия мебели на заказ</div></div>
+        </div>
+      </article>
+      <article class="quote-card reveal reveal-d2">
+        <div class="quote-text">Для селлеров МП нашли неучтенные потери: зависшие возвраты, недополученные выплаты и спорные списания. Агент быстро выводит владельца на аудит и понятный расчет</div>
+        <div class="quote-person">
+          <div class="quote-avatar"><div class="quote-avatar-fallback">АП</div></div>
+          <div><div class="quote-name">Александр</div><div class="quote-role">Возврат неучтенных потерь у селлеров МП</div></div>
+        </div>
+      </article>
+      <article class="quote-card reveal reveal-d3">
+        <div class="quote-text">Фулфилменту сложно объяснять условия в первом касании. Агент сегментирует продавцов по обороту и площадкам, поэтому в отдел продаж попадают уже подходящие селлеры</div>
+        <div class="quote-person">
+          <div class="quote-avatar"><div class="quote-avatar-fallback">ПФ</div></div>
+          <div><div class="quote-name">Павел</div><div class="quote-role">Фулфилмент для селлеров</div></div>
         </div>
       </article>
     </div>
@@ -2632,6 +2693,52 @@ document.querySelectorAll('#cases').forEach(section => {
   track.addEventListener('scroll', updateCasesNav, { passive: true });
   window.addEventListener('resize', updateCasesNav, { passive: true });
   updateCasesNav();
+});
+
+/* ── TESTIMONIALS CAROUSEL ── */
+document.querySelectorAll('#testimonials').forEach(section => {
+  const track = section.querySelector('.testimonials-track');
+  const prev = section.querySelector('.testimonials-prev');
+  const next = section.querySelector('.testimonials-next');
+  const count = section.querySelector('.testimonials-count');
+  if (!track || !prev || !next || !count) return;
+
+  const pad = value => String(value).padStart(2, '0');
+
+  function getCardsPerPage() {
+    return window.matchMedia('(max-width: 480px)').matches ? 1 : 4;
+  }
+
+  function getTotalPages() {
+    return Math.max(1, Math.ceil(track.querySelectorAll('.quote-card').length / getCardsPerPage()));
+  }
+
+  function getCurrentPage() {
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    if (!maxScroll) return 1;
+    if (track.scrollLeft >= maxScroll - 4) return getTotalPages();
+    return Math.min(getTotalPages(), Math.round(track.scrollLeft / track.clientWidth) + 1);
+  }
+
+  function updateTestimonialsNav() {
+    const total = getTotalPages();
+    const page = getCurrentPage();
+    count.textContent = `${pad(page)} / ${pad(total)}`;
+    prev.disabled = page <= 1;
+    next.disabled = page >= total;
+  }
+
+  prev.addEventListener('click', () => {
+    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+  });
+
+  next.addEventListener('click', () => {
+    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+  });
+
+  track.addEventListener('scroll', updateTestimonialsNav, { passive: true });
+  window.addEventListener('resize', updateTestimonialsNav, { passive: true });
+  updateTestimonialsNav();
 });
 
 </script>
