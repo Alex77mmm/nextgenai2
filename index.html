@@ -580,7 +580,7 @@ nav {
   grid-auto-columns: calc((100% - 28px) / 3);
   gap: 14px; margin-top: 56px; padding: 4px 2px 18px;
   overflow-x: auto; overflow-y: hidden;
-  touch-action: pan-x; overscroll-behavior-inline: contain; overscroll-behavior-y: none;
+  touch-action: pan-x pan-y; overscroll-behavior-inline: contain; overscroll-behavior-y: none;
   scroll-snap-type: inline mandatory; scroll-behavior: smooth;
   scrollbar-width: none; -ms-overflow-style: none;
 }
@@ -1099,7 +1099,7 @@ footer {
     grid-template-columns: none; grid-template-rows: none; grid-auto-flow: column;
     grid-auto-columns: minmax(280px, 88%); gap: 10px;
     overflow-x: auto; overflow-y: hidden; padding: 2px 2px 18px;
-    touch-action: pan-x; overscroll-behavior-inline: contain; overscroll-behavior-y: none;
+    touch-action: pan-x pan-y; overscroll-behavior-inline: contain; overscroll-behavior-y: none;
     scroll-snap-type: inline mandatory; scrollbar-width: none;
   }
   .results-grid::-webkit-scrollbar { display: none; }
