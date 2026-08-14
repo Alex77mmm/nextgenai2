@@ -612,16 +612,37 @@ nav {
 .case-metric { display: flex; flex-direction: column; gap: 2px; }
 .cm-val { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.03em; color: var(--green); }
 .cm-label { font-size: 0.72rem; color: var(--muted); }
-.cases-more-wrap { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-.cases-more {
+.cases-more-wrap,
+.testimonials-more-wrap {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; margin-top: 24px; text-align: center;
+}
+.testimonials-more-wrap { margin-top: 34px; }
+.cases-more-copy,
+.testimonials-more-copy { max-width: 620px; }
+.cases-more-title,
+.testimonials-more-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.24rem; font-weight: 800; letter-spacing: -0.02em; color: #fff;
+}
+.cases-more-sub,
+.testimonials-more-sub {
+  margin-top: 7px; color: var(--muted); font-size: 0.94rem; line-height: 1.55;
+}
+.cases-more-actions,
+.testimonials-more-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.cases-more,
+.testimonials-more {
   display: inline-flex; align-items: center; gap: 12px; padding: 15px 24px;
   border: 1px solid rgba(167,139,250,0.36); border-radius: 12px;
   color: var(--p3); background: rgba(124,58,237,0.07);
   font-size: 0.92rem; font-weight: 800; text-decoration: none;
   transition: transform .2s, color .2s, background .2s, border-color .2s;
 }
-.cases-more::after { content: '↗'; font-size: 1.08rem; line-height: 1; }
-.cases-more:hover { color: #fff; background: rgba(124,58,237,0.16); border-color: rgba(167,139,250,0.62); transform: translateY(-2px); }
+.cases-more::after,
+.testimonials-more::after { content: '↗'; font-size: 1.08rem; line-height: 1; }
+.cases-more:hover,
+.testimonials-more:hover { color: #fff; background: rgba(124,58,237,0.16); border-color: rgba(167,139,250,0.62); transform: translateY(-2px); }
 
 /* ─── TESTIMONIALS ───────────────────────────── */
 #testimonials { padding: 110px 0 100px; }
@@ -1766,6 +1787,15 @@ footer {
           <div><div class="quote-name"><a href="https://t.me/Nikberi" target="_blank" rel="noopener noreferrer">Никита <svg class="telegram-icon" viewBox="0 0 24 24" aria-label="Telegram" role="img"><path fill="currentColor" d="M21.8 3.2 18.5 20c-.25 1.2-.92 1.5-1.87.94l-5.16-3.8-2.49 2.4c-.28.28-.51.51-1.05.51l.37-5.25 9.55-8.63c.42-.37-.09-.58-.65-.21L5.39 13.3.27 11.7c-1.11-.35-1.13-1.11.23-1.62L20.5 2.4c.94-.35 1.77.22 1.3.8Z"/></svg></a></div><div class="quote-role">Основатель клиники BrainPro</div></div>
         </div>
       </article>
+    </div>
+    <div class="testimonials-more-wrap">
+      <div class="testimonials-more-copy reveal">
+        <div class="testimonials-more-title">Хотите кейсы именно по вашей нише?</div>
+        <p class="testimonials-more-sub">Запросите подробные разборы, цифры и референс-лист похожих проектов — подберём примеры под ваш продукт, чек и аудиторию.</p>
+      </div>
+      <div class="testimonials-more-actions reveal reveal-d1">
+        <a class="testimonials-more" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Запросить подборку</a>
+      </div>
     </div>
   </div>
 </section>
