@@ -1470,7 +1470,7 @@ footer {
   </div>
 </nav>
 <div class="nav-menu" aria-hidden="true">
-  <a href="#pain">Проблемы</a><a href="#solution">Решение</a><a href="#how">Как работает</a><a href="#cases">Кейсы</a><a href="#results">Результаты</a><a href="#faq">Вопросы</a><a href="#cta">Оставить заявку</a><a href="#contacts">Контакты</a>
+  <a href="#pain">Проблемы</a><a href="#solution">Решение</a><a href="#how">Как работает</a><a href="#cases">Кейсы</a><a href="blog/">Блог</a><a href="#results">Результаты</a><a href="#faq">Вопросы</a><a href="#cta">Оставить заявку</a><a href="#contacts">Контакты</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -2142,9 +2142,16 @@ document.addEventListener('click', e => { if (!navMenu.contains(e.target)) close
 
 const leadModal = document.querySelector('#lead-modal');
 const leadForm = document.querySelector('#lead-form');
+const leadQuery = new URLSearchParams(window.location.search);
+const leadReferrer = document.referrer ? new URL(document.referrer) : null;
+const leadArticle = leadQuery.get('article') || (leadReferrer?.origin === window.location.origin && leadReferrer.pathname.startsWith('/blog/') ? leadReferrer.pathname.split('/').filter(Boolean).pop() : null);
 const openLead = () => { leadModal.classList.add('open'); leadModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(() => leadForm.phone.focus(), 100); };
 const closeLead = () => { leadModal.classList.remove('open'); leadModal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
 document.querySelectorAll('a[href="https://t.me/Alexfreeeman"]:not([data-direct-tg])').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openLead(); }));
+if (leadQuery.has('lead')) {
+  openLead();
+  if (window.ym) ym(111532699, 'reachGoal', 'article_cta_click', { article: leadArticle || 'blog' });
+}
 leadModal.querySelector('.lead-close').addEventListener('click', closeLead);
 leadModal.addEventListener('click', e => { if (e.target === leadModal) closeLead(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLead(); closeMenu(); } });
@@ -2158,10 +2165,12 @@ leadForm.addEventListener('submit', async e => {
   status.style.color = 'var(--dim)';
   status.textContent = '';
   try {
+    const payload = Object.fromEntries(data);
+    if (leadArticle) payload.comment = `[Источник: блог / ${leadArticle}]\n${payload.comment || ''}`.trim();
     const response = await fetch('https://nextgen-leads-a-s-projects13.vercel.app/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(data)),
+      body: JSON.stringify(payload),
     });
     if (!response.ok) throw new Error('Request failed');
     leadForm.reset();
