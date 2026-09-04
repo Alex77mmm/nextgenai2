@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /privacy.html
+Disallow: /terms.html
+Disallow: /cookies.html
+Disallow: /thank-you.html
+
+Sitemap: https://nextgenrussia.ru/sitemap.xml
