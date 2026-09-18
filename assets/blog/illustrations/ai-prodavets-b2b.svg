@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">ИИ-продавец в B2B</title>
+  <desc id="desc">Запрос, квалификация и передача горячего диалога</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/><path d="M0 480 230 330l180 95 230-190 190 115 370-190v240H0Z" fill="#211b3d"/>
+  <g font-family="Arial, sans-serif"><g fill="#24203f" stroke="#8b5cf6" stroke-width="2"><rect x="85" y="155" width="240" height="145" rx="18"/><rect x="480" y="155" width="240" height="145" rx="18"/><rect x="875" y="155" width="240" height="145" rx="18"/></g>
+  <g fill="#f2f1fb"><text x="115" y="205" font-size="18" fill="#bfa7ff">01</text><text x="115" y="244" font-size="28" font-weight="700">Запрос</text><text x="115" y="274" font-size="15" fill="#aaa8bd">что нужно компании</text><text x="510" y="205" font-size="18" fill="#bfa7ff">02</text><text x="510" y="244" font-size="28" font-weight="700">Квалификация</text><text x="510" y="274" font-size="15" fill="#aaa8bd">есть ли задача сейчас</text><text x="905" y="205" font-size="18" fill="#9df35b">03</text><text x="905" y="244" font-size="28" font-weight="700">Handoff</text><text x="905" y="274" font-size="15" fill="#aaa8bd">менеджер получает контекст</text></g></g>
+  <path d="M325 228h155M720 228h155" stroke="#9df35b" stroke-width="3"/><path d="m468 220 14 8-14 8m398-16 14 8-14 8" fill="none" stroke="#9df35b" stroke-width="3"/>
+</svg>

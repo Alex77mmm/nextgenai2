@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">ИИ-агенты для бизнеса</title><desc id="desc">Сигнал, правило и действие в автоматизированном сценарии</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/><circle cx="1050" cy="500" r="230" fill="#8b5cf6" opacity=".13"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2"><rect x="98" y="175" width="250" height="220" rx="18"/><rect x="475" y="175" width="250" height="220" rx="18"/><rect x="852" y="175" width="250" height="220" rx="18"/></g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif"><text x="130" y="225" font-size="18" fill="#bfa7ff">Сигнал</text><text x="130" y="281" font-size="30" font-weight="700">Новый ответ</text><text x="130" y="318" font-size="15" fill="#aaa8bd">появилась потребность</text><text x="507" y="225" font-size="18" fill="#bfa7ff">Правило</text><text x="507" y="281" font-size="30" font-weight="700">Проверить</text><text x="507" y="318" font-size="15" fill="#aaa8bd">подходит ли контакт</text><text x="884" y="225" font-size="18" fill="#9df35b">Действие</text><text x="884" y="281" font-size="30" font-weight="700">Передать</text><text x="884" y="318" font-size="15" fill="#aaa8bd">следующий шаг команде</text></g>
+  <path d="M348 285h127m251 0h126" stroke="#9df35b" stroke-width="3"/><path d="m463 277 14 8-14 8m367-16 14 8-14 8" fill="none" stroke="#9df35b" stroke-width="3"/>
+</svg>

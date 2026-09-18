@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Чат-бот и ИИ-продавец</title>
+  <desc id="desc">Сценарий, контекст диалога и передача менеджеру</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/><circle cx="130" cy="540" r="220" fill="#8b5cf6" opacity=".12"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2"><rect x="82" y="145" width="278" height="300" rx="20"/><rect x="462" y="115" width="278" height="360" rx="20"/><rect x="842" y="180" width="278" height="230" rx="20"/></g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif"><text x="116" y="198" font-size="18" fill="#bfa7ff">Сценарий</text><text x="116" y="249" font-size="31" font-weight="700">Ответить</text><text x="116" y="286" font-size="31" font-weight="700">на вопрос</text><text x="116" y="348" font-size="15" fill="#aaa8bd">фиксированная логика</text>
+  <text x="496" y="170" font-size="18" fill="#bfa7ff">Контекст</text><text x="496" y="221" font-size="31" font-weight="700">Понять</text><text x="496" y="258" font-size="31" font-weight="700">задачу</text><text x="496" y="320" font-size="15" fill="#aaa8bd">роль, сроки, потребность</text>
+  <text x="876" y="235" font-size="18" fill="#9df35b">Менеджер</text><text x="876" y="286" font-size="31" font-weight="700">Закрыть</text><text x="876" y="323" font-size="31" font-weight="700">следующий шаг</text></g>
+  <path d="M360 295h82m298 0h82" stroke="#9df35b" stroke-width="3"/><path d="m430 287 14 8-14 8m302-16 14 8-14 8" fill="none" stroke="#9df35b" stroke-width="3"/>
+</svg>

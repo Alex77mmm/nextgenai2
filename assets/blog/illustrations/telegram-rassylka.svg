@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Сценарий рассылки в Telegram</title>
+  <desc id="desc">Сегмент, персональное сообщение и ответ собеседника</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="1040" cy="82" r="180" fill="#8b5cf6" opacity=".13"/>
+  <path d="M94 415C244 300 350 315 478 274s214-114 348-40 171 42 280-64" fill="none" stroke="#8b5cf6" stroke-width="3" opacity=".75"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="82" y="126" width="250" height="150" rx="18"/><rect x="475" y="198" width="250" height="150" rx="18"/><rect x="868" y="296" width="250" height="150" rx="18"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="112" y="174" font-size="18" fill="#bfa7ff">01</text><text x="112" y="214" font-size="28" font-weight="700">Сегмент</text><text x="112" y="245" font-size="16" fill="#aaa8bd">кто уже в контексте</text>
+    <text x="505" y="246" font-size="18" fill="#bfa7ff">02</text><text x="505" y="286" font-size="28" font-weight="700">Диалог</text><text x="505" y="317" font-size="16" fill="#aaa8bd">короткий и по делу</text>
+    <text x="898" y="344" font-size="18" fill="#9df35b">03</text><text x="898" y="384" font-size="28" font-weight="700">Ответ</text><text x="898" y="415" font-size="16" fill="#aaa8bd">следующий шаг</text>
+  </g>
+  <path d="M332 202h118M725 274h118" stroke="#9df35b" stroke-width="3"/><path d="m440 194 14 8-14 8m393 64 14 8-14 8" fill="none" stroke="#9df35b" stroke-width="3"/>
+</svg>

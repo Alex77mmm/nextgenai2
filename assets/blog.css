@@ -129,6 +129,25 @@ a {
 .article-header {
   padding: 58px 0 28px;
 }
+.article-visual {
+  margin: 30px 0 42px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #131126;
+  box-shadow: 0 22px 55px rgba(38, 28, 80, 0.2);
+}
+.article-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.article-visual figcaption {
+  padding: 13px 17px 15px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
 .article-header .crumbs {
   font-size: 13px;
   color: var(--muted);
@@ -388,17 +407,85 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
+.blog-section-heading {
+  padding: 8px 28px 0;
+}
+.blog-section-heading h2 {
+  margin: 0;
+  font:
+    600 28px/1.2 Unbounded,
+    sans-serif;
+  letter-spacing: -0.06em;
+}
+.blog-section-heading p {
+  color: var(--muted);
+  max-width: 640px;
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+.guide-index {
+  padding: 50px 28px 90px;
+}
+.guide-group {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 34px;
+}
+.guide-group h2 {
+  margin: 0 0 17px;
+  font:
+    600 24px/1.25 Unbounded,
+    sans-serif;
+  letter-spacing: -0.06em;
+}
+.guide-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+}
+.guide-links a {
+  color: #d8d4e8;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  text-decoration: none;
+}
+.guide-links a:hover {
+  color: #bfa7ff;
+  border-color: var(--violet);
+}
+.case-grid {
+  padding-top: 30px;
+}
+.case-card {
+  border-color: rgba(157, 243, 91, 0.22);
+}
+.case-card:hover {
+  border-color: var(--lime);
+}
+.case-card .topic {
+  color: #b6ed8a;
+}
 .card {
   background: var(--sheet);
-  padding: 24px;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 16px;
   min-height: 235px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   text-decoration: none;
   transition: 0.2s;
+}
+.card-visual {
+  display: block;
+  width: 100%;
+  height: 142px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+.card > div:not(.card-visual) {
+  padding: 21px 24px 6px;
 }
 .card:hover {
   transform: translateY(-4px);
@@ -427,6 +514,8 @@ a {
 .card .arrow {
   font-size: 21px;
   color: var(--violet);
+  align-self: flex-end;
+  margin: 0 24px 20px;
 }
 footer.blog-footer {
   background: var(--ink);
@@ -473,6 +562,15 @@ footer.blog-footer {
   .grid {
     grid-template-columns: 1fr;
     padding: 34px 20px 65px;
+  }
+  .blog-section-heading {
+    padding: 6px 20px 0;
+  }
+  .guide-index {
+    padding: 34px 20px 65px;
+  }
+  .guide-links {
+    grid-template-columns: 1fr;
   }
   .related {
     padding: 36px 20px 65px;
