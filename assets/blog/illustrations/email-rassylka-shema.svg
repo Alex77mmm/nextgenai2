@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-ers desc-ers">
+  <title id="title-ers">Архитектура эффективной Email-рассылки</title>
+  <desc id="desc-ers">Гигиена базы, техническая настройка домена и цепочка писем</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="140" fill="#8b5cf6" opacity=".12"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="90" y="160" width="230" height="170" rx="16"/>
+    <rect x="360" y="160" width="230" height="170" rx="16"/>
+    <rect x="630" y="160" width="230" height="170" rx="16"/>
+    <rect x="900" y="160" width="220" height="170" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="120" y="210" font-size="16" fill="#bfa7ff">Шаг 1</text>
+    <text x="120" y="250" font-size="22" font-weight="700">Техсетап</text>
+    <text x="120" y="285" font-size="14" fill="#aaa8bd">SPF, DKIM, DMARC</text>
+
+    <text x="390" y="210" font-size="16" fill="#bfa7ff">Шаг 2</text>
+    <text x="390" y="250" font-size="22" font-weight="700">Чистая база</text>
+    <text x="390" y="285" font-size="14" fill="#aaa8bd">Валидация адресов</text>
+
+    <text x="660" y="210" font-size="16" fill="#bfa7ff">Шаг 3</text>
+    <text x="660" y="250" font-size="22" font-weight="700">Текст и повод</text>
+    <text x="660" y="285" font-size="14" fill="#aaa8bd">Короткий вопрос ЛПР</text>
+
+    <text x="930" y="210" font-size="16" fill="#9df35b">Финал</text>
+    <text x="930" y="250" font-size="22" font-weight="700">Follow-up</text>
+    <text x="930" y="285" font-size="14" fill="#aaa8bd">2-3 мягких касания</text>
+  </g>
+  <path d="M320 245h40m230 0h40m230 0h40" stroke="#9df35b" stroke-width="3"/>
+</svg>

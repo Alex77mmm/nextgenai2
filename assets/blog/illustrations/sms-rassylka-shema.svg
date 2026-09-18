@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-srs desc-srs">
+  <title id="title-srs">Сценарии SMS-рассылок в бизнесе</title>
+  <desc id="desc-srs">Транзакционные сообщения, триггеры и соблюдение 152-ФЗ</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="110" y="160" width="280" height="180" rx="16"/>
+    <rect x="460" y="160" width="280" height="180" rx="16"/>
+    <rect x="810" y="160" width="280" height="180" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="140" y="215" font-size="16" fill="#bfa7ff">Категория 1</text>
+    <text x="140" y="255" font-size="22" font-weight="700">Сервисные SMS</text>
+    <text x="140" y="290" font-size="14" fill="#aaa8bd">Коды, статусы, записи</text>
+
+    <text x="490" y="215" font-size="16" fill="#bfa7ff">Категория 2</text>
+    <text x="490" y="255" font-size="22" font-weight="700">Триггеры воронки</text>
+    <text x="490" y="290" font-size="14" fill="#aaa8bd">Напоминание о встрече</text>
+
+    <text x="840" y="215" font-size="16" fill="#9df35b">Требования</text>
+    <text x="840" y="255" font-size="22" font-weight="700">Согласие (152-ФЗ)</text>
+    <text x="840" y="290" font-size="14" fill="#aaa8bd">Легальная база и отписка</text>
+  </g>
+  <path d="M390 250h70m280 0h70" stroke="#9df35b" stroke-width="3"/>
+</svg>

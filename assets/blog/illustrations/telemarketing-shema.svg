@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-tms desc-tms">
+  <title id="title-tms">Модель современного телемаркетинга</title>
+  <desc id="desc-tms">Подготовка сегмента, скрипт-диалог, отсечение нецелевых и передача эксперту</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="140" fill="#8b5cf6" opacity=".12"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="90" y="160" width="230" height="170" rx="16"/>
+    <rect x="360" y="160" width="230" height="170" rx="16"/>
+    <rect x="630" y="160" width="230" height="170" rx="16"/>
+    <rect x="900" y="160" width="220" height="170" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="120" y="210" font-size="16" fill="#bfa7ff">1. База</text>
+    <text x="120" y="250" font-size="22" font-weight="700">Сегмент</text>
+    <text x="120" y="285" font-size="14" fill="#aaa8bd">Проверка номеров ЛПР</text>
+
+    <text x="390" y="210" font-size="16" fill="#bfa7ff">2. Первый звонок</text>
+    <text x="390" y="250" font-size="22" font-weight="700">Диагностика</text>
+    <text x="390" y="285" font-size="14" fill="#aaa8bd">Без агрессивных продаж</text>
+
+    <text x="660" y="210" font-size="16" fill="#bfa7ff">3. Квалификация</text>
+    <text x="660" y="250" font-size="22" font-weight="700">Критерии</text>
+    <text x="660" y="285" font-size="14" fill="#aaa8bd">Задача и согласие</text>
+
+    <text x="930" y="210" font-size="16" fill="#9df35b">4. Передача</text>
+    <text x="930" y="250" font-size="22" font-weight="700">Эксперт</text>
+    <text x="930" y="285" font-size="14" fill="#aaa8bd">Встреча и расчёт</text>
+  </g>
+  <path d="M320 245h40m230 0h40m230 0h40" stroke="#9df35b" stroke-width="3"/>
+</svg>

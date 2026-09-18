@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-b2b desc-b2b">
+  <title id="title-b2b">Модель B2B-продаж</title>
+  <desc id="desc-b2b">Схема взаимодействия с группой лиц, принимающих решения, и этапы сделки</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="160" fill="#8b5cf6" opacity=".12"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="80" y="160" width="230" height="180" rx="16"/>
+    <rect x="350" y="160" width="230" height="180" rx="16"/>
+    <rect x="620" y="160" width="230" height="180" rx="16"/>
+    <rect x="890" y="160" width="230" height="180" rx="16"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="110" y="210" font-size="16" fill="#bfa7ff">Этап 1</text>
+    <text x="110" y="255" font-size="24" font-weight="700">Исследование</text>
+    <text x="110" y="290" font-size="15" fill="#aaa8bd">поиск роли и боли</text>
+
+    <text x="380" y="210" font-size="16" fill="#bfa7ff">Этап 2</text>
+    <text x="380" y="255" font-size="24" font-weight="700">Диалог с ЛПР</text>
+    <text x="380" y="290" font-size="15" fill="#aaa8bd">квалификация задачи</text>
+
+    <text x="650" y="210" font-size="16" fill="#bfa7ff">Этап 3</text>
+    <text x="650" y="255" font-size="24" font-weight="700">Защита КП</text>
+    <text x="650" y="290" font-size="15" fill="#aaa8bd">согласование стейкхолдеров</text>
+
+    <text x="920" y="210" font-size="16" fill="#9df35b">Финал</text>
+    <text x="920" y="255" font-size="24" font-weight="700">Сделка</text>
+    <text x="920" y="290" font-size="15" fill="#aaa8bd">договор и старт</text>
+  </g>
+  <path d="M310 250h40m230 0h40m230 0h40" stroke="#9df35b" stroke-width="3"/>
+  <path d="m342 244 8 6-8 6m270-12 8 6-8 6m270-12 8 6-8 6" fill="none" stroke="#9df35b" stroke-width="3"/>
+</svg>

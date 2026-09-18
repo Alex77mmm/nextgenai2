@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-saas desc-saas">
+  <title id="title-saas">Воронка продаж SaaS-решений</title>
+  <desc id="desc-saas">От бесплатного триала / демо до внедрения, оплаты и удержания (Retention)</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="150" fill="#8b5cf6" opacity=".15"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="80" y="160" width="230" height="180" rx="16"/>
+    <rect x="350" y="160" width="230" height="180" rx="16"/>
+    <rect x="620" y="160" width="230" height="180" rx="16"/>
+    <rect x="890" y="160" width="230" height="180" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="110" y="210" font-size="16" fill="#bfa7ff">Шаг 1</text>
+    <text x="110" y="255" font-size="24" font-weight="700">Триал / Демо</text>
+    <text x="110" y="290" font-size="15" fill="#aaa8bd">Первое касание</text>
+
+    <text x="380" y="210" font-size="16" fill="#bfa7ff">Шаг 2</text>
+    <text x="380" y="255" font-size="24" font-weight="700">Активация</text>
+    <text x="380" y="290" font-size="15" fill="#aaa8bd">Aha-момент в продукте</text>
+
+    <text x="650" y="210" font-size="16" fill="#bfa7ff">Шаг 3</text>
+    <text x="650" y="255" font-size="24" font-weight="700">Конверсия</text>
+    <text x="650" y="290" font-size="15" fill="#aaa8bd">Оплата подписки (MRR)</text>
+
+    <text x="920" y="210" font-size="16" fill="#9df35b">Цель</text>
+    <text x="920" y="255" font-size="24" font-weight="700">Retention</text>
+    <text x="920" y="290" font-size="15" fill="#aaa8bd">Продление и апселл</text>
+  </g>
+  <path d="M310 250h40m230 0h40m230 0h40" stroke="#9df35b" stroke-width="3"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-trs desc-trs">
+  <title id="title-trs">Безопасная коммуникация в Telegram</title>
+  <desc id="desc-trs">Сравнение личных диалогов, официальных ботов и рисков спама в чатах</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="100" y="160" width="300" height="190" rx="16" stroke="#ff7a7a"/>
+    <rect x="450" y="160" width="300" height="190" rx="16"/>
+    <rect x="800" y="160" width="300" height="190" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="130" y="215" font-size="16" fill="#ff7a7a">Высокий риск бана</text>
+    <text x="130" y="255" font-size="22" font-weight="700">Спам по чатам</text>
+    <text x="130" y="290" font-size="14" fill="#aaa8bd">Мгновенный блок аккаунта</text>
+    <text x="130" y="315" font-size="14" fill="#aaa8bd">Уничтожение репутации</text>
+
+    <text x="480" y="215" font-size="16" fill="#bfa7ff">Управляемый формат</text>
+    <text x="480" y="255" font-size="22" font-weight="700">Точечный B2B-диалог</text>
+    <text x="480" y="290" font-size="14" fill="#aaa8bd">Персональное обращение</text>
+    <text x="480" y="315" font-size="14" fill="#aaa8bd">Лимиты: до 20 контактов</text>
+
+    <text x="830" y="215" font-size="16" fill="#9df35b">Системный масштаб</text>
+    <text x="830" y="255" font-size="22" font-weight="700">Бот + ИИ-ассистент</text>
+    <text x="830" y="290" font-size="14" fill="#aaa8bd">Квалификация входящих</text>
+    <text x="830" y="315" font-size="14" fill="#aaa8bd">0 рисков блокировки</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-sls desc-sls">
+  <title id="title-sls">Формула и экономика стоимости лида</title>
+  <desc id="desc-sls">CPL, стоимость встречи и CAC в воронке продаж</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="120" y="160" width="280" height="180" rx="16"/>
+    <rect x="460" y="160" width="280" height="180" rx="16"/>
+    <rect x="800" y="160" width="280" height="180" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="150" y="215" font-size="16" fill="#bfa7ff">1. Входная метрика</text>
+    <text x="150" y="260" font-size="28" font-weight="700">CPL</text>
+    <text x="150" y="295" font-size="15" fill="#aaa8bd">Бюджет / Все заявки</text>
+
+    <text x="490" y="215" font-size="16" fill="#bfa7ff">2. Качественный этап</text>
+    <text x="490" y="260" font-size="28" font-weight="700">CPQL</text>
+    <text x="490" y="295" font-size="15" fill="#aaa8bd">Затраты / Квал. лиды</text>
+
+    <text x="830" y="215" font-size="16" fill="#9df35b">3. Итоговая окупаемость</text>
+    <text x="830" y="260" font-size="28" font-weight="700">CAC &amp; LTV</text>
+    <text x="830" y="295" font-size="15" fill="#aaa8bd">Стоимость клиента к доходу</text>
+  </g>
+  <path d="M400 250h60m280 0h60" stroke="#9df35b" stroke-width="3"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-dzs desc-dzs">
+  <title id="title-dzs">Диагностика сбоев в потоке заявок</title>
+  <desc id="desc-dzs">Три точки отказа: нерелевантный трафик, слабый оффер, медленный ответ</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="100" y="160" width="300" height="170" rx="16"/>
+    <rect x="450" y="160" width="300" height="170" rx="16"/>
+    <rect x="800" y="160" width="300" height="170" rx="16"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="130" y="210" font-size="16" fill="#ff7a7a">Узкое место 1</text>
+    <text x="130" y="255" font-size="22" font-weight="700">Трафик и сегмент</text>
+    <text x="130" y="290" font-size="14" fill="#aaa8bd">Не та аудитория / нет ЛПР</text>
+
+    <text x="480" y="210" font-size="16" fill="#ff7a7a">Узкое место 2</text>
+    <text x="480" y="255" font-size="22" font-weight="700">Формулировка оффера</text>
+    <text x="480" y="290" font-size="14" fill="#aaa8bd">Нет ответа «зачем сейчас»</text>
+
+    <text x="830" y="210" font-size="16" fill="#9df35b">Решение</text>
+    <text x="830" y="255" font-size="22" font-weight="700">Скорость и диалог</text>
+    <text x="830" y="290" font-size="14" fill="#aaa8bd">Мгновенный контакт за 5 мин</text>
+  </g>
+  <path d="M400 245h50m300 0h50" stroke="#9df35b" stroke-width="3"/>
+</svg>

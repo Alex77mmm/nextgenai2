@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-kls desc-kls">
+  <title id="title-kls">Квалификация B2B-лида</title>
+  <desc id="desc-kls">Критерии фильтрации: Задача, ЛПР, Бюджет и Сроки</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="140" fill="#8b5cf6" opacity=".15"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="100" y="170" width="220" height="160" rx="16"/>
+    <rect x="350" y="170" width="220" height="160" rx="16"/>
+    <rect x="600" y="170" width="220" height="160" rx="16"/>
+    <rect x="850" y="170" width="250" height="160" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="130" y="220" font-size="16" fill="#bfa7ff">Критерий 1</text>
+    <text x="130" y="260" font-size="24" font-weight="700">Потребность</text>
+    <text x="130" y="295" font-size="15" fill="#aaa8bd">есть реальная боль</text>
+
+    <text x="380" y="220" font-size="16" fill="#bfa7ff">Критерий 2</text>
+    <text x="380" y="260" font-size="24" font-weight="700">ЛПР / Роль</text>
+    <text x="380" y="295" font-size="15" fill="#aaa8bd">влияет на решение</text>
+
+    <text x="630" y="220" font-size="16" fill="#bfa7ff">Критерий 3</text>
+    <text x="630" y="260" font-size="24" font-weight="700">Срок и бюджет</text>
+    <text x="630" y="295" font-size="15" fill="#aaa8bd">ресурсы выделены</text>
+
+    <text x="880" y="220" font-size="16" fill="#9df35b">Результат</text>
+    <text x="880" y="260" font-size="24" font-weight="700">SQL-лид</text>
+    <text x="880" y="295" font-size="15" fill="#aaa8bd">передача эксперту</text>
+  </g>
+  <path d="M320 250h30m220 0h30m220 0h30" stroke="#9df35b" stroke-width="3"/>
+</svg>

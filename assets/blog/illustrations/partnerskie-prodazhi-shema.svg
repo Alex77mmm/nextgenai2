@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title-pps desc-pps">
+  <title id="title-pps">Механика партнёрских продаж</title>
+  <desc id="desc-pps">Привлечение партнёров, передача горячих лидов и разделение выручки (Revenue Share)</desc>
+  <rect width="1200" height="600" rx="28" fill="#15132a"/>
+  <circle cx="600" cy="300" r="150" fill="#8b5cf6" opacity=".15"/>
+  <g fill="#24203f" stroke="#8b5cf6" stroke-width="2">
+    <rect x="90" y="160" width="280" height="180" rx="16"/>
+    <rect x="460" y="160" width="280" height="180" rx="16"/>
+    <rect x="830" y="160" width="280" height="180" rx="16" stroke="#9df35b"/>
+  </g>
+  <g fill="#f2f1fb" font-family="Arial, sans-serif">
+    <text x="120" y="215" font-size="16" fill="#bfa7ff">Источник</text>
+    <text x="120" y="260" font-size="24" font-weight="700">Партнёр / Агент</text>
+    <text x="120" y="295" font-size="15" fill="#aaa8bd">Уже имеет доверие клиента</text>
+
+    <text x="490" y="215" font-size="16" fill="#bfa7ff">Действие</text>
+    <text x="490" y="260" font-size="24" font-weight="700">Рекомендация</text>
+    <text x="490" y="295" font-size="15" fill="#aaa8bd">Передача теплого контакта</text>
+
+    <text x="860" y="215" font-size="16" fill="#9df35b">Результат</text>
+    <text x="860" y="260" font-size="24" font-weight="700">Сделка + %</text>
+    <text x="860" y="295" font-size="15" fill="#aaa8bd">Выплата комиссии с чека</text>
+  </g>
+  <path d="M370 250h90m280 0h90" stroke="#9df35b" stroke-width="3"/>
+</svg>
