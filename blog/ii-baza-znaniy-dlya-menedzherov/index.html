@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Корпоративная база знаний на базе LLM для отдела продаж: внедрение RAG — NextGen AI</title>
+    <meta name="description" content="Корпоративная база знаний на базе LLM: как технология RAG помогает сейлз-менеджерам находить регламенты, цены и технические характеристики за секунды." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/ii-baza-znaniy-dlya-menedzherov/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Корпоративная база знаний на базе LLM для отдела продаж: внедрение RAG — NextGen AI" />
+    <meta property="og:description" content="Корпоративная база знаний на базе LLM: как технология RAG помогает сейлз-менеджерам находить регламенты, цены и технические характеристики за секунды." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/ii-baza-znaniy-dlya-menedzherov/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/ii-baza-znaniy-dlya-menedzherov/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/ii-baza-znaniy-dlya-menedzherov/"
+      },
+      "headline": "Корпоративная база знаний на базе LLM: как ускорить работу сейлзов с помощью RAG",
+      "description": "Корпоративная база знаний на базе LLM: как технология RAG помогает сейлз-менеджерам находить регламенты, цены и технические характеристики за секунды.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Корпоративная база знаний на базе LLM: как ускорить работу сейлзов с помощью RAG",
+          "item": "https://nextgenrussia.ru/blog/ii-baza-znaniy-dlya-menedzherov/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Может ли база знаний додумывать факты, которых нет в документах?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, при строгом системном промпте температура генерации снижается до нуля, а модель предупреждает, если информация в документах отсутствует."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие форматы файлов поддерживает корпоративный RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PDF, DOCX, XLSX, Google Docs, Notion, Confluence и веб-страницы."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=ii-baza-znaniy-dlya-menedzherov">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Корпоративная база знаний на базе LLM: как ускорить работу сейлзов с помощью RAG</h1>
+          <p class="lead">Новички тратят до 3 месяцев на изучение сложной номенклатуры, отвлекая старших коллег. ИИ-поисковик по внутренней документации выдает точный ответ за 3 секунды.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" alt="Корпоративная база знаний на базе LLM: как ускорить работу сейлзов с помощью RAG" loading="lazy" />
+            <figcaption>Архитектура RAG: индексация регламентов, семантический поиск и ответ нейросети.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Корпоративная база знаний на базе LLM (RAG — Retrieval-Augmented Generation) — это приватная поисковая система по внутренним документам, регламентам, прайсам и техническим описаниям компании. Менеджер задает вопрос на естественном языке и мгновенно получает верифицированный ответ с точной ссылкой на первоисточник.</p>
+        </section>
+        
+    <h2 id="section-1">В чем слабость обычных папок на диске и Notion</h2>
+    <p>В классических базах знаний документы быстро устаревают, а поиск по ключевым словам не находит смысловые синонимы. Менеджеру проще спросить у РОПа, чем искать в 100-страничном PDF.</p>
+  
+
+    <h2 id="section-2">Как работает технология RAG для корпоративных данных</h2>
+    <p>Система делит корпоративные файлы на смысловые фрагменты и преобразует их в векторные эмбеддинги. При запросе сотрудника ИИ находит наиболее релевантные куски текста и формулирует ответ строго по предоставленным фактам.</p>
+  
+
+    <h2 id="section-3">Безопасность и разграничение прав доступа</h2>
+    <p>Конфиденциальные документы (финансовые отчеты, стратегия) изолируются. Линейный менеджер имеет доступ только к коммерческим регламентам и прайсам своей категории товаров.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Может ли база знаний додумывать факты, которых нет в документах?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Нет, при строгом системном промпте температура генерации снижается до нуля, а модель предупреждает, если информация в документах отсутствует.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Какие форматы файлов поддерживает корпоративный RAG?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">PDF, DOCX, XLSX, Google Docs, Notion, Confluence и веб-страницы.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Производство стройматериалов</div>
+          <h3>Сокращение срока онбординга новых менеджеров с 60 до 14 дней</h3>
+          <p>Завод строительных смесей загрузил 400 сертификатов и регламентов в базу NextGen AI. Новички начали самостоятельно отвечать на сложные технические вопросы клиентов со второй недели работы.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Проблема статических баз</a>
+<a href="#section-2">Принцип работы RAG</a>
+<a href="#section-3">Безопасность данных</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=ii-baza-znaniy-dlya-menedzherov">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../prompty-dlya-otdela-prodazh/">
+      <span class="topic">Промпты</span>
+      <h3>Промпты для продаж</h3>
+      <p>Шаблоны эффективных запросов к ИИ.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../neyroset-dlya-otdela-prodazh/">
+      <span class="topic">Нейросети</span>
+      <h3>Нейросеть для продаж</h3>
+      <p>Инструменты автоматизации работы сейлзов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../upravlenie-prodazhami-b2b/">
+      <span class="topic">Управление</span>
+      <h3>Управление продажами</h3>
+      <p>Стандартизация бизнес-процессов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../etapy-b2b-prodazh/">
+      <span class="topic">Этапы</span>
+      <h3>Этапы B2B-продаж</h3>
+      <p>Системное ведение сложных сделок.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

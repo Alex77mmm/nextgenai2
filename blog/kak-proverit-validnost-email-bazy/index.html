@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Чек и валидация email-базы перед стартом рассылки: защита от спам-фильтров — NextGen AI</title>
+    <meta name="description" content="Как проверить валидность email-базы: сервисы верификации, удаление спам-ловушек, проверка MX-записей и защита домена от бана." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/kak-proverit-validnost-email-bazy/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Чек и валидация email-базы перед стартом рассылки: защита от спам-фильтров — NextGen AI" />
+    <meta property="og:description" content="Как проверить валидность email-базы: сервисы верификации, удаление спам-ловушек, проверка MX-записей и защита домена от бана." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/kak-proverit-validnost-email-bazy/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/email-rassylka-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/kak-proverit-validnost-email-bazy/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/kak-proverit-validnost-email-bazy/"
+      },
+      "headline": "Как проверить валидность email-базы: пошаговый чек-лист перед запуском аутрича",
+      "description": "Как проверить валидность email-базы: сервисы верификации, удаление спам-ловушек, проверка MX-записей и защита домена от бана.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/email-rassylka-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Как проверить валидность email-базы: пошаговый чек-лист перед запуском аутрича",
+          "item": "https://nextgenrussia.ru/blog/kak-proverit-validnost-email-bazy/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит валидация базы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В среднем от 20 до 50 копеек за проверку одного email-адреса, что окупается защитой дорогого корпоративного домена."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как часто нужно повторно валидировать базу?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Каждые 3–4 месяца, так как в B2B ежемесячно меняется до 3% сотрудников компаний."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=kak-proverit-validnost-email-bazy">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Как проверить валидность email-базы: пошаговый чек-лист перед запуском аутрича</h1>
+          <p class="lead">Отправка писем по невалидной базе с показателем Bounce Rate выше 5% гарантирует попадание вашего почтового домена в спам-фильтры. Разбираем очистку адресов.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/email-rassylka-shema.svg" alt="Как проверить валидность email-базы: пошаговый чек-лист перед запуском аутрича" loading="lazy" />
+            <figcaption>Процесс валидации: синтаксический чек, проверка DNS/MX записей и SMTP-прозвон.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Проверка валидности email-базы — это очистка контактного листа от недействительных, заброшенных адресов, опечаток в доменах и спам-ловушек через специализированные сервисы верификации (ZeroBounce, MailerCheck, RuSpamCheck). Процедура включает проверку MX-записей и SMTP-пинг сервера получателя без реальной отправки письма.</p>
+        </section>
+        
+    <h2 id="section-1">3 типа опасных адресов, которые топят репутацию домена</h2>
+    <p>При проверке базы отсеиваются три критические категории:</p>
+        <ul>
+          <li><strong>Hard Bounce:</strong> адреса с несуществующими почтовыми ящиками или удаленными доменами.</li>
+          <li><strong>Spam Traps (спам-ловушки):</strong> адреса почтовых систем, созданные для отлова спамеров.</li>
+          <li><strong>Catch-All и роликовые ящики:</strong> общие адреса (info@, sales@, office@), с которых письма часто уходят в корзину.</li>
+        </ul>
+  
+
+    <h2 id="section-2">Топ-3 сервиса для глубокой валидации баз в России</h2>
+    <p>Для качественной очистки используются профильные чекеры с поддержкой российских почтовых провайдеров (Яндекс 360, VK WorkSpace, Mail.ru):</p>
+        <ol>
+          <li>MailerCheck — высокая скорость и проверка спам-слов.</li>
+          <li>ZeroBounce — эталонная точность отлова скрытых ловушек.</li>
+          <li>Собственные Python-скрипты проверки MX-записей через консольные утилиты.</li>
+        </ol>
+  
+
+    <h2 id="section-3">Нормальные показатели чистой базы после чека</h2>
+    <p>Показатель Hard Bounce в первой рассылке не должен превышать 2%. Если он поднимается выше 5%, отправку нужно немедленно остановить до повторной ручной перепроверки.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сколько стоит валидация базы?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">В среднем от 20 до 50 копеек за проверку одного email-адреса, что окупается защитой дорогого корпоративного домена.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Как часто нужно повторно валидировать базу?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Каждые 3–4 месяца, так как в B2B ежемесячно меняется до 3% сотрудников компаний.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-дистрибуция</div>
+          <h3>Снижение Bounce Rate с 14% до 0,8%</h3>
+          <p>Очистка базы перед масштабной кампанией позволила спасти домен клиента от попадания в спам-листы Яндекса и сохранить доставляемость писем на уровне 99%.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Типы опасных адресов</a>
+<a href="#section-2">Сервисы валидации</a>
+<a href="#section-3">Метрики качества</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=kak-proverit-validnost-email-bazy">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../gde-vzyat-bazu-b2b-klientov/">
+      <span class="topic">Базы</span>
+      <h3>Где брать базу клиентов</h3>
+      <p>Сбор качественных контактов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../progrev-domenov-dlya-rassylok/">
+      <span class="topic">Домены</span>
+      <h3>Прогрев почтовых доменов</h3>
+      <p>Настройка SPF, DKIM, DMARC.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../holodnaya-email-rassylka/">
+      <span class="topic">Email</span>
+      <h3>Холодная email-рассылка</h3>
+      <p>Стратегия высокого отклика.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../email-rassylka-klientam/">
+      <span class="topic">Рассылки</span>
+      <h3>Email-рассылка клиентам</h3>
+      <p>Работа с подписчиками.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

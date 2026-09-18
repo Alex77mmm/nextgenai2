@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ИИ для дистрибьюторов: автоматизация оптовых заказов и сверки остатков — NextGen AI</title>
+    <meta name="description" content="ИИ для дистрибьюторов и оптовиков: как подключить умного бота для приема заявок от дилеров, сверки остатков на складе и выставления счетов." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/ii-dlya-distribyutorov/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="ИИ для дистрибьюторов: автоматизация оптовых заказов и сверки остатков — NextGen AI" />
+    <meta property="og:description" content="ИИ для дистрибьюторов и оптовиков: как подключить умного бота для приема заявок от дилеров, сверки остатков на складе и выставления счетов." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/ii-dlya-distribyutorov/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/avtomatizaciya-prodazh.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/ii-dlya-distribyutorov/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/ii-dlya-distribyutorov/"
+      },
+      "headline": "ИИ для дистрибьюторов: как автоматизировать прием оптовых заказов и остатки",
+      "description": "ИИ для дистрибьюторов и оптовиков: как подключить умного бота для приема заявок от дилеров, сверки остатков на складе и выставления счетов.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/avtomatizaciya-prodazh.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ИИ для дистрибьюторов: как автоматизировать прием оптовых заказов и остатки",
+          "item": "https://nextgenrussia.ru/blog/ii-dlya-distribyutorov/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что если дилер пишет название товара с ошибкой или сленгом?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LLM понимает профессиональный сленг и неточные названия (например, «болгарка 125» вместо «УШМ 125мм») и сопоставляет их с правильным артикулом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Безопасно ли подключать бота к базе 1С?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Подключение происходит через защищенный промежуточный шлюз без прямого публичного доступа к базе данных компании."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=ii-dlya-distribyutorov">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>ИИ для дистрибьюторов: как автоматизировать прием оптовых заказов и остатки</h1>
+          <p class="lead">Оптовые клиенты звонят менеджерам с одними и теми же вопросами: «Есть ли на складе? Какая цена от 100 штук?». ИИ-ассистент принимает заказы без пауз.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/avtomatizaciya-prodazh.svg" alt="ИИ для дистрибьюторов: как автоматизировать прием оптовых заказов и остатки" loading="lazy" />
+            <figcaption>Схема работы ИИ-дистрибьютора: синхронизация с 1С, проверка цен и выставление счета.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>ИИ для дистрибьюторов — это омниканальный диалоговый ассистент, интегрированный с ERP (1C, МойСклад), который принимает заказы от розничных магазинов и дилеров в Telegram или WhatsApp, моментально проверяет остатки, применяет персональную скидку контрагента и формирует счет на оплату.</p>
+        </section>
+        
+    <h2 id="section-1">Прием заказов текстом и голосовыми сообщениями в мессенджере</h2>
+    <p>Дилеру не нужно заходить в громоздкие B2B-порталы. Он пишет в Telegram: «Скиньте 50 мешков цемента М500 и 20 рулонов сетки на объект Восток». ИИ распознает номенклатуру и формирует корзину.</p>
+  
+
+    <h2 id="section-2">Автоматическая проверка персональных цен и кредитных лимитов</h2>
+    <p>Бот сверяет баланс контрагента. Если лимит дебиторской задолженности превышен, система вежливо предлагает погасить долг перед отправкой новой партии.</p>
+  
+
+    <h2 id="section-3">Снижение нагрузки на операторов 1С на 60%</h2>
+    <p>Операторы освобождаются от рутинного забивания артикулов вручную. ИИ создает документ «Заказ покупателя» в 1С за секунды.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Что если дилер пишет название товара с ошибкой или сленгом?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">LLM понимает профессиональный сленг и неточные названия (например, «болгарка 125» вместо «УШМ 125мм») и сопоставляет их с правильным артикулом.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Безопасно ли подключать бота к базе 1С?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Подключение происходит через защищенный промежуточный шлюз без прямого публичного доступа к базе данных компании.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Опт автозапчастей</div>
+          <h3>Увеличение скорости отгрузки заказов в 2 раза</h3>
+          <p>Дистрибьютор автозапчастей подключил ИИ-бота NextGen для 120 станций техобслуживания. Время оформления заказа сократилось с 18 минут до 40 секунд.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Прием заказов в чате</a>
+<a href="#section-2">Проверка кредитных лимитов</a>
+<a href="#section-3">Снижение нагрузки на 1С</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=ii-dlya-distribyutorov">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../avtomatizaciya-prodazh/">
+      <span class="topic">Автоматизация</span>
+      <h3>Автоматизация продаж</h3>
+      <p>Оптимизация рутинных процессов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../ii-prodavets-b2b/">
+      <span class="topic">ИИ-продажи</span>
+      <h3>ИИ-продавец в B2B</h3>
+      <p>Первая линия общения с клиентами.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../partnerskie-prodazhi/">
+      <span class="topic">Партнеры</span>
+      <h3>Партнерские продажи</h3>
+      <p>Управление дилерской сетью.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../chat-bot-dlya-prodazh-v-telegram/">
+      <span class="topic">Боты</span>
+      <h3>Чат-бот для продаж в TG</h3>
+      <p>Сценарии для мессенджеров.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

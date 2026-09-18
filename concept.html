@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ИИ-продавцы в Telegram — NextGen AI (концепт)</title>
+<meta name="description" content="Экспериментальная версия главной страницы NextGen AI. Локальный предпросмотр, не для публикации.">
+<link rel="stylesheet" href="assets/concept/fonts.css">
+<style>
+/* ─── RESET ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ─── TOKENS ─────────────────────────────────── */
+:root {
+  --bg:     #101114;
+  --panel:  #17181d;
+  --panel2: #1d1f26;
+  --line:   rgba(255,255,255,0.08);
+  --line2:  rgba(255,255,255,0.14);
+  --v:      #7c3aed;
+  --v2:     #8b5cf6;
+  --lav:    #a78bfa;
+  --ink:    #f4f4f6;
+  --mut:    #a4a9b4;
+  --dim:    #7e8492;
+  --green:  #34d399;
+  --r-md:   16px;
+  --r-lg:   24px;
+}
+
+::selection { background: rgba(124,58,237,0.45); color: #fff; }
+:focus-visible { outline: 2px solid var(--lav); outline-offset: 3px; border-radius: 4px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.65 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+section { position: relative; }
+
+.eyebrow {
+  font: 700 0.72rem/1 'Manrope', sans-serif;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--lav);
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--v2); border-radius: 2px; }
+
+.h2 {
+  font: 800 clamp(2rem, 4.6vw, 3.5rem)/1.08 'Manrope', sans-serif;
+  letter-spacing: -0.025em;
+  margin-top: 18px;
+}
+.grad {
+  background: linear-gradient(100deg, var(--lav), var(--v2));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.sub { color: var(--mut); max-width: 56ch; margin-top: 16px; font-size: 1.02rem; }
+
+/* ─── REVEAL (CSS-переходы обычных блоков) ─── */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.rv.on { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: 0.08s; } .rv-d2 { transition-delay: 0.16s; } .rv-d3 { transition-delay: 0.24s; }
+html.reduce .rv { opacity: 1; transform: none; transition: none; }
+
+/* ─── NAV ─────────────────────────────────── */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  background: rgba(16,17,20,0.82);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-in { display: flex; align-items: center; gap: 20px; height: 68px; }
+.logo { font: 800 1.12rem/1 'Manrope', sans-serif; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 10px; height: 10px; border-radius: 50%; background: var(--v2); box-shadow: 0 0 0 4px rgba(124,58,237,0.22); }
+.concept-tag {
+  font: 700 0.62rem/1 'Manrope', sans-serif; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--lav); border: 1px solid rgba(139,92,246,0.45); border-radius: 999px;
+  padding: 5px 10px;
+}
+.nav-links { display: flex; gap: 26px; margin-left: auto; }
+.nav-links a { color: var(--mut); text-decoration: none; font-weight: 600; font-size: 0.92rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 700 0.9rem/1 'Manrope', sans-serif; text-decoration: none;
+  color: var(--ink); background: var(--v); border-radius: 999px; padding: 12px 20px;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--v2); }
+.nav-cta:active { transform: scale(0.97); }
+@media (max-width: 860px) { .nav-links { display: none; } }
+@media (max-width: 480px) {
+  .concept-tag { display: none; }
+  .nav-cta { padding: 10px 16px; font-size: 0.82rem; }
+  .logo { font-size: 1rem; gap: 8px; }
+}
+
+/* ─── КНОПКИ ─────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font: 700 1rem/1 'Manrope', sans-serif; text-decoration: none;
+  border-radius: 999px; padding: 18px 30px; cursor: pointer; border: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--v); color: #fff; }
+.btn-primary:hover { background: var(--v2); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line2); }
+.btn-ghost:hover { border-color: var(--lav); }
+.btn svg { flex: none; }
+
+/* ─── HERO ─────────────────────────────────── */
+.hero { padding: clamp(140px, 16vh, 190px) 0 40px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 48px; align-items: end; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid var(--line2); border-radius: 999px; padding: 8px 16px;
+  font: 600 0.8rem/1 'Manrope', sans-serif; color: var(--mut);
+}
+.hero-badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.hero h1 {
+  font: 800 clamp(2.7rem, 7.2vw, 5rem)/1.04 'Manrope', sans-serif;
+  letter-spacing: -0.032em; margin-top: 26px;
+}
+.hero-sub { color: var(--mut); font-size: clamp(1.05rem, 1.6vw, 1.25rem); margin-top: 22px; max-width: 34ch; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.hero-free { display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--line); }
+.hero-free div {
+  padding: 14px 0 14px 22px; border-bottom: 1px solid var(--line);
+  color: var(--mut); font-weight: 600; font-size: 0.95rem;
+}
+.hero-free div:last-child { border-bottom: 0; }
+.hero-free b { color: var(--ink); font-weight: 800; }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-free { flex-direction: row; flex-wrap: wrap; border-left: 0; border-top: 1px solid var(--line); }
+  .hero-free div { border-bottom: 0; padding: 14px 22px 0 0; }
+}
+
+/* ─── ДЕМО-ЭКРАН (герой) ─────────────────────────────────── */
+.demo {
+  margin: clamp(56px, 8vw, 96px) auto 0;
+  width: min(980px, 100%);
+  margin-left: auto; margin-right: clamp(-20px, -3vw, 0px);
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.5);
+}
+.demo-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 18px; border-bottom: 1px solid var(--line);
+}
+.demo-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line2); }
+.demo-bar span { margin-left: 10px; font: 600 0.74rem/1 'Manrope', sans-serif; color: var(--dim); letter-spacing: 0.06em; }
+.demo-body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+@media (max-width: 760px) { .demo-body { grid-template-columns: 1fr; } }
+
+.chat { padding: 22px; display: flex; flex-direction: column; gap: 14px; border-right: 1px solid var(--line); }
+@media (max-width: 760px) { .chat { border-right: 0; border-bottom: 1px solid var(--line); } }
+.chat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.chat-ava {
+  width: 38px; height: 38px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, var(--v), var(--v2));
+  display: grid; place-items: center; font: 800 0.78rem/1 'Manrope', sans-serif; color: #fff;
+}
+.chat-name { font-weight: 800; font-size: 0.95rem; }
+.chat-status { font-size: 0.78rem; color: var(--green); font-weight: 600; }
+.msg { max-width: 82%; }
+.msg p {
+  padding: 12px 16px; border-radius: 16px; font-size: 0.92rem; line-height: 1.55;
+}
+.msg time { display: block; margin-top: 6px; font-size: 0.68rem; color: var(--dim); }
+.msg.out { align-self: flex-end; }
+.msg.out p { background: var(--v); color: #fff; border-bottom-right-radius: 4px; }
+.msg.in p { background: var(--panel2); border-bottom-left-radius: 4px; }
+
+.demo-side { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.side-card { background: var(--panel2); border: 1px solid var(--line); border-radius: var(--r-md); padding: 18px; }
+.side-l { font: 600 0.72rem/1.3 'Manrope', sans-serif; color: var(--dim); letter-spacing: 0.04em; }
+.side-v { font: 800 clamp(1.6rem, 2.6vw, 2.1rem)/1.1 'Manrope', sans-serif; margin-top: 6px; }
+.side-s { font-size: 0.78rem; color: var(--mut); margin-top: 4px; }
+.demo-note { text-align: right; margin: 14px clamp(0px, 3vw, 20px) 0 0; font-size: 0.75rem; color: var(--dim); }
+
+/* ─── ПОЛОСА ЦИФР ─────────────────────────────────── */
+.band { border-block: 1px solid var(--line); margin-top: clamp(70px, 9vw, 110px); }
+.band-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.band-cell { padding: clamp(28px, 4vw, 44px) 24px; border-left: 1px solid var(--line); }
+.band-cell:first-child { border-left: 0; }
+.band-n { font: 800 clamp(1.9rem, 3.4vw, 2.9rem)/1 'Manrope', sans-serif; letter-spacing: -0.02em; }
+.band-l { color: var(--mut); font-size: 0.86rem; margin-top: 8px; }
+@media (max-width: 760px) {
+  .band-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .band-cell:nth-child(odd) { border-left: 0; }
+  .band-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* ─── СЦЕНА: ПУТЬ КОНТАКТА ─────────────────────────────────── */
+.journey { padding: clamp(90px, 12vw, 150px) 0 0; }
+.journey-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 40px; align-items: end; margin-bottom: clamp(40px, 6vw, 70px); }
+.journey-note { color: var(--dim); font-size: 0.85rem; border-left: 2px solid var(--v); padding-left: 16px; }
+@media (max-width: 900px) { .journey-head { grid-template-columns: 1fr; } }
+
+.journey-pin { min-height: 100vh; display: flex; align-items: center; }
+.journey-stage {
+  width: min(1180px, calc(100% - 48px)); margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(30px, 5vw, 70px); align-items: center;
+}
+.rail { list-style: none; display: flex; flex-direction: column; }
+.rail li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); opacity: 0.45; transition: opacity 0.35s; }
+.rail li:last-child { border-bottom: 0; }
+.rail li.on { opacity: 1; }
+.rail-n { font: 800 0.85rem/1 'Manrope', sans-serif; color: var(--dim); padding-top: 4px; }
+.rail li.on .rail-n { color: var(--lav); }
+.rail-t { font: 800 1.15rem/1.25 'Manrope', sans-serif; letter-spacing: -0.01em; }
+.rail-d { display: block; color: var(--mut); font-size: 0.88rem; margin-top: 4px; }
+
+.screen { position: relative; }
+.scene {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(22px, 3.5vw, 38px);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+}
+.scene-tag { font: 700 0.68rem/1 'Manrope', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lav); }
+.scene h3 { font: 800 1.3rem/1.2 'Manrope', sans-serif; margin-top: 10px; }
+
+/* сцена 1: аудитория */
+.src { display: flex; align-items: center; gap: 14px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.src:last-of-type { border-bottom: 0; }
+.src-ico { width: 40px; height: 40px; border-radius: 12px; background: var(--panel2); border: 1px solid var(--line); display: grid; place-items: center; font-size: 1rem; flex: none; }
+.src b { font-size: 0.95rem; font-weight: 700; display: block; }
+.src span { font-size: 0.78rem; color: var(--mut); }
+.src .chk { margin-left: auto; width: 22px; height: 22px; border-radius: 7px; background: var(--v); display: grid; place-items: center; color: #fff; font-size: 0.72rem; font-weight: 800; flex: none; }
+.pick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.pick span { font: 600 0.76rem/1 'Manrope', sans-serif; color: var(--mut); border: 1px solid var(--line2); border-radius: 999px; padding: 7px 13px; }
+.pick span.hit { color: var(--ink); border-color: rgba(139,92,246,0.6); background: rgba(124,58,237,0.14); }
+.pick-sum { margin-top: 16px; color: var(--mut); font-size: 0.88rem; }
+.pick-sum b { color: var(--lav); font-weight: 800; }
+
+/* сцена 2: переписка — переиспользуем .chat */
+.scene .chat { border: 0; padding: 6px 0 0; }
+
+/* сцена 3: квалификация */
+.qual { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-top: 18px; }
+.qual div { background: var(--panel2); border: 1px solid var(--line); border-radius: var(--r-md); padding: 15px 17px; }
+.qual-l { font-size: 0.72rem; color: var(--dim); font-weight: 600; }
+.qual-v { font-weight: 800; margin-top: 5px; font-size: 1rem; }
+.score { margin-top: 16px; display: flex; align-items: center; gap: 14px; }
+.score-n { font: 800 2rem/1 'Manrope', sans-serif; }
+.score-bar { flex: 1; height: 8px; border-radius: 99px; background: var(--panel2); overflow: hidden; }
+.score-fill { height: 100%; width: 87%; border-radius: 99px; background: linear-gradient(90deg, var(--v), var(--lav)); }
+.score-l { font-size: 0.8rem; color: var(--mut); }
+
+/* сцена 4: передача */
+.hand { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 14px; align-items: center; margin-top: 20px; }
+.hand-card { background: var(--panel2); border: 1px solid var(--line); border-radius: var(--r-md); padding: 17px; }
+.hand-card b { display: block; font-size: 0.98rem; }
+.hand-card span { font-size: 0.78rem; color: var(--mut); display: block; margin-top: 3px; }
+.hand-arrow { color: var(--lav); font-size: 1.3rem; }
+.hand-done { margin-top: 16px; display: flex; align-items: center; gap: 10px; color: var(--green); font-weight: 700; font-size: 0.92rem; }
+.hand-done i { width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.14); display: grid; place-items: center; font-size: 0.7rem; font-style: normal; }
+
+/* мобильная раскладка сцены: без закрепления, карточки друг за другом */
+@media (max-width: 899px) {
+  .journey-pin { min-height: 0; display: block; }
+  .journey-stage { grid-template-columns: minmax(0, 1fr); }
+  .rail { flex-direction: row; overflow-x: auto; gap: 8px; margin-bottom: 26px; scrollbar-width: none; min-width: 0; max-width: 100%; }
+  .rail li { flex: 0 0 auto; }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail li { grid-template-columns: auto 1fr; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px 9px 12px; gap: 9px; white-space: nowrap; opacity: 1; align-items: center; }
+  .rail-d { display: none; }
+  .rail-t { font-size: 0.84rem; }
+  .rail-n { padding: 0; }
+  .screen { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); }
+  .screen .scene + .scene { margin-top: 0; }
+}
+@media (min-width: 900px) {
+  .screen .scene { position: absolute; inset: 0; }
+  .screen .scene:first-child { position: relative; }
+  .screen { min-height: 480px; }
+}
+
+/* ─── КЕЙСЫ ─────────────────────────────────── */
+.cases { padding: clamp(100px, 13vw, 170px) 0 0; }
+.case-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; }
+.case-tab {
+  font: 700 0.85rem/1 'Manrope', sans-serif; color: var(--mut);
+  background: transparent; border: 1px solid var(--line2); border-radius: 999px;
+  padding: 11px 18px; cursor: pointer; transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.case-tab:hover { color: var(--ink); }
+.case-tab:active { transform: scale(0.96); }
+.case-tab[aria-selected="true"] { color: #fff; background: var(--v); border-color: var(--v); }
+.case-hero {
+  margin-top: 44px; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(30px, 5vw, 70px);
+  border-top: 1px solid var(--line); padding-top: clamp(36px, 5vw, 56px);
+  align-items: start;
+}
+.case-n { font: 800 clamp(4.6rem, 11vw, 9rem)/0.95 'Manrope', sans-serif; letter-spacing: -0.04em; }
+.case-n-l { color: var(--mut); margin-top: 14px; font-size: 1.05rem; max-width: 30ch; }
+.case-period { margin-top: 10px; font: 600 0.78rem/1 'Manrope', sans-serif; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+.case-metrics { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.cm { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+.cm-v { font: 800 clamp(1.8rem, 3vw, 2.4rem)/1 'Manrope', sans-serif; }
+.cm-l { color: var(--mut); font-size: 0.84rem; margin-top: 8px; }
+.case-story { grid-column: 1 / -1; color: var(--mut); max-width: 72ch; border-left: 2px solid var(--v); padding-left: 18px; }
+.case-nav { display: flex; align-items: center; gap: 12px; margin-top: 26px; }
+.case-arrow {
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line2);
+  background: transparent; color: var(--ink); font-size: 1.1rem; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.case-arrow:hover { border-color: var(--lav); }
+.case-arrow:active { transform: scale(0.94); }
+.case-count { font: 700 0.82rem/1 'Manrope', sans-serif; color: var(--dim); letter-spacing: 0.1em; }
+@media (max-width: 860px) {
+  .case-hero { grid-template-columns: 1fr; }
+  .case-metrics { grid-template-columns: minmax(0, 1fr); }
+}
+.case-links { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+.link-quiet {
+  color: var(--mut); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+  border-bottom: 1px solid var(--line2); padding-bottom: 3px; transition: color 0.2s, border-color 0.2s;
+}
+.link-quiet:hover { color: var(--ink); border-color: var(--lav); }
+
+/* ─── ОТЗЫВЫ ─────────────────────────────────── */
+.quotes { padding: clamp(100px, 13vw, 170px) 0 0; }
+.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+.quote {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 28px; display: flex; flex-direction: column; gap: 22px;
+}
+.quote.q-wide { grid-row: span 2; }
+.quote.q-tall { grid-column: span 2; }
+.quote-mark { font: 800 3rem/0.5 'Manrope', sans-serif; color: var(--v); }
+.quote p { color: var(--ink); font-size: 1rem; line-height: 1.7; flex: 1; }
+.quote-person { display: flex; align-items: center; gap: 14px; }
+.quote-ava { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex: none; background: var(--panel2); border: 1px solid var(--line2); }
+.quote-ava img { width: 100%; height: 100%; object-fit: cover; }
+.quote-ava.fb { display: grid; place-items: center; font: 800 0.8rem/1 'Manrope', sans-serif; color: var(--lav); }
+.quote-name { font-weight: 800; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 7px; }
+.quote-name a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line2); }
+.quote-name svg { color: var(--lav); }
+.quote-role { color: var(--dim); font-size: 0.8rem; margin-top: 2px; }
+@media (max-width: 980px) { .quote-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .quote.q-tall { grid-column: span 2; } }
+@media (max-width: 640px) { .quote-grid { grid-template-columns: 1fr; } .quote.q-tall { grid-column: auto; } .quote.q-wide { grid-row: auto; } }
+
+/* ─── ФИНАЛ + ДЕМО-ФОРМА ─────────────────────────────────── */
+.final { padding: clamp(100px, 13vw, 170px) 0; }
+.final-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(36px, 6vw, 80px); align-items: start; }
+.trust { list-style: none; margin-top: 28px; }
+.trust li { display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--mut); font-size: 0.96rem; }
+.trust li:last-child { border-bottom: 0; }
+.trust i { color: var(--green); font-style: normal; font-weight: 800; }
+.form-panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(24px, 3.5vw, 36px); }
+.form-panel h3 { font: 800 1.35rem/1.2 'Manrope', sans-serif; }
+.form-panel > p { color: var(--mut); font-size: 0.9rem; margin-top: 8px; }
+.field { margin-top: 18px; display: block; }
+.field span { display: block; font: 600 0.8rem/1 'Manrope', sans-serif; color: var(--dim); margin-bottom: 8px; }
+.field input, .field textarea {
+  width: 100%; background: var(--panel2); border: 1px solid var(--line2); border-radius: 12px;
+  color: var(--ink); font: 500 0.95rem/1.4 'Manrope', sans-serif; padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--lav); }
+.field textarea { min-height: 84px; resize: vertical; }
+.form-note { font-size: 0.74rem; color: var(--dim); margin-top: 14px; }
+.form-status { margin-top: 12px; font-size: 0.88rem; min-height: 1.2em; }
+.form-status.ok { color: var(--green); font-weight: 700; }
+.form-status.err { color: #fb7185; font-weight: 700; }
+.form-tg { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+.form-tg p { font-size: 0.84rem; color: var(--dim); margin-bottom: 12px; }
+@media (max-width: 860px) { .final-grid { grid-template-columns: 1fr; } }
+
+/* ─── FOOTER ─────────────────────────────────── */
+footer { border-top: 1px solid var(--line); padding: 54px 0 40px; }
+.foot { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 3fr)); gap: 34px; }
+.foot-logo { font: 800 1.2rem/1 'Manrope', sans-serif; }
+.foot-copy { color: var(--dim); font-size: 0.82rem; margin-top: 12px; }
+.foot a.footer-link { display: block; color: var(--mut); text-decoration: none; font-size: 0.9rem; padding: 5px 0; transition: color 0.2s; }
+.foot a.footer-link:hover { color: var(--ink); }
+.foot-title { font: 700 0.74rem/1 'Manrope', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+@media (max-width: 860px) { .foot { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+/* ─── ПЛАШКА СРАВНЕНИЯ ─────────────────────────────────── */
+.compare {
+  position: fixed; z-index: 60; right: 18px; bottom: 18px;
+  background: rgba(23,24,29,0.92); border: 1px solid rgba(139,92,246,0.5);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px; padding: 10px 18px;
+  font: 700 0.78rem/1 'Manrope', sans-serif; color: var(--mut);
+  display: flex; gap: 8px; align-items: center;
+}
+.compare a { color: var(--lav); text-decoration: none; border-bottom: 1px solid rgba(167,139,250,0.4); }
+.compare a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="logo"><i></i>NextGen<span class="grad">AI</span></div>
+    <span class="concept-tag">Концепт</span>
+    <nav class="nav-links" aria-label="Разделы концепта">
+      <a href="#journey">Как проходит контакт</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#quotes">Отзывы</a>
+    </nav>
+    <a class="nav-cta" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge rv"><i></i>Работает прямо сейчас</span>
+        <h1 class="rv rv-d1">ИИ-продавцы в&nbsp;Telegram, которые сами <span class="grad">приводят клиентов</span></h1>
+        <p class="hero-sub rv rv-d2">Первые лиды — через 7 дней. Сервис ведёт исходящие диалоги 24/7 и передаёт менеджеру только горячие контакты.</p>
+        <div class="hero-cta rv rv-d3">
+          <a class="btn btn-primary" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">
+            Попробовать демо бесплатно
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#journey">Как это работает</a>
+        </div>
+      </div>
+      <div class="hero-free rv rv-d2" aria-label="Что входит в бесплатный старт">
+        <div><b>500</b> целевых контактов</div>
+        <div>Демо ИИ-агента <b>под проект</b></div>
+        <div><b>3</b> стратегии под нишу</div>
+      </div>
+    </div>
+
+    <!-- Крупная демонстрация продукта -->
+    <div class="demo rv" role="img" aria-label="Демонстрация интерфейса: диалог ИИ-агента и ключевые показатели">
+      <div class="demo-bar"><i></i><i></i><i></i><span>NextGen AI · Кабинет</span></div>
+      <div class="demo-body">
+        <div class="chat" aria-hidden="true">
+          <div class="chat-head">
+            <div class="chat-ava">AI</div>
+            <div>
+              <div class="chat-name">NextGen Agent</div>
+              <div class="chat-status">активен · ведёт диалоги</div>
+            </div>
+          </div>
+          <div class="msg out"><p>Добрый день! Видел ваши работы по ремонту квартир — помогаем подрядчикам получать заявки напрямую в Telegram</p><time>14:22</time></div>
+          <div class="msg in"><p>Да, интересно, расскажите подробнее</p><time>14:23</time></div>
+          <div class="msg out"><p>Компании «РемСтрой» принесли 164 заявки за 30 дней по 595 ₽. Показать такой же расчёт под ваш город?</p><time>14:23</time></div>
+        </div>
+        <div class="demo-side" aria-hidden="true">
+          <div class="side-card">
+            <div class="side-l">Конверсия в диалог</div>
+            <div class="side-v grad">до 60%</div>
+            <div class="side-s">персонализированные приветствия</div>
+          </div>
+          <div class="side-card">
+            <div class="side-l">Цена контакта</div>
+            <div class="side-v" style="color:var(--green)">от 10 ₽</div>
+            <div class="side-s">квалифицированный контакт</div>
+          </div>
+          <div class="side-card">
+            <div class="side-l">Запуск</div>
+            <div class="side-v" style="color:var(--ink)">3–5 дней</div>
+            <div class="side-s">до первых диалогов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-note">Демо-интерфейс: иллюстрация работы кабинета</p>
+  </div>
+
+  <!-- Полоса цифр -->
+  <div class="band">
+    <div class="wrap band-in">
+      <div class="band-cell rv"><div class="band-n grad" data-count="1000000">0</div><div class="band-l">обработанных диалогов</div></div>
+      <div class="band-cell rv rv-d1"><div class="band-n grad" data-count="60" data-suffix="%">0</div><div class="band-l">конверсия в диалог</div></div>
+      <div class="band-cell rv rv-d2"><div class="band-n grad" data-count="15000">0</div><div class="band-l">диалогов в сутки</div></div>
+      <div class="band-cell rv rv-d3"><div class="band-n grad">с 2013</div><div class="band-l">года на рынке</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ СЦЕНА: ПУТЬ ОДНОГО КОНТАКТА ═══ -->
+<section class="journey" id="journey">
+  <div class="wrap journey-head">
+    <div>
+      <div class="eyebrow rv">Как проходит контакт</div>
+      <h2 class="h2 rv rv-d1">Путь одного контакта —<br><span class="grad">от аудитории до менеджера</span></h2>
+    </div>
+    <p class="journey-note rv rv-d2">Прокрутите страницу: контакт проходит выбор аудитории, переписку, квалификацию и передачу менеджеру. Это демонстрационный пример сценария, а не реальная переписка.</p>
+  </div>
+
+  <div class="journey-pin">
+    <div class="journey-stage">
+      <ol class="rail" aria-label="Этапы работы агента">
+        <li class="on"><span class="rail-n">01</span><span><span class="rail-t">Выбор аудитории</span><span class="rail-d">Парсинг чатов, каналов и баз по критериям ниши</span></span></li>
+        <li><span class="rail-n">02</span><span><span class="rail-t">Первое сообщение</span><span class="rail-d">Персональное приветствие и живой диалог</span></span></li>
+        <li><span class="rail-n">03</span><span><span class="rail-t">Квалификация</span><span class="rail-d">Бюджет, срок, потребность — скоринг лида</span></span></li>
+        <li><span class="rail-n">04</span><span><span class="rail-t">Передача менеджеру</span><span class="rail-d">Горячий контакт с сутью диалога</span></span></li>
+      </ol>
+
+      <div class="screen">
+        <!-- Сцена 1 -->
+        <div class="scene" aria-label="Сцена 1: выбор аудитории">
+          <span class="scene-tag">Шаг 01 · Аудитория</span>
+          <h3>Откуда приходят контакты</h3>
+          <div style="margin-top:14px">
+            <div class="src"><div class="src-ico">💬</div><div><b>Чат «Ремонт и отделка · Москва»</b><span>12 400 участников</span></div><div class="chk">✓</div></div>
+            <div class="src"><div class="src-ico">📣</div><div><b>Канал «Дизайн интерьеров»</b><span>подписчики с активностью</span></div><div class="chk">✓</div></div>
+            <div class="src"><div class="src-ico">🗄️</div><div><b>База прошлых лидов</b><span>неразобранные контакты</span></div><div class="chk">✓</div></div>
+          </div>
+          <div class="pick" aria-label="Критерии отбора">
+            <span class="hit">ниша: ремонты</span><span class="hit">город: Москва</span><span class="hit">роль: владелец</span><span>без рассылок</span>
+          </div>
+          <p class="pick-sum">Найдено <b>2 400</b> профилей → в работу отобрано <b>500</b> целевых</p>
+        </div>
+
+        <!-- Сцена 2 -->
+        <div class="scene" aria-label="Сцена 2: переписка">
+          <span class="scene-tag">Шаг 02 · Диалог</span>
+          <h3>Агент пишет первым</h3>
+          <div class="chat" aria-hidden="true">
+            <div class="msg out"><p>Добрый день, Иван! Видел ваш вопрос про загрузку бригады в чате ремонтников — можно пару слов?</p><time>10:02</time></div>
+            <div class="msg in"><p>Да, сейчас как раз свободнее стало</p><time>10:04</time></div>
+            <div class="msg out"><p>Понимаю сезонность. Помогаем подрядчикам получать заявки на ремонты напрямую — без рекламных бюджетов. Актуально?</p><time>10:04</time></div>
+            <div class="msg in"><p>Зависит от цены заявки</p><time>10:06</time></div>
+          </div>
+        </div>
+
+        <!-- Сцена 3 -->
+        <div class="scene" aria-label="Сцена 3: квалификация">
+          <span class="scene-tag">Шаг 03 · Квалификация</span>
+          <h3>Что выяснил агент</h3>
+          <div class="qual">
+            <div><div class="qual-l">Объект</div><div class="qual-v">Квартира, 54 м²</div></div>
+            <div><div class="qual-l">Бюджет</div><div class="qual-v">от 800 тыс ₽</div></div>
+            <div><div class="qual-l">Срок</div><div class="qual-v">начало — весна</div></div>
+            <div><div class="qual-l">Решение</div><div class="qual-v">принимает сам</div></div>
+          </div>
+          <div class="score">
+            <div class="score-n grad">87<span style="font-size:1rem;color:var(--dim)">/100</span></div>
+            <div class="score-bar"><div class="score-fill"></div></div>
+            <div class="score-l">готовность<br>к сделке</div>
+          </div>
+        </div>
+
+        <!-- Сцена 4 -->
+        <div class="scene" aria-label="Сцена 4: передача менеджеру">
+          <span class="scene-tag">Шаг 04 · Передача</span>
+          <h3>Менеджер получает лид</h3>
+          <div class="hand">
+            <div class="hand-card"><b>Иван · ремонты</b><span>квартира 54 м², бюджет от 800 тыс ₽, старт весной</span></div>
+            <div class="hand-arrow" aria-hidden="true">→</div>
+            <div class="hand-card"><b>Менеджер</b><span>контакт + вся переписка + карточка лида</span></div>
+          </div>
+          <div class="hand-done"><i>✓</i>Горячий контакт передан — менеджер продолжает диалог без повторных вопросов</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ КЕЙСЫ ═══ -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="eyebrow rv">Кейсы</div>
+    <h2 class="h2 rv rv-d1">Один разбор — <span class="grad">подробно</span></h2>
+    <p class="sub rv rv-d2">Крупный разбор выбранного кейса и быстрое переключение между нишами.</p>
+
+    <div class="case-tabs rv" role="tablist" aria-label="Выбор кейса" id="case-tabs"></div>
+
+    <div class="case-hero">
+      <div>
+        <div class="case-n grad" id="case-n">164</div>
+        <div class="case-period" id="case-period">30 дней · холодный запуск</div>
+        <p class="case-n-l" id="case-l">горячих лида для подрядчика по ремонту и отделке</p>
+      </div>
+      <div>
+        <div class="case-metrics">
+          <div class="cm"><div class="cm-v grad" id="case-m1v">595 ₽</div><div class="cm-l" id="case-m1l">цена лида</div></div>
+          <div class="cm"><div class="cm-v grad" id="case-m2v">24,2%</div><div class="cm-l" id="case-m2l">конверсия</div></div>
+        </div>
+        <div class="case-nav">
+          <button class="case-arrow" type="button" id="case-prev" aria-label="Предыдущий кейс">←</button>
+          <button class="case-arrow" type="button" id="case-next" aria-label="Следующий кейс">→</button>
+          <span class="case-count" id="case-count" aria-live="polite">01 / 07</span>
+        </div>
+      </div>
+      <p class="case-story" id="case-story">Агент находил владельцев квартир и подрядчиков в профильных чатах, выяснял объект, бюджет и сроки, догревал сомневающихся и передавал готовые заявки менеджеру. Все диалоги видны в кабинете, подключиться можно в любой момент.</p>
+    </div>
+
+    <div class="case-links rv">
+      <a class="link-quiet" href="https://drive.google.com/drive/u/0/folders/1mowTV-_SGjsz-Xerf2kZ9Fy4_02RW9at" target="_blank" rel="noopener noreferrer">Больше кейсов в Google Drive</a>
+      <a class="link-quiet" href="https://dandelion-porpoise-c86.notion.site/NG-3bea2f46f7f68196884cd4598ec0d551?source=copy_link" target="_blank" rel="noopener noreferrer">Notion-кейсы</a>
+      <a class="link-quiet" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Запросить подборку под свою нишу</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ОТЗЫВЫ ═══ -->
+<section class="quotes" id="quotes">
+  <div class="wrap">
+    <div class="eyebrow rv">Что говорят</div>
+    <h2 class="h2 rv rv-d1">Клиенты о <span class="grad">NextGen AI</span></h2>
+
+    <div class="quote-grid">
+      <article class="quote q-wide rv">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>Для сложного B2B с высоким чеком это оказался самый внятный канал по качеству диалогов: менеджер получает не просто ответ, а предметный контакт для следующего шага</p>
+        <div class="quote-person">
+          <div class="quote-ava"><img src="assets/testimonial-nikita.jpg" alt="Дмитрий" loading="lazy"></div>
+          <div>
+            <div class="quote-name"><a href="https://t.me/Marketing_forB2B" target="_blank" rel="noopener noreferrer">Дмитрий</a><svg width="15" height="15" viewBox="0 0 24 24" aria-label="Telegram" role="img"><path fill="currentColor" d="M21.8 3.2 18.5 20c-.25 1.2-.92 1.5-1.87.94l-5.16-3.8-2.49 2.4c-.28.28-.51.51-1.05.51l.37-5.25 9.55-8.63c.42-.37-.09-.58-.65-.21L5.39 13.3.27 11.7c-1.11-.35-1.13-1.11.23-1.62L20.5 2.4c.94-.35 1.77.22 1.3.8Z"/></svg></div>
+            <div class="quote-role">Основатель B2B-бюро</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="quote rv rv-d1">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>Лиды приходят в тему: инфобиз, эксперты, бизнесы, которые продают через контент — прям наш профиль</p>
+        <div class="quote-person">
+          <div class="quote-ava"><img src="assets/testimonial-dmitry.jpg" alt="Сергей" loading="lazy"></div>
+          <div>
+            <div class="quote-name"><a href="https://t.me/ooSERGoo" target="_blank" rel="noopener noreferrer">Сергей</a></div>
+            <div class="quote-role">AI-контент завод</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="quote rv rv-d2">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>За запуск получили больше 30 заявок на диагностику. Горячие обращения можно передавать в работу сразу</p>
+        <div class="quote-person">
+          <div class="quote-ava"><img src="assets/testimonial-sergey.jpg" alt="Никита" loading="lazy"></div>
+          <div>
+            <div class="quote-name"><a href="https://t.me/Nikberi" target="_blank" rel="noopener noreferrer">Никита</a></div>
+            <div class="quote-role">Основатель клиники BrainPro</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="quote q-tall rv">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>Получили 300+ обращений от организаторов и смежных специалистов event-индустрии. Один из последних проектов принёс 980 тыс. ₽ выручки</p>
+        <div class="quote-person">
+          <div class="quote-ava"><img src="assets/testimonial-ekaterina.jpg" alt="Екатерина" loading="lazy"></div>
+          <div>
+            <div class="quote-name"><a href="https://t.me/ekatrin_popova" target="_blank" rel="noopener noreferrer">Екатерина</a></div>
+            <div class="quote-role">Агентство декора «Первоисточники»</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="quote rv rv-d1">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>В карго много заявок «сколько стоит доставка». Агент уточняет город, вес, категорию и передаёт готовый просчёт, а не пустой контакт</p>
+        <div class="quote-person">
+          <div class="quote-ava fb">АЛ</div>
+          <div><div class="quote-name">Алексей</div><div class="quote-role">Карго из Китая</div></div>
+        </div>
+      </article>
+
+      <article class="quote rv rv-d2">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>После первого запуска 135 лидов превратились в 88 продолженных диалогов и 36 компаний с объектами на просчёт</p>
+        <div class="quote-person">
+          <div class="quote-ava fb">АВ</div>
+          <div><div class="quote-name">Антон</div><div class="quote-role">Партнёрская сеть · окна</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ФИНАЛ + ДЕМО-ФОРМА ═══ -->
+<section class="final" id="cta">
+  <div class="wrap final-grid">
+    <div>
+      <div class="eyebrow rv">Результат</div>
+      <h2 class="h2 rv rv-d1">Первые лиды —<br><span class="grad">уже через 7 дней</span></h2>
+      <p class="sub rv rv-d2">Без найма менеджеров и ручной работы. ИИ-агент работает 24/7 и передаёт только горячие контакты.</p>
+      <ul class="trust">
+        <li class="rv"><i>✓</i>10 лет опыта в digital-маркетинге</li>
+        <li class="rv rv-d1"><i>✓</i>1 млн+ диалогов обработано нашими агентами</li>
+        <li class="rv rv-d2"><i>✓</i>95% собеседников не понимают, что общаются с ИИ</li>
+        <li class="rv rv-d3"><i>✓</i>Прозрачность: каждая переписка видна в реальном времени</li>
+      </ul>
+    </div>
+
+    <div class="form-panel rv rv-d2">
+      <h3>Забрать бесплатный старт</h3>
+      <p>500 целевых контактов + демо агента + 3 стратегии под нишу.</p>
+      <form id="demo-form" novalidate>
+        <label class="field">
+          <span>Телефон *</span>
+          <input name="phone" type="tel" autocomplete="tel" placeholder="+7 999 123-45-67" required>
+        </label>
+        <label class="field">
+          <span>Комментарий</span>
+          <textarea name="comment" placeholder="Коротко опишите задачу"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit" style="width:100%;margin-top:18px">Отправить заявку</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+      <p class="form-note">Это демо-форма концепта: открытие, валидация и локальное подтверждение. Заявки не отправляются, аналитика не подключается.</p>
+      <div class="form-tg">
+        <p>Или сразу в Telegram:</p>
+        <a class="btn btn-ghost" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer" style="width:100%">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 3.2 18.5 20c-.25 1.2-.92 1.5-1.87.94l-5.16-3.8-2.49 2.4c-.28.28-.51.51-1.05.51l.37-5.25 9.55-8.63c.42-.37-.09-.58-.65-.21L5.39 13.3.27 11.7c-1.11-.35-1.13-1.11.23-1.62L20.5 2.4c.94-.35 1.77.22 1.3.8Z"/></svg>
+          Написать в Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="foot-logo"><span class="grad">NextGen</span>AI</div>
+      <div class="foot-copy">© 2024 NextGen AI.<br>Концепт-версия главной, локальный просмотр.</div>
+    </div>
+    <div>
+      <div class="foot-title">Контакты</div>
+      <a class="footer-link" href="tel:+79991236259">+7 999 123-62-59</a>
+      <a class="footer-link" href="mailto:771330@gmail.com">771330@gmail.com</a>
+      <a class="footer-link" href="https://t.me/Alexfreeeman" target="_blank" rel="noopener noreferrer">Telegram</a>
+    </div>
+    <div>
+      <div class="foot-title">Сайт</div>
+      <a class="footer-link" href="index.html">Текущая главная</a>
+      <a class="footer-link" href="blog/">Блог</a>
+    </div>
+    <div>
+      <div class="foot-title">Документы</div>
+      <a class="footer-link" href="privacy.html">Политика конфиденциальности</a>
+      <a class="footer-link" href="terms.html">Пользовательское соглашение</a>
+      <a class="footer-link" href="cookies.html">Настройка cookies</a>
+    </div>
+  </div>
+</footer>
+
+<div class="compare">Концепт · <a href="index.html">открыть текущую главную</a></div>
+
+<script src="assets/concept/vendor/gsap.min.js"></script>
+<script src="assets/concept/vendor/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) document.documentElement.classList.add('reduce');
+
+  /* ── Последовательное появление блоков (CSS) ── */
+  var revealEls = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('on'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ── Счётчики полосы цифр ── */
+  function fmt(n) {
+    if (n >= 1000000) return (n / 1000000).toLocaleString('ru-RU', { maximumFractionDigits: 1 }) + ' млн+';
+    return n.toLocaleString('ru-RU');
+  }
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduce) { el.textContent = fmt(target) + suffix; return; }
+    var started = false;
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || started) return;
+        started = true; co.disconnect();
+        var t0 = null, dur = 1400;
+        function tick(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(target * eased)) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    co.observe(el);
+  });
+
+  /* ── Сцена пути контакта ──
+     Десктоп (≥900px, без reduced-motion): закрепление через GSAP ScrollTrigger,
+     сцены сменяют друг друга со сменой масштаба.
+     Мобильные и reduced-motion: карточки идут последовательно, без закрепления. */
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.screen .scene'));
+  var railItems = Array.prototype.slice.call(document.querySelectorAll('.rail li'));
+  function setStep(i) {
+    railItems.forEach(function (li, k) { li.classList.toggle('on', k === i); });
+  }
+
+  if (window.gsap && window.ScrollTrigger && !reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    var mm = gsap.matchMedia();
+    mm.add('(min-width: 900px)', function () {
+      // начальные состояния: сцены 2–4 скрыты
+      gsap.set(scenes.slice(1), { autoAlpha: 0, scale: 0.94, y: 30 });
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.journey-pin',
+          start: 'top top',
+          end: '+=2200',
+          pin: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          onUpdate: function (self) {
+            setStep(Math.min(3, Math.floor(self.progress * 4)));
+          }
+        }
+      });
+      for (var i = 1; i < scenes.length; i++) {
+        tl.to(scenes[i - 1], { autoAlpha: 0, scale: 0.94, y: -30, duration: 1, ease: 'power2.in' }, (i - 1) * 2 + 1)
+          .fromTo(scenes[i], { autoAlpha: 0, scale: 0.94, y: 30 }, { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'power2.out' }, (i - 1) * 2 + 2);
+      }
+      return function () {
+        gsap.set(scenes, { clearProps: 'all' });
+        setStep(0);
+      };
+    });
+  }
+
+  /* ── Кейсы: один крупный разбор + переключение ── */
+  var CASES = [
+    { tab: 'Ремонты и отделка', n: '164', period: '30 дней · холодный запуск', l: 'горячих лида для подрядчика по ремонту и отделке',
+      m1v: '595 ₽', m1l: 'цена лида', m2v: '24,2%', m2l: 'конверсия',
+      story: 'Агент находил владельцев квартир и подрядчиков в профильных чатах, выяснял объект, бюджет и сроки, догревал сомневающихся и передавал готовые заявки менеджеру. Все диалоги видны в кабинете, подключиться можно в любой момент.' },
+    { tab: 'Маркетплейсы', n: '1 088', period: '30 дней · селлерские услуги', l: 'горячих лида по услугам для селлеров маркетплейсов',
+      m1v: '428 ₽', m1l: 'цена лида', m2v: '20,7%', m2l: 'конверсия',
+      story: 'Агент общался с селлерами о зависших возвратах и недополученных выплатах, квалифицировал по обороту и площадкам и выводил владельцев на аудит с понятным расчётом.' },
+    { tab: 'Авторские туры', n: '79', period: '30 дней · набор групп', l: 'горячих лида на авторские туры',
+      m1v: '1 055 ₽', m1l: 'цена лида', m2v: '23,0%', m2l: 'конверсия',
+      story: 'Персональные приглашения в тематических чатах путешествий, ответы на вопросы по маршрутам и датам, передача готовых заявок организатору тура.' },
+    { tab: 'Партнёрка B2B · окна', n: '36', period: 'один запуск партнёрской сети', l: 'компаний с объектами на просчёт',
+      m1v: '≈88', m1l: 'продолжили диалог', m2v: 'от 400 ₽', m2l: 'качественный партнёрский лид',
+      story: 'Вместо ручного поиска партнёров выстроена воронка: 135 лидов → примерно 88 продолженных диалогов → 36 компаний с объектами на просчёт.' },
+    { tab: 'Стоматологии', n: '58', period: 'по рабочей сводке', l: 'лидов по рабочей сводке клиники',
+      m1v: '≈840 ₽', m1l: 'стоимость лида', m2v: 'AI', m2l: 'квалификация до аудита',
+      story: 'Разговоры про загрузку врачей и экономику, а не про рекламу: агент квалифицировал запрос и передавал менеджеру контакт, готовый к аудиту.' },
+    { tab: 'Футбольная школа', n: '23', period: 'бюджет на рекламу: 0 ₽', l: 'заявки на пробную тренировку',
+      m1v: '11', m1l: 'дошли до тренировки', m2v: '7', m2l: 'записались в группы',
+      story: 'Родителей собирали в локальных чатах и доводили до пробных тренировок без рекламного бюджета — только адресные диалоги.' },
+    { tab: 'LegalTech · подписка', n: '+18%', period: 'поддержка подписчиков', l: 'удержание подписчиков',
+      m1v: '+21%', m1l: 'апселлы услуг', m2v: '<1 мин', m2l: 'среднее время ответа',
+      story: 'ИИ-юрист отвечает подписчикам в момент вопроса, разбирает документы и помогает увидеть, когда нужна дополнительная услуга.' }
+  ];
+  var tabsBox = document.getElementById('case-tabs');
+  var caseIdx = 0;
+  CASES.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'case-tab';
+    b.setAttribute('role', 'tab');
+    b.textContent = c.tab;
+    b.addEventListener('click', function () { showCase(i); });
+    tabsBox.appendChild(b);
+  });
+  var tabBtns = Array.prototype.slice.call(tabsBox.children);
+  function showCase(i) {
+    caseIdx = (i + CASES.length) % CASES.length;
+    var c = CASES[caseIdx];
+    document.getElementById('case-n').textContent = c.n;
+    document.getElementById('case-period').textContent = c.period;
+    document.getElementById('case-l').textContent = c.l;
+    document.getElementById('case-m1v').textContent = c.m1v;
+    document.getElementById('case-m1l').textContent = c.m1l;
+    document.getElementById('case-m2v').textContent = c.m2v;
+    document.getElementById('case-m2l').textContent = c.m2l;
+    document.getElementById('case-story').textContent = c.story;
+    document.getElementById('case-count').textContent = pad(caseIdx + 1) + ' / ' + pad(CASES.length);
+    tabBtns.forEach(function (b, k) { b.setAttribute('aria-selected', k === caseIdx ? 'true' : 'false'); });
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  document.getElementById('case-prev').addEventListener('click', function () { showCase(caseIdx - 1); });
+  document.getElementById('case-next').addEventListener('click', function () { showCase(caseIdx + 1); });
+  showCase(0);
+
+  /* ── Демо-форма: только локальная валидация и подтверждение ── */
+  var form = document.getElementById('demo-form');
+  var status = form.querySelector('.form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var phone = form.phone.value.replace(/\D/g, '');
+    status.classList.remove('ok', 'err');
+    if (phone.length < 10) {
+      status.classList.add('err');
+      status.textContent = 'Введите телефон полностью — например, +7 999 123-45-67';
+      form.phone.focus();
+      return;
+    }
+    status.classList.add('ok');
+    status.textContent = '✓ Демо-режим: в рабочей версии здесь отправка заявки и переход на подтверждение';
+    form.reset();
+  });
+
+  /* Пересчёт закрепления после загрузки шрифтов */
+  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+  }
+})();
+</script>
+</body>
+</html>

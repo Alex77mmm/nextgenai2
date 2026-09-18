@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Прогрев почтовых доменов для B2B-рассылок: SPF, DKIM, DMARC и репутация — NextGen AI</title>
+    <meta name="description" content="Прогрев доменов для рассылок: пошаговая инструкция по настройке DNS-записей, автоматический прогрев ящиков и алгоритм наращивания объемов." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/progrev-domenov-dlya-rassylok/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Прогрев почтовых доменов для B2B-рассылок: SPF, DKIM, DMARC и репутация — NextGen AI" />
+    <meta property="og:description" content="Прогрев доменов для рассылок: пошаговая инструкция по настройке DNS-записей, автоматический прогрев ящиков и алгоритм наращивания объемов." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/progrev-domenov-dlya-rassylok/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/email-rassylka-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/progrev-domenov-dlya-rassylok/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/progrev-domenov-dlya-rassylok/"
+      },
+      "headline": "Прогрев почтовых доменов для рассылок: как настроить SPF, DKIM и выйти в инбокс",
+      "description": "Прогрев доменов для рассылок: пошаговая инструкция по настройке DNS-записей, автоматический прогрев ящиков и алгоритм наращивания объемов.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/email-rassylka-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Прогрев почтовых доменов для рассылок: как настроить SPF, DKIM и выйти в инбокс",
+          "item": "https://nextgenrussia.ru/blog/progrev-domenov-dlya-rassylok/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает полный прогрев нового домена?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "От 14 до 21 дня до достижения устойчивой зеленой репутации в постмастерах Яндекса и Mail.ru."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли использовать сервисы автопрогрева?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, специализированные сервисы (Warmup Inbox, Instantly) отправляют письма по сетке доверенных ящиков и вытаскивают их из спама автоматически."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=progrev-domenov-dlya-rassylok">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Прогрев почтовых доменов для рассылок: как настроить SPF, DKIM и выйти в инбокс</h1>
+          <p class="lead">Отправка даже 50 писем с нового домена моментально отправляет письма в спам. Разбираем правильную процедуру технической настройки и прогрева почтовых ящиков.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>7 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/email-rassylka-shema.svg" alt="Прогрев почтовых доменов для рассылок: как настроить SPF, DKIM и выйти в инбокс" loading="lazy" />
+            <figcaption>Схема технической подготовки: настройка DNS-записей, прогрев пирингом и рост объемов.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Прогрев почтового домена — это постепенное наращивание объемов исходящей почты с одновременным повышением процента открытий и ответов на протяжении 2–3 недель. Процедура невозможна без корректной настройки цифровых подписей SPF, DKIM, DMARC и обратной зоны MX/PTR.</p>
+        </section>
+        
+    <h2 id="section-1">Базовый технический чек-лист DNS: SPF, DKIM и DMARC</h2>
+    <p>Без трех записей почтовые серверы сразу отбрасывают письма:</p>
+        <ul>
+          <li><strong>SPF:</strong> указывает список серверов, имеющих право отправлять почту от имени домена.</li>
+          <li><strong>DKIM:</strong> цифровая криптографическая подпись, подтверждающая неизменность текста письма.</li>
+          <li><strong>DMARC:</strong> политика обработки писем, не прошедших проверку SPF/DKIM (ставится в режим v=DMARC1; p=none с переходом в quarantine).</li>
+        </ul>
+  
+
+    <h2 id="section-2">График наращивания объема отправки (Warm-up schedule)</h2>
+    <ol>
+          <li>Неделя 1: 5–10 писем в день между доверенными адресами с обязательными ответами.</li>
+          <li>Неделя 2: 20–30 писем в день.</li>
+          <li>Неделя 3: 50–70 писем в день.</li>
+          <li>Неделя 4: выход на рабочий объем до 100–150 писем с одного ящика в сутки.</li>
+        </ol>
+  
+
+    <h2 id="section-3">Использование вспомогательных доменов (Look-alike domains)</h2>
+    <p>Никогда не делайте холодные рассылки с главного корпоративного домена (site.ru). Для аутрича регистрируют сателлиты (site-b2b.ru, get-site.ru) с редиректом на основной сайт.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сколько времени занимает полный прогрев нового домена?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">От 14 до 21 дня до достижения устойчивой зеленой репутации в постмастерах Яндекса и Mail.ru.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Можно ли использовать сервисы автопрогрева?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Да, специализированные сервисы (Warmup Inbox, Instantly) отправляют письма по сетке доверенных ящиков и вытаскивают их из спама автоматически.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-консалтинг</div>
+          <h3>Достижение 99,4% доставляемости в папку «Входящие»</h3>
+          <p>Клиент настроил 4 сателлитных домена с соблюдением протоколов SPF/DKIM. Из 4 800 отправленных писем в спам попало менее 30 сообщений.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Настройка DNS</a>
+<a href="#section-2">График прогрева</a>
+<a href="#section-3">Вспомогательные домены</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=progrev-domenov-dlya-rassylok">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kak-proverit-validnost-email-bazy/">
+      <span class="topic">Валидация</span>
+      <h3>Проверка валидности базы</h3>
+      <p>Устранение недействительных ящиков.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../holodnaya-email-rassylka/">
+      <span class="topic">Email</span>
+      <h3>Холодная email-рассылка</h3>
+      <p>Принципы результативного контакта.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../tsepochka-pisem-dlya-holodnyh-prodazh/">
+      <span class="topic">Цепочки</span>
+      <h3>Цепочки писем</h3>
+      <p>Шаблоны касаний.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../email-rassylka-klientam/">
+      <span class="topic">Рассылки</span>
+      <h3>Email-рассылка клиентам</h3>
+      <p>Регулярный маркетинг.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

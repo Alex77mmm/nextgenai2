@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Боты с долгосрочной памятью диалога: удержание контекста клиента в B2B — NextGen AI</title>
+    <meta name="description" content="Боты с памятью: как современные языковые модели хранят профиль клиента, историю прошлых заказов и договоренностей между сессиями." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/umnye-boti-s-pamyatyu/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Боты с долгосрочной памятью диалога: удержание контекста клиента в B2B — NextGen AI" />
+    <meta property="og:description" content="Боты с памятью: как современные языковые модели хранят профиль клиента, историю прошлых заказов и договоренностей между сессиями." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/umnye-boti-s-pamyatyu/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/chat-bot-ili-ai-prodavets.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/umnye-boti-s-pamyatyu/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/umnye-boti-s-pamyatyu/"
+      },
+      "headline": "Боты с долгосрочной памятью: как ИИ помнит историю клиента сквозь недели переписки",
+      "description": "Боты с памятью: как современные языковые модели хранят профиль клиента, историю прошлых заказов и договоренностей между сессиями.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/chat-bot-ili-ai-prodavets.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Боты с долгосрочной памятью: как ИИ помнит историю клиента сквозь недели переписки",
+          "item": "https://nextgenrussia.ru/blog/umnye-boti-s-pamyatyu/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Не путает ли бот данные разных клиентов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, каждый профиль изолирован строгим идентификатором телефонного номера или Telegram ID."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли скорректировать память бота вручную?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, менеджер может отредактировать профиль клиента в интерфейсе CRM в любой момент."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=umnye-boti-s-pamyatyu">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Боты с долгосрочной памятью: как ИИ помнит историю клиента сквозь недели переписки</h1>
+          <p class="lead">Обычные боты забывают собеседника сразу после закрытия чата. Боты с векторной памятью помнят детали разговора месячной давности, создавая доверие уровня личного менеджера.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/chat-bot-ili-ai-prodavets.svg" alt="Боты с долгосрочной памятью: как ИИ помнит историю клиента сквозь недели переписки" loading="lazy" />
+            <figcaption>Архитектура долгосрочной памяти: сохранение фактов в векторную БД и извлечение при повторном контакте.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Умные боты с долгосрочной памятью — это ИИ-системы, использующие векторные базы данных (Vector DB) и графы сущностей для долговременного сохранения ключевых фактов о клиенте (предпочтения, ограничения, история прошлых сделок, семейный статус). При повторном обращении бот сразу продолжает общение с учетом всего бэкграунда.</p>
+        </section>
+        
+    <h2 id="section-1">Разница между контекстным окном и долгосрочной памятью</h2>
+    <p>Контекстное окно LLM ограничено текущей сессией. Долгосрочная память извлекает из прошлых бесед сжатые факты: «Алексей, директор завода, бюджет 1,5 млн, в отпуске до 10 октября» и подгружает их в новый диалог.</p>
+  
+
+    <h2 id="section-2">Как память формирует доверие при повторных закупках</h2>
+    <p>Когда клиент возвращается через полгода, бот приветствует его: «Здравствуйте, Алексей! Повторить заказ по клапанам или смотрим обновленную линейку?». Клиент чувствует персональное отношение.</p>
+  
+
+    <h2 id="section-3">Безопасное хранение персональных профилей</h2>
+    <p>Вся сохраненная память шифруется и привязывается к уникальному ID контрагента в базе данных компании без передачи третьим лицам.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Не путает ли бот данные разных клиентов?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Нет, каждый профиль изолирован строгим идентификатором телефонного номера или Telegram ID.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Можно ли скорректировать память бота вручную?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Да, менеджер может отредактировать профиль клиента в интерфейсе CRM в любой момент.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Дистрибуция сырья</div>
+          <h3>Рост LTV постоянных оптовых клиентов на 22%</h3>
+          <p>Внедрение долгосрочной памяти в B2B-боте позволило помнить специфику отгрузки каждого из 400 дилеров, сведя количество ошибок в заказах к нулю.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Контекст vs память</a>
+<a href="#section-2">Доверие в повторных сделках</a>
+<a href="#section-3">Безопасность профилей</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=umnye-boti-s-pamyatyu">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../ai-prodavets-b2b/">
+      <span class="topic">ИИ-продажи</span>
+      <h3>ИИ-продавец в B2B</h3>
+      <p>Персональное общение с клиентами.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../avtomatizaciya-perepiski-s-klientami/">
+      <span class="topic">Переписка</span>
+      <h3>Автоматизация переписки</h3>
+      <p>Умные диалоги в мессенджерах.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../reanimaciya-bazy-klientov-v-messendzherah/">
+      <span class="topic">База</span>
+      <h3>Реанимация базы клиентов</h3>
+      <p>Возвращение уснувших покупателей.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../b2b-prodazhi-v-telegram/">
+      <span class="topic">Telegram</span>
+      <h3>Продажи в Telegram</h3>
+      <p>Особенности ведения сделок в мессенджере.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

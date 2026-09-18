@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Модель скоринга лидов в Excel и Google Таблицах: бесплатный шаблон — NextGen AI</title>
+    <meta name="description" content="Скоринг лидов в таблицах: как собрать простую и понятную модель приоритизации заявок в Google Sheets или Excel без покупки дорогих платформ." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/lead-scoring-v-tablicah/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Модель скоринга лидов в Excel и Google Таблицах: бесплатный шаблон — NextGen AI" />
+    <meta property="og:description" content="Скоринг лидов в таблицах: как собрать простую и понятную модель приоритизации заявок в Google Sheets или Excel без покупки дорогих платформ." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/lead-scoring-v-tablicah/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/lead-scoring-v-tablicah/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/lead-scoring-v-tablicah/"
+      },
+      "headline": "Скоринг лидов в таблицах: простая модель в Excel и Google Sheets без программистов",
+      "description": "Скоринг лидов в таблицах: как собрать простую и понятную модель приоритизации заявок в Google Sheets или Excel без покупки дорогих платформ.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Скоринг лидов в таблицах: простая модель в Excel и Google Sheets без программистов",
+          "item": "https://nextgenrussia.ru/blog/lead-scoring-v-tablicah/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли связать Google Таблицу с сайтом или ботом?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, через простые вебхуки и no-code сервисы (Make, Albato) новые лиды попадают в таблицу моментально."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда нужно переходить с таблиц на полноценный ИИ-скоринг?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда входящий поток превышает 15–20 заявок в день и ручное заполнение таблицы начинает отнимать время."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=lead-scoring-v-tablicah">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Скоринг лидов в таблицах: простая модель в Excel и Google Sheets без программистов</h1>
+          <p class="lead">Не обязательно покупать сложный софт за сотни тысяч, чтобы начать приоритизировать лидов. Базовая табличная модель внедряется за 2 часа и экономит до 30% времени менеджеров.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/kvalifikaciya-lida-shema.svg" alt="Скоринг лидов в таблицах: простая модель в Excel и Google Sheets без программистов" loading="lazy" />
+            <figcaption>Табличная модель скоринга: весовые коэффициенты, баллы и итоговая приоритизация лидов.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Скоринг лидов в таблицах — это система формул в Excel или Google Sheets, которая суммирует баллы заявки по ключевым параметрам (должность, бюджет, срочность, отрасль), умножая их на весовые коэффициенты. В результате каждый контакт автоматически окрашивается в зеленый (горячий), желтый (теплый) или серый (нецелевой) цвет.</p>
+        </section>
+        
+    <h2 id="section-1">Как распределить весовые коэффициенты критериев</h2>
+    <p>Сумма весов всех критериев должна равняться 100%. Пример рабочего распределения:</p>
+        <ul>
+          <li><strong>Полномочия ЛПР:</strong> вес 30% (Генеральный директор = 100 баллов, Менеджер = 30 баллов).</li>
+          <li><strong>Размер бюджета:</strong> вес 35% (от 500 тыс. ₽ = 100 баллов, менее 100 тыс. ₽ = 20 баллов).</li>
+          <li><strong>Срочность запуска:</strong> вес 20% (до 14 дней = 100 баллов, в течение года = 10 баллов).</li>
+          <li><strong>Соответствие отрасли:</strong> вес 15% (ключевая ниша = 100 баллов, смежная = 50 баллов).</li>
+        </ul>
+  
+
+    <h2 id="section-2">Формула расчета итогового скорингового балла</h2>
+    <p>Итоговый балл рассчитывается с помощью функции СУММПРОИЗВ (SUMPRODUCT):</p>
+        <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 4px; font-family: monospace; color: #4ade80; margin: 10px 0;">
+          =SUMPRODUCT(B2:E2; $B$1:$E$1) / 100
+        </div>
+  
+
+    <h2 id="section-3">Условное форматирование для наглядной работы сейлзов</h2>
+    <p>Настройте автоматическую подсветку строк: заявки с баллом выше 75 подсвечиваются зеленым цветом и берутся в работу в первую очередь.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Можно ли связать Google Таблицу с сайтом или ботом?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Да, через простые вебхуки и no-code сервисы (Make, Albato) новые лиды попадают в таблицу моментально.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Когда нужно переходить с таблиц на полноценный ИИ-скоринг?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Когда входящий поток превышает 15–20 заявок в день и ручное заполнение таблицы начинает отнимать время.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-оборудование</div>
+          <h3>Устранение хаоса в обработке 400 заявок в месяц</h3>
+          <p>Внедрение простой скоринговой таблицы помогло отделу продаж из 3 человек сфокусироваться на 20% самых прибыльных заказов, увеличив маржинальность на 28%.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Весовые коэффициенты</a>
+<a href="#section-2">Формула расчета</a>
+<a href="#section-3">Условное форматирование</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=lead-scoring-v-tablicah">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../avtomatizaciya-skoringa-lidov/">
+      <span class="topic">ИИ-скоринг</span>
+      <h3>Скоринг лидов с помощью ИИ</h3>
+      <p>Автоматизация оценки на базе нейросетей.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kvalificirovannyy-lid/">
+      <span class="topic">Квалификация</span>
+      <h3>Квалифицированный лид</h3>
+      <p>Критерии целевого контакта.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../goryachie-lidy/">
+      <span class="topic">Лиды</span>
+      <h3>Горячие лиды</h3>
+      <p>Техники быстрого закрытия.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../stoimost-lida/">
+      <span class="topic">Метрики</span>
+      <h3>Стоимость лида</h3>
+      <p>Расчет эффективности каналов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

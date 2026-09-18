@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Скоринг лидов с помощью ИИ: как отделять горячих клиентов от зевак — NextGen AI</title>
+    <meta name="description" content="Скоринг лидов с помощью ИИ: автоматическая оценка платежеспособности, соответствия ICP и вероятности сделки на основе диалога и открытых данных." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/avtomatizaciya-skoringa-lidov/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Скоринг лидов с помощью ИИ: как отделять горячих клиентов от зевак — NextGen AI" />
+    <meta property="og:description" content="Скоринг лидов с помощью ИИ: автоматическая оценка платежеспособности, соответствия ICP и вероятности сделки на основе диалога и открытых данных." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/avtomatizaciya-skoringa-lidov/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/avtomatizaciya-skoringa-lidov/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/avtomatizaciya-skoringa-lidov/"
+      },
+      "headline": "Скоринг лидов с помощью ИИ: как находить платежеспособных клиентов в потоке заявок",
+      "description": "Скоринг лидов с помощью ИИ: автоматическая оценка платежеспособности, соответствия ICP и вероятности сделки на основе диалога и открытых данных.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Скоринг лидов с помощью ИИ: как находить платежеспособных клиентов в потоке заявок",
+          "item": "https://nextgenrussia.ru/blog/avtomatizaciya-skoringa-lidov/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает ИИ-скоринг одного входящего лида?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "От 2 до 5 секунд после получения ответа клиента в чате или отправки формы на сайте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли интегрировать скоринг с amoCRM и Битрикс24?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, скоринговый балл и выжимка ответов автоматически сохраняются в карточке сделки через API."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=avtomatizaciya-skoringa-lidov">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Скоринг лидов с помощью ИИ: как находить платежеспособных клиентов в потоке заявок</h1>
+          <p class="lead">До 70% времени менеджеры тратят на пустые разговоры с нецелевыми контактами. ИИ-скоринг мгновенно присваивает лиду баллы и приоритизирует работу отдела продаж.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/kvalifikaciya-lida-shema.svg" alt="Скоринг лидов с помощью ИИ: как находить платежеспособных клиентов в потоке заявок" loading="lazy" />
+            <figcaption>Схема ИИ-скоринга: от анализа цифрового следа до передачи топ-лидов старшим сейлзам.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Скоринг лидов с помощью ИИ — это автоматизированная система оценки вероятности заключения сделки на основе анализа поведения пользователя, текстовых ответов в чате, характеристик компании (выручка, штат, отрасль) и методологий квалификации. Нейросеть делит входящие заявки на холодные, теплые и горячие, исключая слив времени дорогих экспертов на неплатежеспособные запросы.</p>
+        </section>
+        
+    <h2 id="section-1">Критерии оценки лида: поведенческий и демографический скоринг</h2>
+    <p>Современный скоринг на базе ИИ учитывает два ключевых пласта информации:</p>
+        <ul>
+          <li><strong>Фирмографические параметры:</strong> соответствие профилю ICP (выручка, размер штата, отрасль, регион).</li>
+          <li><strong>Сигналы из диалога:</strong> срочность («нужно запустить на этой неделе»), наличие бюджета, должность собеседника.</li>
+        </ul>
+  
+
+    <h2 id="section-2">Как нейросеть выставляет скоринговый балл в реальном времени</h2>
+    <p>ИИ-ассистент задает 2-3 нативных вопроса. По смыслу ответов начисляются баллы:</p>
+        <ol>
+          <li>Сроки: «Готовы стартовать на этой неделе» (+30 баллов), «Прицениваемся к следующему году» (+5 баллов).</li>
+          <li>Объем: «Партия от 10 000 единиц» (+40 баллов), «Нужен 1 пробный образец» (-15 баллов).</li>
+          <li>Полномочия: «Я генеральный директор» (+30 баллов), «Студент пишу диплом» (дисквалификация).</li>
+        </ol>
+  
+
+    <h2 id="section-3">Маршрутизация лидов в CRM по итогам скоринга</h2>
+    <p>Заявки с баллом выше 80 передаются senior-менеджерам для немедленного созвона. Лиды с баллом 40–79 уходят в автоматическую цепочку контентного прогрева, а запросы ниже 40 обслуживаются ботом без людей.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сколько времени занимает ИИ-скоринг одного входящего лида?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">От 2 до 5 секунд после получения ответа клиента в чате или отправки формы на сайте.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Можно ли интегрировать скоринг с amoCRM и Битрикс24?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Да, скоринговый балл и выжимка ответов автоматически сохраняются в карточке сделки через API.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-сервис</div>
+          <h3>Увеличение выручки на 34% без расширения штата сейлзов</h3>
+          <p>Внедрение ИИ-скоринга в компании по аренде спецтехники позволило отсечь 48% зевак и сконцентрировать ведущих менеджеров на крупных строительных подрядчиках.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Критерии скоринга</a>
+<a href="#section-2">Алгоритм выставления баллов</a>
+<a href="#section-3">Маршрутизация в CRM</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=avtomatizaciya-skoringa-lidov">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kvalificirovannyy-lid/">
+      <span class="topic">Квалификация</span>
+      <h3>Что такое квалифицированный лид</h3>
+      <p>Критерии MQL и SQL в корпоративных продажах.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../skorost-otveta-na-zayavku/">
+      <span class="topic">Конверсия</span>
+      <h3>Скорость ответа на заявку</h3>
+      <p>Почему первые 5 минут решают судьбу сделки.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../goryachie-lidy/">
+      <span class="topic">Лиды</span>
+      <h3>Горячие лиды: как не упустить</h3>
+      <p>Признаки готовности клиента к покупке.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-ne-teryat-lidy/">
+      <span class="topic">Ошибки</span>
+      <h3>Как не терять лиды</h3>
+      <p>Устранение дыр в воронке продаж.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>
