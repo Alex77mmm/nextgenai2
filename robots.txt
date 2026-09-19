@@ -6,6 +6,25 @@ Disallow: /terms.html
 Disallow: /cookies.html
 Disallow: /thank-you.html
 
+# AI Search Crawlers (AEO / GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
 Sitemap: https://nextgenrussia.ru/sitemap.xml
 # LLMs knowledge bundle
 # llms.txt: https://nextgenrussia.ru/llms.txt
