@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Автоматическое распределение лидов в CRM: по гео, чеку и нагрузке менеджеров — NextGen AI</title>
+    <meta name="description" content="Маршрутизация лидов в amoCRM и Битрикс24: круговое распределение Round Robin, учет графика смен, скоринг потенциала сделки и перераспределение зависших заявок." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/avtomaticheskoe-raspredelenie-lidov-v-crm/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Автоматическое распределение лидов в CRM: по гео, чеку и нагрузке менеджеров — NextGen AI" />
+    <meta property="og:description" content="Маршрутизация лидов в amoCRM и Битрикс24: круговое распределение Round Robin, учет графика смен, скоринг потенциала сделки и перераспределение зависших заявок." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/avtomaticheskoe-raspredelenie-lidov-v-crm/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/saas-prodazhi-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/avtomaticheskoe-raspredelenie-lidov-v-crm/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/avtomaticheskoe-raspredelenie-lidov-v-crm/"
+      },
+      "headline": "Автоматическое распределение лидов в CRM: правила, алгоритмы и сценарии маршрутизации",
+      "description": "Маршрутизация лидов в amoCRM и Битрикс24: круговое распределение Round Robin, учет графика смен, скоринг потенциала сделки и перераспределение зависших заявок.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/saas-prodazhi-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Автоматическое распределение лидов в CRM: правила, алгоритмы и сценарии маршрутизации",
+          "item": "https://nextgenrussia.ru/blog/avtomaticheskoe-raspredelenie-lidov-v-crm/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что делать, если старый клиент оставил новую заявку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CRM должна сначала проверить совпадение номера телефона или ИНН с существующей базой и автоматически закрепить сделку за текущим персональным аккаунт-менеджером."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как мотивировать сейлзов брать сложные лиды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Внедрять повышенный коэффициент комиссии за закрытие трудных сегментов клиентов или за работу в вечерние смены."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=avtomaticheskoe-raspredelenie-lidov-v-crm">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Автоматическое распределение лидов в CRM: правила, алгоритмы и сценарии маршрутизации</h1>
+          <p class="lead">Несправедливое распределение лидов в отделе продаж порождает конфликты между менеджерами, а задержки передачи заявок убивают конверсию. Разбираем интеллектуальные правила распределения лидов.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>8 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/saas-prodazhi-shema.svg" alt="Автоматическое распределение лидов в CRM: правила, алгоритмы и сценарии маршрутизации" loading="lazy" />
+            <figcaption>Схема умной маршрутизации: входящий лид → скоринг чека и гео → проверка онлайна менеджера → мгновенное закрепление ответственного.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Автоматическая маршрутизация лидов в CRM — это система правил, распределяющая входящие заявки по менеджерам без участия РОПа. Основные алгоритмы: 1) Круговое распределение (Round Robin) по очереди, 2) Компетентностное (крупные чеки уходят опытным клоузерам, мелкие — стажерам), 3) Географическое (по часовым поясам и городам), 4) С учетом статуса менеджера (только тем, кто на смене и не имеет просроченных задач).</p>
+        </section>
+        
+    <h2 id="section-1">4 модели распределения лидов в современных отделах продаж</h2>
+    <ol>
+          <li><strong>Round Robin (По очереди):</strong> базовый честный алгоритм равного распределения потока заявок между активными менеджерами смены.</li>
+          <li><strong>Скоринговое распределение (Value-Based):</strong> лиды с потенциальным чеком от 1 млн ₽ уходят только топ-сейлзам с наивысшей конверсией закрытия.</li>
+          <li><strong>Географическое распределение:</strong> заявка из Владивостока попадает менеджеру с дальневосточным графиком, а не сотруднику в Москве, который еще спит.</li>
+          <li><strong>Конкурентный захват (Fastest Finger):</strong> заявка падает в общую очередь, забирает тот менеджер, который первым нажал кнопку «Взять в работу».</li>
+        </ol>
+  
+
+    <h2 id="section-2">Автоперераспределение при нарушении SLA (Правило 15 минут)</h2>
+    <p>Если менеджер не совершил звонок или не написал клиенту в течение 15 минут с момента назначения сделки, CRM автоматически снимает ответственного и переназначает лид следующему сейлзу со штрафным уведомлением РОПу.</p>
+  
+
+    <h2 id="section-3">Учет рабочих смен и отпусков</h2>
+    <p>Свяжите CRM с табелем рабочего времени. Лиды не должны распределяться на сотрудников, находящихся на больничном, в отпуске или завершивших рабочий день.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Что делать, если старый клиент оставил новую заявку?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">CRM должна сначала проверить совпадение номера телефона или ИНН с существующей базой и автоматически закрепить сделку за текущим персональным аккаунт-менеджером.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Как мотивировать сейлзов брать сложные лиды?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Внедрять повышенный коэффициент комиссии за закрытие трудных сегментов клиентов или за работу в вечерние смены.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Федеральная франшиза</div>
+          <h3>Рост общей конверсии воронки на 26% за счет умной маршрутизации</h3>
+          <p>Внедрение передачи крупных лидов опытным клоузерам и автоперехвата зависших заявок через 10 минут исключило выгорание лидов.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">4 модели распределения</a>
+<a href="#section-2">Правило 15 минут</a>
+<a href="#section-3">Учет отпусков</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=avtomaticheskoe-raspredelenie-lidov-v-crm">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../avtomatizaciya-lidov-cherez-n8n-i-make/">
+      <span class="topic">No-Code</span>
+      <h3>Лидогенерация в n8n</h3>
+      <p>Сценарии автоматизации.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-sostavit-reglament-otdela-prodazh/">
+      <span class="topic">Регламент</span>
+      <h3>Регламент продаж</h3>
+      <p>Стандарты скорости SLA.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../amocrm-protiv-bitriks24-chto-vybrat-v-2026/">
+      <span class="topic">CRM</span>
+      <h3>Выбор CRM</h3>
+      <p>amoCRM vs Битрикс24.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-nastroit-alerty-v-telegram-iz-crm/">
+      <span class="topic">Алерты</span>
+      <h3>Алерты в Telegram</h3>
+      <p>Контроль смены статусов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

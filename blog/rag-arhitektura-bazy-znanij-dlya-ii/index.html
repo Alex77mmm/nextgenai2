@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RAG архитектура для отдела продаж: как загрузить регламенты компании в нейросеть — NextGen AI</title>
+    <meta name="description" content="Retrieval-Augmented Generation (RAG) в B2B: как подключить прайс-листы, регламенты и спецификации к LLM без галлюцинаций и выдумывания фактов." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/rag-arhitektura-bazy-znanij-dlya-ii/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="RAG архитектура для отдела продаж: как загрузить регламенты компании в нейросеть — NextGen AI" />
+    <meta property="og:description" content="Retrieval-Augmented Generation (RAG) в B2B: как подключить прайс-листы, регламенты и спецификации к LLM без галлюцинаций и выдумывания фактов." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/rag-arhitektura-bazy-znanij-dlya-ii/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/rag-arhitektura-bazy-znanij-dlya-ii/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/rag-arhitektura-bazy-znanij-dlya-ii/"
+      },
+      "headline": "RAG-архитектура базы знаний для ИИ в продажах: как исключить галлюцинации нейросети",
+      "description": "Retrieval-Augmented Generation (RAG) в B2B: как подключить прайс-листы, регламенты и спецификации к LLM без галлюцинаций и выдумывания фактов.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RAG-архитектура базы знаний для ИИ в продажах: как исключить галлюцинации нейросети",
+          "item": "https://nextgenrussia.ru/blog/rag-arhitektura-bazy-znanij-dlya-ii/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли обновлять цены в базе знаний без переобучения модели?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да! В этом главное преимущество RAG: вы просто обновляете файл с ценами в базе данных, и ИИ мгновенно начинает использовать новый прайс."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что ответит ИИ, если информации нет в базе знаний?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "При правильном системном промпте он честно ответит: «Уточню этот нюанс у ведущего инженера» и переведет диалог на сотрудника."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=rag-arhitektura-bazy-znanij-dlya-ii">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>RAG-архитектура базы знаний для ИИ в продажах: как исключить галлюцинации нейросети</h1>
+          <p class="lead">Главный страх бизнеса при внедрении ИИ — что робот пообещает клиенту скидку 90% или выдумает несуществующие условия гарантии. Разбираем технологию RAG, которая заставляет ИИ отвечать строго по регламентам.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>9 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" alt="RAG-архитектура базы знаний для ИИ в продажах: как исключить галлюцинации нейросети" loading="lazy" />
+            <figcaption>Схема RAG: запрос клиента → семантический поиск по векторной базе знаний → подача найденных фактов в контекст LLM → точный ответ.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>RAG (Retrieval-Augmented Generation — генерация с дополнением поиска) — это инженерный подход, при котором нейросеть перед формированием ответа обращается к векторной базе данных компании (Qdrant, ChromaDB, PGVector). Модель не берет информацию из памяти, а цитирует проверенные параграфы из ваших регламентов и прайсов, что на 100% исключает галлюцинации.</p>
+        </section>
+        
+    <h2 id="section-1">Как работает конвейер RAG простыми словами</h2>
+    <ol>
+          <li><strong>Подготовка документов (Chunking):</strong> регламенты, прайсы и ТЗ нарезаются на смысловые блоки по 300–500 слов.</li>
+          <li><strong>Векторизация (Embeddings):</strong> текстовые блоки превращаются в числовые векторы через эмбеддинг-модели.</li>
+          <li><strong>Семантический поиск:</strong> когда клиент задает вопрос, система находит 2–3 самых релевантных куска регламента.</li>
+          <li><strong>Генерация ответа:</strong> эти факты передаются в LLM с инструкцией: «Ответь клиенту ТОЛЬКО на основе приведенного текста ниже».</li>
+        </ol>
+  
+
+    <h2 id="section-2">Типичные ошибки при подготовке базы знаний для RAG</h2>
+    <p>Загрузка сканов PDF плохого качества, наличие противоречащих друг другу старых и новых прайс-листов, отсутствие четких таблиц с артикулами. Перед загрузкой базу нужно вычистить и структурировать в Markdown.</p>
+  
+
+    <h2 id="section-3">Векторные базы данных: Qdrant vs PGVector</h2>
+    <p>Если у вас уже есть PostgreSQL, расширение PGVector позволяет хранить эмбеддинги без установки нового софта. Если база знаний содержит сотни тысяч страниц документации — используйте специализированный высокопроизводительный Qdrant.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Можно ли обновлять цены в базе знаний без переобучения модели?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Да! В этом главное преимущество RAG: вы просто обновляете файл с ценами в базе данных, и ИИ мгновенно начинает использовать новый прайс.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Что ответит ИИ, если информации нет в базе знаний?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">При правильном системном промпте он честно ответит: «Уточню этот нюанс у ведущего инженера» и переведет диалог на сотрудника.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Дистрибьютор 12 000 позиций крепежа</div>
+          <h3>Снижение числа ошибок в спецификациях до 0% на базе RAG</h3>
+          <p>Внедрение RAG-пайплайна позволило ИИ мгновенно находить точные артикулы ГОСТ и формировать счета без единой ошибки менеджера.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Принцип работы RAG</a>
+<a href="#section-2">Ошибки в базе знаний</a>
+<a href="#section-3">Выбор векторной базы</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=rag-arhitektura-bazy-znanij-dlya-ii">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kak-vnedrity-ii-v-sushchestvuyushchuu-crm/">
+      <span class="topic">Внедрение</span>
+      <h3>Внедрение ИИ в CRM</h3>
+      <p>Архитектура решений.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-podkluchit-deepseek-k-amocrm/">
+      <span class="topic">DeepSeek</span>
+      <h3>DeepSeek в amoCRM</h3>
+      <p>Подключение через n8n.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../lokalnye-llm-dlya-biznesa-ollama-vllm/">
+      <span class="topic">Локальные LLM</span>
+      <h3>Локальные нейросети</h3>
+      <p>Приватные модели.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../ii-skript-dlya-prodazh/">
+      <span class="topic">Скрипты</span>
+      <h3>ИИ-скрипты продаж</h3>
+      <p>Динамические сценарии.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

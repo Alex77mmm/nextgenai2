@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Автоматизация лидогенерации через n8n и Make: сценарии и связки для B2B — NextGen AI</title>
+    <meta name="description" content="No-code автоматизация воронки продаж: как связать рекламу, лендинги, Telegram, WhatsApp и CRM с помощью n8n и Make без дорогих интеграторов." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/avtomatizaciya-lidov-cherez-n8n-i-make/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Автоматизация лидогенерации через n8n и Make: сценарии и связки для B2B — NextGen AI" />
+    <meta property="og:description" content="No-code автоматизация воронки продаж: как связать рекламу, лендинги, Telegram, WhatsApp и CRM с помощью n8n и Make без дорогих интеграторов." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/avtomatizaciya-lidov-cherez-n8n-i-make/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/saas-prodazhi-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/avtomatizaciya-lidov-cherez-n8n-i-make/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/avtomatizaciya-lidov-cherez-n8n-i-make/"
+      },
+      "headline": "Автоматизация B2B лидогенерации через n8n и Make: 5 готовых рабочих сценариев",
+      "description": "No-code автоматизация воронки продаж: как связать рекламу, лендинги, Telegram, WhatsApp и CRM с помощью n8n и Make без дорогих интеграторов.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/saas-prodazhi-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Автоматизация B2B лидогенерации через n8n и Make: 5 готовых рабочих сценариев",
+          "item": "https://nextgenrussia.ru/blog/avtomatizaciya-lidov-cherez-n8n-i-make/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сложно ли освоить n8n человеку без знания программирования?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Базовые связки (вебхук → фильтр → запись в CRM) настраиваются за 2–3 часа по видеоурокам без написания единой строчки кода."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько операций в месяц выдерживает бесплатный n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На сервере за 500 ₽/мес n8n легко переваривает до 500 000 операций в месяц без малейших зависаний."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=avtomatizaciya-lidov-cherez-n8n-i-make">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Автоматизация B2B лидогенерации через n8n и Make: 5 готовых рабочих сценариев</h1>
+          <p class="lead">Перекладывание лидов из табличек в CRM вручную приводит к потере до 30% входящих заявок. Разбираем готовые no-code шаблоны автоматизации, которые связывают все каналы маркетинга в единый конвейер.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>8 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/saas-prodazhi-shema.svg" alt="Автоматизация B2B лидогенерации через n8n и Make: 5 готовых рабочих сценариев" loading="lazy" />
+            <figcaption>Схема конвейера лидогенерации: сбор лидов из 5 каналов → нормализация данных → обогащение по ИНН → создание сделки в CRM.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Автоматизация лидогенерации через n8n и Make позволяет без программистов выстроить сквозной конвейер: захват лида из любого источника (Tilda, Telegram-бот, форма на сайте, парсер), моментальное обогащение через DaData, проверка номера через HLR и мгновенная постановка задачи менеджеру с уведомлением в корпоративный Telegram-чат.</p>
+        </section>
+        
+    <h2 id="section-1">5 готовых сценариев автоматизации для коммерческого отдела</h2>
+    <ol>
+          <li><strong>Мгновенный Telegram-алерт:</strong> при заполнении формы на сайте РОП и дежурный сейлз получают карточку лида в Telegram за 1.5 секунды.</li>
+          <li><strong>Обогащение реквизитов:</strong> клиент ввел ИНН → сценарий запрашивает DaData и записывает в сделку выручку, директора и точный адрес.</li>
+          <li><strong>Реактивация забытых лидов:</strong> если клиент на этапе «Отправлено КП» не отвечает 48 часов, система сама шлет мягкий follow-up в WhatsApp.</li>
+          <li><strong>Автосоздание ссылки на Zoom:</strong> при выборе клиентом слота встречи генерируется комната и событие в календарях обоих участников.</li>
+          <li><strong>Сбор участников вебинаров:</strong> регистрация в боте → запись в CRM → авторассылка напоминаний за 1 час и 5 минут до эфира.</li>
+        </ol>
+  
+
+    <h2 id="section-2">Make vs n8n: что выбрать для продакшена</h2>
+    <p>Make удобнее визуально и проще в освоении за 1 день. Но n8n побеждает в долгосрочной перспективе: self-hosted версия абсолютно бесплатна, не имеет лимитов по числу шагов и держит серверные данные внутри России.</p>
+  
+
+    <h2 id="section-3">Обработка ошибок и аварийные уведомления</h2>
+    <p>Всегда создавайте узел Error Handler: если сторонний сервис упал, сценарий не должен терять лид. Он сохраняет данные в резервную Google-таблицу и присылает алерт админу: «Сбой передачи лида #145».</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сложно ли освоить n8n человеку без знания программирования?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Базовые связки (вебхук → фильтр → запись в CRM) настраиваются за 2–3 часа по видеоурокам без написания единой строчки кода.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сколько операций в месяц выдерживает бесплатный n8n?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">На сервере за 500 ₽/мес n8n легко переваривает до 500 000 операций в месяц без малейших зависаний.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Агентство недвижимости</div>
+          <h3>Устранение потерь 80 заявок в неделю за счет автомаршрутизации в n8n</h3>
+          <p>Внедрение сквозного сценария распределения лидов по филиалам сократило время первой связи с клиентом с 45 минут до 40 секунд.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">5 сценариев автоматизации</a>
+<a href="#section-2">Make против n8n</a>
+<a href="#section-3">Обработка ошибок</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=avtomatizaciya-lidov-cherez-n8n-i-make">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kak-podkluchit-deepseek-k-amocrm/">
+      <span class="topic">DeepSeek</span>
+      <h3>DeepSeek через n8n</h3>
+      <p>ИИ-связка в amoCRM.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-avtomatizirovat-otchet-ropa/">
+      <span class="topic">Отчеты</span>
+      <h3>Автоотчеты РОПа</h3>
+      <p>Telegram-сводки.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../avtomaticheskoe-raspredelenie-lidov-v-crm/">
+      <span class="topic">Маршрутизация</span>
+      <h3>Распределение лидов</h3>
+      <p>Правила очередей.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-vnedrity-ii-v-sushchestvuyushchuu-crm/">
+      <span class="topic">Внедрение</span>
+      <h3>Внедрение ИИ в CRM</h3>
+      <p>Интеграция систем.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Как подключить DeepSeek к amoCRM через n8n: пошаговый мануал 2026 — NextGen AI</title>
+    <meta name="description" content="Интеграция DeepSeek с amoCRM через n8n и вебхуки: инструкция по настройке API, промптов, квалификации лидов и записи ответов в сделку без кода." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/kak-podkluchit-deepseek-k-amocrm/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Как подключить DeepSeek к amoCRM через n8n: пошаговый мануал 2026 — NextGen AI" />
+    <meta property="og:description" content="Интеграция DeepSeek с amoCRM через n8n и вебхуки: инструкция по настройке API, промптов, квалификации лидов и записи ответов в сделку без кода." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/kak-podkluchit-deepseek-k-amocrm/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/kak-podkluchit-deepseek-k-amocrm/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/kak-podkluchit-deepseek-k-amocrm/"
+      },
+      "headline": "Как подключить DeepSeek к amoCRM через n8n: пошаговая инструкция по настройке ИИ-агента",
+      "description": "Интеграция DeepSeek с amoCRM через n8n и вебхуки: инструкция по настройке API, промптов, квалификации лидов и записи ответов в сделку без кода.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/ai-agenty-dlya-biznesa.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Как подключить DeepSeek к amoCRM через n8n: пошаговая инструкция по настройке ИИ-агента",
+          "item": "https://nextgenrussia.ru/blog/kak-podkluchit-deepseek-k-amocrm/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит 1 000 ответов через DeepSeek API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Около 15–30 рублей в зависимости от длины контекста, что делает решение практически бесплатным для бизнеса."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если DeepSeek зависнет или не ответит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В n8n настраивается ветка Error Trigger: если API не отвечает в течение 5 секунд, система автоматически ставит задачу дежурному менеджеру-человеку."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=kak-podkluchit-deepseek-k-amocrm">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Как подключить DeepSeek к amoCRM через n8n: пошаговая инструкция по настройке ИИ-агента</h1>
+          <p class="lead">DeepSeek совершил революцию, предоставив мощь передовых LLM по цене в 10 раз ниже американских аналогов. Разбираем, как связать DeepSeek с amoCRM через no-code платформу n8n.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>9 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/ai-agenty-dlya-biznesa.svg" alt="Как подключить DeepSeek к amoCRM через n8n: пошаговая инструкция по настройке ИИ-агента" loading="lazy" />
+            <figcaption>Схема интеграции: вебхук amoCRM → узел обработки n8n → DeepSeek API с базой знаний → отправка ответа клиенту и обновление сделки.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Подключение DeepSeek к amoCRM через n8n состоит из 4 шагов: 1) получение API-ключа DeepSeek, 2) настройка вебхука на входящее сообщение в amoCRM, 3) создание ноды в n8n с промптом и системными инструкциями для LLM, 4) отправка сгенерированного ответа обратно в чат и обновление кастомных полей сделки. Решение работает автономно 24/7 с нулевой абонентской платой за софт.</p>
+        </section>
+        
+    <h2 id="section-1">Пошаговый сценарий настройки связки n8n + DeepSeek</h2>
+    <ol>
+          <li><strong>Webhook Node:</strong> принимает входящее событие от amoCRM (новое входящее сообщение в неразобранном или сделке).</li>
+          <li><strong>Data Transform Node:</strong> извлекает текст сообщения клиента, имя и ID контакта.</li>
+          <li><strong>HTTP Request Node (DeepSeek API):</strong> отправляет POST-запрос на <code>https://api.deepseek.com/chat/completions</code> с системным промптом компании и историей последних 5 сообщений.</li>
+          <li><strong>amoCRM API Node:</strong> отправляет ответ нейросети в чат клиенту и переводит сделку на следующий этап воронки.</li>
+        </ol>
+  
+
+    <h2 id="section-2">Пример идеального системного промпта для DeepSeek</h2>
+    <p>«Ты — ведущий менеджер по продажам компании NextGen AI. Твоя цель — вежливо поздороваться, выявить потребность клиента по 3 вопросам и предложить созвон в Zoom. Запрещено: называть цены без уточнения объема, выдумывать несуществующие скидки. Если вопрос выходит за рамки базы знаний, позови человека».</p>
+  
+
+    <h2 id="section-3">Почему n8n лучше облачных Make и Zapier</h2>
+    <p>n8n можно развернуть на собственном VPS-сервере в РФ за 500 ₽/мес. Вы не зависите от зарубежных блокировок, не платите за каждую операцию и полностью соответствуете 152-ФЗ о хранении данных в России.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Сколько стоит 1 000 ответов через DeepSeek API?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Около 15–30 рублей в зависимости от длины контекста, что делает решение практически бесплатным для бизнеса.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Что делать, если DeepSeek зависнет или не ответит?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">В n8n настраивается ветка Error Trigger: если API не отвечает в течение 5 секунд, система автоматически ставит задачу дежурному менеджеру-человеку.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / Сервис аренды складов</div>
+          <h3>Обработка 1 800 ночных обращений через DeepSeek с конверсией 34%</h3>
+          <p>Связка amoCRM + n8n + DeepSeek сократила время первого ответа с 9 часов (до утра) до 8 секунд, утроив поток бронирований.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Сценарий в n8n</a>
+<a href="#section-2">Системный промпт</a>
+<a href="#section-3">Преимущества n8n</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=kak-podkluchit-deepseek-k-amocrm">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kak-vnedrity-ii-v-sushchestvuyushchuu-crm/">
+      <span class="topic">Внедрение</span>
+      <h3>Внедрение ИИ в CRM</h3>
+      <p>Архитектура интеграции.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../prompty-dlya-otdela-prodazh/">
+      <span class="topic">Промпты</span>
+      <h3>Промпты для продаж</h3>
+      <p>Готовые шаблоны для LLM.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../avtomatizaciya-lidov-cherez-n8n-i-make/">
+      <span class="topic">No-Code</span>
+      <h3>Лидогенерация в n8n</h3>
+      <p>Сценарии автоматизации.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../bezopasnost-dannyh-pri-vnedrenii-ii/">
+      <span class="topic">Безопасность</span>
+      <h3>Безопасность ИИ</h3>
+      <p>152-ФЗ и защита данных.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

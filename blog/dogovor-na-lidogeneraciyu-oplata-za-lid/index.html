@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Договор на лидогенерацию с оплатой за лид (SQL): образец и подводные камни — NextGen AI</title>
+    <meta name="description" content="Договор лидогенерации с оплатой за результат: определение критериев валидного лида (CPL/SQL), порядок отбраковки нецелевых контактов, KPI и образец условий." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/dogovor-na-lidogeneraciyu-oplata-za-lid/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Договор на лидогенерацию с оплатой за лид (SQL): образец и подводные камни — NextGen AI" />
+    <meta property="og:description" content="Договор лидогенерации с оплатой за результат: определение критериев валидного лида (CPL/SQL), порядок отбраковки нецелевых контактов, KPI и образец условий." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/dogovor-na-lidogeneraciyu-oplata-za-lid/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/b2b-shema-prodazh.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/dogovor-na-lidogeneraciyu-oplata-za-lid/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/dogovor-na-lidogeneraciyu-oplata-za-lid/"
+      },
+      "headline": "Договор на лидогенерацию с оплатой за результат (SQL): образец, риски и правила отбраковки",
+      "description": "Договор лидогенерации с оплатой за результат: определение критериев валидного лида (CPL/SQL), порядок отбраковки нецелевых контактов, KPI и образец условий.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/b2b-shema-prodazh.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Договор на лидогенерацию с оплатой за результат (SQL): образец, риски и правила отбраковки",
+          "item": "https://nextgenrussia.ru/blog/dogovor-na-lidogeneraciyu-oplata-za-lid/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая модель лучше — 100% постоплата за лиды или гибрид?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Качественные исполнители работают по гибридной модели: фиксированный сетап-платеж (настройка воронки, интеграции, парсинг) + переменная оплата за фактически состоявшиеся квалифицированные встречи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если клиент пришел на встречу, но ничего не купил?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если лид соответствовал всем критериям SQL и встреча состоялась — лид считается качественным и подлежит оплате. Закрытие сделки — зона ответственности сейлз-команды заказчика."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=dogovor-na-lidogeneraciyu-oplata-za-lid">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Договор на лидогенерацию с оплатой за результат (SQL): образец, риски и правила отбраковки</h1>
+          <p class="lead">Агентства лидогенерации часто обещают сотни дешевых лидов, а в итоге присылают контакты неплательщиков, школьников и ботов. Разбираем юридически безупречный договор, защищающий заказчика.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>9 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/b2b-shema-prodazh.svg" alt="Договор на лидогенерацию с оплатой за результат (SQL): образец, риски и правила отбраковки" loading="lazy" />
+            <figcaption>Критерии валидации лида: совпадение по ICP, контакт с реальным ЛПР, подтверждение бюджета и запись на встречу.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Договор на лидогенерацию с оплатой за результат должен базироваться не на абстрактных «заявках» (MQL), а на Sales Qualified Leads (SQL) — квалифицированных встречах. Ключевые пункты: четкий регламент отбраковки нецелевых лидов в течение 48 часов, запрет на использование спам-баз и штрафные санкции за передачу фейковых контактов.</p>
+        </section>
+        
+    <h2 id="section-1">Четкое юридическое определение валидного лида (SQL)</h2>
+    <ol>
+          <li>Лид является должностным лицом компании, соответствующей согласованному профилю ICP (выручка, отрасль, регион).</li>
+          <li>Контактные данные (телефон, Telegram, email) верифицированы и принадлежат именно этому ЛПР.</li>
+          <li>ЛПР в диалоге лично подтвердил наличие актуальной потребности в услугах/товарах Заказчика.</li>
+          <li>Согласована дата и точное время проведения онлайн-встречи или демонстрации с менеджером Заказчика.</li>
+          <li>Компания не находится в процедуре банкротства и не имеет действующих исков о неплатежах.</li>
+        </ol>
+  
+
+    <h2 id="section-2">Регламент отбраковки нецелевых контактов (Disqualification Policy)</h2>
+    <p>В договоре фиксируется срок: Заказчик имеет право в течение 3 рабочих дней отклонить лид без оплаты с указанием причины (недозвон после 3 попыток, неверный номер, отсутствие полномочий ЛПР, несоответствие бюджету). Отбракованные лиды исключаются из акта выполненных работ.</p>
+  
+
+    <h2 id="section-3">Защита от спама и репутационных рисков</h2>
+    <p>Исполнитель обязан гарантировать соблюдение законодательства о рекламе и персональных данных (152-ФЗ). В случае наложения штрафов ФАС за незаконные рассылки Исполнитель возмещает убытки в полном объеме.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Какая модель лучше — 100% постоплата за лиды или гибрид?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Качественные исполнители работают по гибридной модели: фиксированный сетап-платеж (настройка воронки, интеграции, парсинг) + переменная оплата за фактически состоявшиеся квалифицированные встречи.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Что делать, если клиент пришел на встречу, но ничего не купил?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Если лид соответствовал всем критериям SQL и встреча состоялась — лид считается качественным и подлежит оплате. Закрытие сделки — зона ответственности сейлз-команды заказчика.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Юридический кейс NextGen / B2B-заказчик</div>
+          <h3>Возврат 340 000 ₽ от недобросовестного подрядчика по лидогенерации</h3>
+          <p>Благодаря четкому пункту договора о критериях SQL заказчик через суд вернул аванс за переданную базу "мертвых" контактов.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Критерии валидного лида</a>
+<a href="#section-2">Регламент отбраковки</a>
+<a href="#section-3">Защита от спама</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=dogovor-na-lidogeneraciyu-oplata-za-lid">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../avtomatizaciya-skoringa-lidov/">
+      <span class="topic">Скоринг</span>
+      <h3>Скоринг лидов</h3>
+      <p>Квалификация по BANT.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../stoimost-lida/">
+      <span class="topic">CPL</span>
+      <h3>Стоимость лида</h3>
+      <p>Формулы CPL и SQL.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../dogovor-postavki-s-zashchitoj-ot-sryva-srokov/">
+      <span class="topic">Договор</span>
+      <h3>Договор поставки</h3>
+      <p>Защита условий.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-vybrat-servis-lidogeneracii-v-2026/">
+      <span class="topic">Сравнение</span>
+      <h3>Выбор сервиса лидогенерации</h3>
+      <p>Инхаус vs Агентство vs ИИ.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

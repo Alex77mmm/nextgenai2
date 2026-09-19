@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Как обойти спам-фильтры Яндекс Почты и Mail.ru при холодном email-аутриче — NextGen AI</title>
+    <meta name="description" content="Доставляемость холодных B2B писем: настройка SPF, DKIM, DMARC, прогрев новых почтовых ящиков, стоп-слова в тексте и спам-фильтры спам-тестеров." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/kak-obojti-spam-filtry-yandex-i-mailru/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Как обойти спам-фильтры Яндекс Почты и Mail.ru при холодном email-аутриче — NextGen AI" />
+    <meta property="og:description" content="Доставляемость холодных B2B писем: настройка SPF, DKIM, DMARC, прогрев новых почтовых ящиков, стоп-слова в тексте и спам-фильтры спам-тестеров." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/kak-obojti-spam-filtry-yandex-i-mailru/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/kak-obojti-spam-filtry-yandex-i-mailru/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/kak-obojti-spam-filtry-yandex-i-mailru/"
+      },
+      "headline": "Как обойти спам-фильтры Яндекс Почты и Mail.ru: технический мануал по холодному email-аутричу",
+      "description": "Доставляемость холодных B2B писем: настройка SPF, DKIM, DMARC, прогрев новых почтовых ящиков, стоп-слова в тексте и спам-фильтры спам-тестеров.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/kvalifikaciya-lida-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Как обойти спам-фильтры Яндекс Почты и Mail.ru: технический мануал по холодному email-аутричу",
+          "item": "https://nextgenrussia.ru/blog/kak-obojti-spam-filtry-yandex-i-mailru/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какой лимит отправки писем с одного ящика в день?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не более 30–50 писем в сутки с одного адреса с паузами между отправками в 5–15 минут. Для больших объемов используйте пул из 10–20 адресов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя делать рассылки с основного корпоративного домена компании?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если домен попадет в спам-листы (Spamhaus, Barracuda), даже текущая деловая переписка бухгалтерии и руководства перестанет доходить до клиентов. Покупайте схожие альтернативные домены (например, <code>company-b2b.ru</code>)."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=kak-obojti-spam-filtry-yandex-i-mailru">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Как обойти спам-фильтры Яндекс Почты и Mail.ru: технический мануал по холодному email-аутричу</h1>
+          <p class="lead">Вы отправили 500 персонализированных коммерческих писем, но получили 0 ответов. Причина проста: 95% писем улетели в папку «Спам». Разбираем техническую настройку 100% доставляемости писем ЛПР.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>8 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/kvalifikaciya-lida-shema.svg" alt="Как обойти спам-фильтры Яндекс Почты и Mail.ru: технический мануал по холодному email-аутричу" loading="lazy" />
+            <figcaption>Схема прохождения спам-фильтров: валидация SPF/DKIM/DMARC → репутация домена по Постмастеру → чистый текст без стоп-слов.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>Чтобы холодные B2B письма попадали во «Входящие» Яндекс и Mail.ru, необходимо: 1) настроить DNS-записи домена (SPF, DKIM с 2048-битным ключом, строгую DMARC политику), 2) завести под аутрич отдельные вторичные домены, 3) прогревать ящики в течение 2–3 недель специализированным софтом (Instantly, Warmup Inbox), 4) убрать из первого письма ссылки, картинки и рекламные триггер-слова («акция», «скидка», «лучшая цена»).</p>
+        </section>
+        
+    <h2 id="section-1">3 обязательные DNS-записи почтового домена</h2>
+    <ol>
+          <li><strong>SPF (Sender Policy Framework):</strong> TXT-запись со списком IP-серверов, которым разрешено отправлять почту от имени вашего домена.</li>
+          <li><strong>DKIM (DomainKeys Identified Mail):</strong> цифровая криптографическая подпись каждого уходящего письма, гарантирующая, что письмо не было изменено в пути.</li>
+          <li><strong>DMARC:</strong> инструкция почтовым серверам получателя, что делать с письмами без правильной подписи (установите <code>p=quarantine</code> или <code>p=reject</code>).</li>
+        </ol>
+  
+
+    <h2 id="section-2">Правила составления текста первого холодного письма</h2>
+    <p>Первое письмо должно выглядеть как обычное деловое сообщение человека человеку: чистый простой текст (Plain Text), отсутствие вложенных файлов PDF (свыше 2 МБ), отсутствие сокращателей ссылок (bit.ly — моментальный спам) и нейтральная подпись с контактами.</p>
+  
+
+    <h2 id="section-3">Мониторинг репутации через Постмастер Яндекс и Mail.ru</h2>
+    <p>Подключите домен к сервисам Яндекс Постмастер и Постмастер Mail.ru. Они показывают реальный процент доставки во «Входящие», долю жалоб на спам и технические ошибки серверов.</p>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Какой лимит отправки писем с одного ящика в день?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Не более 30–50 писем в сутки с одного адреса с паузами между отправками в 5–15 минут. Для больших объемов используйте пул из 10–20 адресов.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Почему нельзя делать рассылки с основного корпоративного домена компании?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Если домен попадет в спам-листы (Spamhaus, Barracuda), даже текущая деловая переписка бухгалтерии и руководства перестанет доходить до клиентов. Покупайте схожие альтернативные домены (например, <code>company-b2b.ru</code>).</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-аутрич оборудования</div>
+          <h3>Рост Open Rate с 14% до 68% после исправления DKIM и прогрева ящиков</h3>
+          <p>Перевод рассылок на прогретые вторичные домены и очистка текста от спам-триггеров обеспечили рекордную доставляемость в почтовые ящики директоров заводов.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">3 записи DNS</a>
+<a href="#section-2">Текст без спам-триггеров</a>
+<a href="#section-3">Постмастер</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=kak-obojti-spam-filtry-yandex-i-mailru">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../progrev-domena-dlya-rassylok/">
+      <span class="topic">Прогрев</span>
+      <h3>Прогрев домена</h3>
+      <p>Пошаговый план на 21 день.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../tsepochka-pisem-dlya-holodnyh-prodazh/">
+      <span class="topic">Письма</span>
+      <h3>Цепочка холодных писем</h3>
+      <p>5 касаний с конверсией.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-massovo-proveryaty-bazu-kontaktor/">
+      <span class="topic">Валидация</span>
+      <h3>Очистка базы</h3>
+      <p>Устранение невалидных email.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../shtrafy-za-spam-zvonki-i-rassylki-2026/">
+      <span class="topic">Штрафы ФАС</span>
+      <h3>Штрафы за спам 2026</h3>
+      <p>Правовые нормы.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>
