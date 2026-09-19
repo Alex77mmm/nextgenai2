@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Как рассчитать стоимость привлечения клиента (CAC): формула и примеры в B2B — NextGen AI</title>
+    <meta name="description" content="Формула расчета CAC (Customer Acquisition Cost): учет зарплат, софта, рекламного бюджета, соотношение LTV/CAC и способы снижения затрат на лидогенерацию." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/kak-rasschitat-cac/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Как рассчитать стоимость привлечения клиента (CAC): формула и примеры в B2B — NextGen AI" />
+    <meta property="og:description" content="Формула расчета CAC (Customer Acquisition Cost): учет зарплат, софта, рекламного бюджета, соотношение LTV/CAC и способы снижения затрат на лидогенерацию." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/kak-rasschitat-cac/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/stoimost-lida-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/kak-rasschitat-cac/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/kak-rasschitat-cac/"
+      },
+      "headline": "Как рассчитать CAC (стоимость привлечения клиента): формула и примеры для B2B",
+      "description": "Формула расчета CAC (Customer Acquisition Cost): учет зарплат, софта, рекламного бюджета, соотношение LTV/CAC и способы снижения затрат на лидогенерацию.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/stoimost-lida-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Как рассчитать CAC (стоимость привлечения клиента): формула и примеры для B2B",
+          "item": "https://nextgenrussia.ru/blog/kak-rasschitat-cac/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Включать ли зарплату генерального директора в расчет CAC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если фаундер лично закрывает ключевые сделки, в CAC включают долю его оклада, пропорциональную времени, потраченному на продажи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как часто нужно считать CAC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ежемесячно с разбивкой по отдельным каналам привлечения (SEO, аутрич, контекст)."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=kak-rasschitat-cac">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Как рассчитать CAC (стоимость привлечения клиента): формула и примеры для B2B</h1>
+          <p class="lead">Многие компании считают CAC как «бюджет Директа делить на клиентов», забывая про ФОТ сейлзов и софт. Разбираем формулу реальной стоимости привлечения.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>7 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/stoimost-lida-shema.svg" alt="Как рассчитать CAC (стоимость привлечения клиента): формула и примеры для B2B" loading="lazy" />
+            <figcaption>Формула реального CAC: совокупные расходы на маркетинг и продажи / число новых клиентов.</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>CAC (Customer Acquisition Cost) — это совокупная сумма всех затрат на привлечение одного нового платящего клиента за определенный период. Формула включает не только прямой рекламный бюджет, но и зарплаты маркетологов и менеджеров по продажам (включая налоги и бонусы), оплату подписок на софт (CRM, телефония, парсеры) и накладные расходы.</p>
+        </section>
+        
+    <h2 id="section-1">Полная формула расчета реального B2B CAC</h2>
+    <div style="background: rgba(255,255,255,0.05); padding: 14px; border-radius: 6px; font-family: monospace; color: #4ade80; margin: 12px 0; font-size: 1.05rem;">
+          CAC = (Рекламный бюджет + ФОТ маркетинга и продаж + Расходы на софт + Накладные расходы) / Количество новых клиентов
+        </div>
+        <p>Если потрачено 300 000 ₽ на рекламу, 450 000 ₽ на зарплаты отдела продаж и 50 000 ₽ на CRM, а привлечено 16 клиентов, реальный CAC составляет: (300 000 + 450 000 + 50 000) / 16 = 50 000 ₽ за клиента.</p>
+  
+
+    <h2 id="section-2">Здоровое соотношение LTV / CAC: эталонные коэффициенты</h2>
+    <table class="table-styled" style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(255,255,255,0.2); text-align: left;">
+              <th style="padding: 10px;">Соотношение LTV / CAC</th>
+              <th style="padding: 10px;">Диагноз бизнесу</th>
+              <th style="padding: 10px;">Необходимые действия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <td style="padding: 10px; color: #f87171;">Менее 1:1</td>
+              <td style="padding: 10px;">Бизнес генерирует прямой убыток</td>
+              <td style="padding: 10px;">Срочно менять каналы или закрывать проект</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <td style="padding: 10px;">1:1 – 2:1</td>
+              <td style="padding: 10px;">Низкая маржинальность, работа «в ноль»</td>
+              <td style="padding: 10px;">Оптимизировать конверсию воронки</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <td style="padding: 10px; color: #4ade80;">3:1 – 5:1</td>
+              <td style="padding: 10px;">Здоровая прибыльная модель B2B</td>
+              <td style="padding: 10px;">Масштабировать бюджет и каналы</td>
+            </tr>
+          </tbody>
+        </table>
+  
+
+    <h2 id="section-3">3 рычага снижения стоимости привлечения клиента</h2>
+    <ol>
+          <li>Автоматизация первой линии через ИИ: исключение ФОТ операторов на рутинной квалификации.</li>
+          <li>Рост конверсии первого контакта за счет персонализированного аутрича.</li>
+          <li>Развитие партнерских каналов с оплатой за результат.</li>
+        </ol>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Включать ли зарплату генерального директора в расчет CAC?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Если фаундер лично закрывает ключевые сделки, в CAC включают долю его оклада, пропорциональную времени, потраченному на продажи.</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Как часто нужно считать CAC?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Ежемесячно с разбивкой по отдельным каналам привлечения (SEO, аутрич, контекст).</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-аудит</div>
+          <h3>Снижение CAC с 72 000 до 28 000 ₽ за 2 месяца</h3>
+          <p>Переход с дорогого контекста в перегретой нише на автоматизированный B2B-аутрич позволил компании привлекать клиентов в 2,5 раза дешевле.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Полная формула CAC</a>
+<a href="#section-2">Соотношение LTV/CAC</a>
+<a href="#section-3">Снижение CAC</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=kak-rasschitat-cac">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../ltv-v-b2b-kak-schitat/">
+      <span class="topic">LTV</span>
+      <h3>Расчет LTV в B2B</h3>
+      <p>Пожизненная ценность клиента.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../stoimost-lida/">
+      <span class="topic">Метрики</span>
+      <h3>Стоимость лида</h3>
+      <p>Расчет цены заявки.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../kak-poschitat-stoimost-lida/">
+      <span class="topic">Формулы</span>
+      <h3>Как посчитать цену лида</h3>
+      <p>Примеры формул.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../effektivnost-kanalov-privlecheniya/">
+      <span class="topic">Каналы</span>
+      <h3>Эффективность каналов</h3>
+      <p>Сравнение окупаемости.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>

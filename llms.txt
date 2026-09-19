@@ -33,3 +33,8 @@
 - [Цепочка писем для холодных продаж](https://nextgenrussia.ru/blog/tsepochka-pisem-dlya-holodnyh-prodazh/): 5 касаний с высокой конверсией в ответ.
 - [Безопасность данных и 152-ФЗ при внедрении ИИ](https://nextgenrussia.ru/blog/bezopasnost-dannyh-pri-vnedrenii-ii/): Защита от утечек и штрафов при работе с LLM.
 - [Закон о рекламе и рассылки](https://nextgenrussia.ru/blog/zakon-o-reklame-i-rassylki/): Правила легального B2B-аутрича в РФ.
+- [Отработка возражения «дорого» в B2B переписке](https://nextgenrussia.ru/blog/otrabotka-vozrazheniya-dorogo-primery/)
+- [Как закрыть сделку в переписке](https://nextgenrussia.ru/blog/kak-zakryt-sdelku-v-perepiske/)
+- [Telegram Business для B2B продаж](https://nextgenrussia.ru/blog/telegram-business-dlya-prodazh/)
+- [Как рассчитать CAC и LTV в B2B](https://nextgenrussia.ru/blog/kak-rasschitat-cac-i-ltv/)
+- [Лидогенерация для производителей оборудования](https://nextgenrussia.ru/blog/lidogeneraciya-dlya-proizvodstva-oborudovaniya/)

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Расчет LTV в B2B: калькулятор пожизненной ценности клиента и формулы — NextGen AI</title>
+    <meta name="description" content="Как рассчитать LTV (Lifetime Value) в B2B: формулы для подписок и длинных циклов сделок, влияние среднего чека и методы увеличения удержания." />
+    <meta name="author" content="NextGen AI" />
+    <link rel="canonical" href="https://nextgenrussia.ru/blog/ltv-v-b2b-kak-schitat/" />
+    <link rel="stylesheet" href="../../assets/blog.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="NextGen AI" />
+    <meta property="og:title" content="Расчет LTV в B2B: калькулятор пожизненной ценности клиента и формулы — NextGen AI" />
+    <meta property="og:description" content="Как рассчитать LTV (Lifetime Value) в B2B: формулы для подписок и длинных циклов сделок, влияние среднего чека и методы увеличения удержания." />
+    <meta property="og:url" content="https://nextgenrussia.ru/blog/ltv-v-b2b-kak-schitat/" />
+    <meta property="og:image" content="https://nextgenrussia.ru/assets/blog/illustrations/stoimost-lida-shema.svg" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nextgenrussia.ru/blog/ltv-v-b2b-kak-schitat/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nextgenrussia.ru/blog/ltv-v-b2b-kak-schitat/"
+      },
+      "headline": "Расчет LTV в B2B: формулы пожизненной ценности клиента и методы роста",
+      "description": "Как рассчитать LTV (Lifetime Value) в B2B: формулы для подписок и длинных циклов сделок, влияние среднего чека и методы увеличения удержания.",
+      "image": [
+        "https://nextgenrussia.ru/assets/blog/illustrations/stoimost-lida-shema.svg"
+      ],
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "author": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen AI",
+        "url": "https://nextgenrussia.ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://nextgenrussia.ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Практические гайды",
+          "item": "https://nextgenrussia.ru/blog/guides-b2b/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Расчет LTV в B2B: формулы пожизненной ценности клиента и методы роста",
+          "item": "https://nextgenrussia.ru/blog/ltv-v-b2b-kak-schitat/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как считать LTV для подписных SaaS-продуктов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для подписок используется простая формула: ARPU (средний доход на пользователя в месяц) / Churn Rate (месячный процент оттока)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Зачем знать LTV при запуске платной рекламы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зная LTV, вы можете позволить себе платить за привлечение клиента больше, чем ваши конкуренты, забирая лучший трафик на рынке."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="topline">
+      <a class="brand" href="../../index.html">NextGen<i>AI</i></a>
+      <nav>
+        <a href="../">Блог</a><a href="../../?lead=blog&article=ltv-v-b2b-kak-schitat">Обсудить задачу</a>
+      </nav>
+    </header>
+    <main class="article-layout">
+      <article class="article">
+        <header class="article-header">
+          <a class="crumbs" href="../guides-b2b/">Блог / практические гайды</a>
+          <h1>Расчет LTV в B2B: формулы пожизненной ценности клиента и методы роста</h1>
+          <p class="lead">Фокус только на первой продаже губит компанию. Основная прибыль в B2B генерируется на повторных закупках и сервисных контрактах. Считаем реальный LTV.</p>
+          <div class="meta">
+            <span>NextGen AI</span><span>19 сентября 2026</span><span>6 минут</span>
+          </div>
+          <figure class="article-visual">
+            <img src="../../assets/blog/illustrations/stoimost-lida-shema.svg" alt="Расчет LTV в B2B: формулы пожизненной ценности клиента и методы роста" loading="lazy" />
+            <figcaption>Структура LTV: средний чек × частота покупок × срок жизни клиента (Lifespan).</figcaption>
+          </figure>
+        </header>
+        <section class="answer">
+          <h2>Короткий ответ</h2>
+          <p>LTV (Lifetime Value) — это совокупный объем валовой прибыли, которую клиент приносит компании за все время сотрудничества. Базовая формула: Средний чек × Количество повторных покупок в год × Средний срок жизни клиента в годах × Маржинальность бизнеса.</p>
+        </section>
+        
+    <h2 id="section-1">Классическая формула расчета LTV в корпоративных продажах</h2>
+    <div style="background: rgba(255,255,255,0.05); padding: 14px; border-radius: 6px; font-family: monospace; color: #4ade80; margin: 12px 0; font-size: 1.05rem;">
+          LTV = AOV × F × Lifetime × Margin
+        </div>
+        <ul>
+          <li><strong>AOV (Average Order Value):</strong> средний чек одной поставки.</li>
+          <li><strong>F (Frequency):</strong> среднее количество заказов в год.</li>
+          <li><strong>Lifetime:</strong> среднее время работы с клиентом (в годах).</li>
+          <li><strong>Margin:</strong> процент валовой маржи (например, 25%).</li>
+        </ul>
+  
+
+    <h2 id="section-2">Пример расчета для оптового поставщика сырья</h2>
+    <p>Средний заказ завода — 400 000 ₽. Завод заказывает 6 раз в год и сотрудничает в среднем 3 года при маржинальности 20%:</p>
+        <p><strong>LTV = 400 000 × 6 × 3 × 0,20 = 1 440 000 ₽ чистой прибыли</strong> с одного привлеченного клиента.</p>
+  
+
+    <h2 id="section-3">4 способа увеличить LTV на 30–50% без новых лидов</h2>
+    <ol>
+          <li>Внедрение регулярных поставок по автоматическому графику.</li>
+          <li>Кросс-продажи сопутствующих расходных материалов (Cross-sell).</li>
+          <li>Ежегодная индексация цен на уровень инфляции.</li>
+          <li>Запуск закрытых B2B-клубов для удержания ЛПР.</li>
+        </ol>
+  
+        
+    <section class="faq-section" style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <h2>Частые вопросы по теме</h2>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Как считать LTV для подписных SaaS-продуктов?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Для подписок используется простая формула: ARPU (средний доход на пользователя в месяц) / Churn Rate (месячный процент оттока).</p>
+        </div>
+      
+        <div class="faq-item" style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">Зачем знать LTV при запуске платной рекламы?</h3>
+          <p style="color: #cbd5e1; line-height: 1.6;">Зная LTV, вы можете позволить себе платить за привлечение клиента больше, чем ваши конкуренты, забирая лучший трафик на рынке.</p>
+        </div>
+      
+    </section>
+  
+        <div class="case">
+          <div class="case-tag">Кейс NextGen / B2B-дистрибуция</div>
+          <h3>Рост LTV на 44% за счет внедрения программы повторных поставок</h3>
+          <p>Автоматические напоминания менеджерам о плановом исчерпании сырья на складах клиентов увеличили частоту повторных закупок с 4 до 7 раз в год.</p>
+        </div>
+      </article>
+      <aside class="sidebar">
+        <div class="toc">
+          <strong>В статье</strong>
+          <a href="#section-1">Формула LTV</a>
+<a href="#section-2">Пример расчета</a>
+<a href="#section-3">Способы роста LTV</a>
+          <div class="cta-card">
+            <h3>Нужен поток B2B-клиентов?</h3>
+            <p>Автоматизируем первый контакт, квалификацию и передачу горячих лидов в Telegram и CRM.</p>
+            <a href="../../?lead=blog&article=ltv-v-b2b-kak-schitat">Обсудить задачу →</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <section class="related">
+      <div class="wide">
+        <h2>Продолжить по теме</h2>
+        <div class="grid related-grid">
+          
+    <a class="card related-card" href="../kak-rasschitat-cac/">
+      <span class="topic">CAC</span>
+      <h3>Как рассчитать CAC</h3>
+      <p>Стоимость привлечения клиента.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../chto-takoe-churn-rate-i-kak-snizit/">
+      <span class="topic">Отток</span>
+      <h3>Как снизить Churn Rate</h3>
+      <p>Удержание клиентов.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../zakrytyy-klub-v-telegram-dlya-b2b/">
+      <span class="topic">Клубы</span>
+      <h3>Закрытый B2B-клуб в TG</h3>
+      <p>Инструмент удержания.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+
+    <a class="card related-card" href="../stoimost-lida/">
+      <span class="topic">Метрики</span>
+      <h3>Стоимость лида</h3>
+      <p>Экономика привлечения.</p>
+      <span class="arrow">↗</span>
+    </a>
+  
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wide">
+        <p>© 2026 NextGen AI. Практика B2B-продаж, Telegram-аутрича и умных диалоговых систем.</p>
+      </div>
+    </footer>
+  </body>
+</html>
